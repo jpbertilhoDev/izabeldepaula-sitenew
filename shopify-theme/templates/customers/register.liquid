@@ -1,0 +1,16 @@
+<section class="section"><div class="wrap auth">
+  <div class="head-c" data-reveal><span class="kicker">Conta</span><h1 class="h-sec">Criar conta</h1></div>
+  {%- form 'create_customer' -%}
+    {%- if form.errors -%}<div class="errors">{{ form.errors | default_errors }}</div>{%- endif -%}
+    <div class="field"><label for="reg-first">Nome</label>
+      <input type="text" id="reg-first" name="customer[first_name]" autocomplete="given-name"></div>
+    <div class="field"><label for="reg-last">Apelido</label>
+      <input type="text" id="reg-last" name="customer[last_name]" autocomplete="family-name"></div>
+    <div class="field"><label for="reg-email">E-mail</label>
+      <input type="email" id="reg-email" name="customer[email]" autocomplete="email" required></div>
+    <div class="field"><label for="reg-pass">Senha</label>
+      <input type="password" id="reg-pass" name="customer[password]" autocomplete="new-password" required></div>
+    <button type="submit" class="btn btn--ink">Criar conta</button>
+    <p class="alt">Já tem conta? <a href="{{ routes.account_login_url }}">Entrar</a></p>
+  {%- endform -%}
+</div></section>

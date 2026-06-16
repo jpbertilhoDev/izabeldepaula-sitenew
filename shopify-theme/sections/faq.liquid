@@ -1,0 +1,47 @@
+{%- comment -%}
+  Secção de Perguntas Frequentes (FAQ) — conteúdo visível + FAQPage JSON-LD a partir
+  da MESMA fonte (faq_q / faq_a), para nunca haver divergência entre o que se vê e o
+  schema. Forte para GEO (respostas de IA) e para o "As pessoas também perguntam".
+  O acordeão usa o CSS (.faq*) e o JS (theme.js) já existentes no tema.
+  NOTA p/ revisão do cliente: confirmar prazos de entrega, condições de troca/devolução
+  e a garantia de 15 dias (rever respostas 4, 6 e 7).
+{%- endcomment -%}
+{%- liquid
+  assign faq_q = "Quem é a Izabel de Paula?~~O que é o Método Izabel de Paula®?~~Para onde fazem envios?~~Quanto tempo demora a entrega?~~Que formas de pagamento aceitam?~~Posso trocar ou devolver um produto?~~Os produtos têm garantia?~~Os produtos substituem acompanhamento médico?~~Como falo com o apoio ao cliente?" | split: "~~"
+  assign faq_a = "A Izabel de Paula é Body Shaper Expert e pioneira do conceito Body Shaper em Portugal, com mais de 30 anos de experiência e um método próprio e patenteado. A marca Izabel de Paula® desenvolve cosméticos corporais, géis, detox e suplementos para leveza, firmeza e bem-estar.~~É um método próprio e patenteado de cuidado corporal que combina cosméticos, géis e uma rotina de autocuidado para promover leveza, firmeza e bem-estar — com método, constância e naturalidade.~~Enviamos para toda a Europa. Os portes são grátis em compras acima de €100 (Portugal Continental).~~Depois de confirmada a compra, preparamos e expedimos o pedido o mais rápido possível. O prazo de entrega varia consoante o destino — normalmente alguns dias úteis na Península Ibérica e um pouco mais para o restante da Europa.~~Aceitamos Visa, Mastercard, MB WAY, Multibanco, PayPal e easypay. Todos os pagamentos são processados num ambiente seguro.~~Sim. Fale connosco pelo WhatsApp e ajudamos com a troca ou devolução. Consulte a página de Trocas e Devoluções para conhecer todas as condições.~~Sim, oferecemos garantia de satisfação de 15 dias.~~Não. Os produtos não substituem o acompanhamento profissional quando necessário, nem uma alimentação equilibrada e hábitos saudáveis. Têm caráter informativo e de apoio à rotina de autocuidado, e os resultados podem variar de pessoa para pessoa.~~Fale connosco pelo WhatsApp através do botão no site ou para o número +351 912 976 633. Esclarecemos dúvidas sobre produtos, encomendas e indicações de uso." | split: "~~"
+-%}
+<section class="section faq-section" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="head-c" data-reveal>
+      <span class="kicker">Dúvidas frequentes</span>
+      <h2 class="h-sec" id="faq-title">Perguntas <span class="it gold">frequentes.</span></h2>
+    </div>
+    <div class="faq" data-reveal>
+      {%- for q in faq_q -%}
+      {%- assign ai = forloop.index0 -%}
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false"><span>{{ q | escape }}</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>{{ faq_a[ai] | escape }}</p></div>
+      </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for q in faq_q -%}
+    {
+      "@type": "Question",
+      "name": {{ q | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ faq_a[forloop.index0] | json }} }
+    }{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  ]
+}
+</script>
+{% schema %}
+{ "name": "FAQ", "settings": [] }
+{% endschema %}

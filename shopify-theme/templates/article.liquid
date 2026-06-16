@@ -1,0 +1,28 @@
+<section class="section legal"><div class="wrap" style="max-width:820px">
+  <span class="kicker" data-reveal>{{ article.published_at | date: '%d/%m/%Y' }}{% if article.author %} · {{ article.author }}{% endif %}</span>
+  <h1 data-reveal>{{ article.title }}</h1>
+  {%- if article.image -%}<img src="{{ article.image | image_url: width: 1200 }}" alt="{{ article.title | escape }}" width="1200" height="800" style="width:100%;height:auto;margin:24px 0" loading="lazy">{%- endif -%}
+  <div class="legal-body rte" data-reveal>{{ article.content }}</div>
+
+  {%- if blog.comments_enabled? -%}
+    <h3 class="legal-h">Comentários</h3>
+    {%- for comment in article.comments -%}
+      <div style="border-top:1px solid var(--line);padding:14px 0">
+        <p>{{ comment.content }}</p>
+        <p class="vol">{{ comment.author }} · {{ comment.created_at | date: '%d/%m/%Y' }}</p>
+      </div>
+    {%- endfor -%}
+    {%- form 'new_comment', article -%}
+      {%- if form.errors -%}<div class="errors">{{ form.errors | default_errors }}</div>{%- endif -%}
+      {%- if form.posted_successfully? -%}<p class="alt">Comentário enviado. Obrigado!</p>{%- endif -%}
+      <div class="auth" style="margin:14px 0 0">
+        <div class="field"><label>Nome</label><input type="text" name="comment[author]" required></div>
+        <div class="field"><label>E-mail</label><input type="email" name="comment[email]" required></div>
+        <div class="field"><label>Comentário</label><textarea name="comment[body]" rows="4" style="width:100%;padding:13px 14px;border:1px solid var(--line);font-family:var(--sans);font-size:16px" required></textarea></div>
+        <button type="submit" class="btn btn--ink">Comentar</button>
+      </div>
+    {%- endform -%}
+  {%- endif -%}
+
+  <p style="margin-top:30px"><a href="{{ blog.url }}">&larr; Voltar ao diário</a></p>
+</div></section>

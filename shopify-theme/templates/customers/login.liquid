@@ -1,0 +1,24 @@
+<section class="section"><div class="wrap auth">
+  <div class="head-c" data-reveal><span class="kicker">Conta</span><h1 class="h-sec">Entrar</h1></div>
+
+  {%- form 'customer_login' -%}
+    {%- if form.errors -%}<div class="errors">{{ form.errors | default_errors }}</div>{%- endif -%}
+    <div class="field"><label for="login-email">E-mail</label>
+      <input type="email" id="login-email" name="customer[email]" autocomplete="email" required></div>
+    <div class="field"><label for="login-pass">Senha</label>
+      <input type="password" id="login-pass" name="customer[password]" autocomplete="current-password" required></div>
+    <button type="submit" class="btn btn--ink">Entrar</button>
+    <p class="alt">Ainda não tem conta? <a href="{{ routes.account_register_url }}">Criar conta</a></p>
+  {%- endform -%}
+
+  <details class="auth-recover">
+    <summary>Esqueceu a senha?</summary>
+    {%- form 'recover_customer_password' -%}
+      {%- if form.posted_successfully? -%}<p class="alt">Enviámos um e-mail com instruções para repor a senha.</p>{%- endif -%}
+      {%- if form.errors -%}<div class="errors">{{ form.errors | default_errors }}</div>{%- endif -%}
+      <div class="field"><label for="recover-email">E-mail</label>
+        <input type="email" id="recover-email" name="email" autocomplete="email" required></div>
+      <button type="submit" class="btn btn--ghost">Repor senha</button>
+    {%- endform -%}
+  </details>
+</div></section>

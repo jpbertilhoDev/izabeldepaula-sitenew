@@ -1,0 +1,33 @@
+<section class="section"><div class="wrap">
+  <div class="head-c" data-reveal><span class="kicker">Pedido</span>
+    <h1 class="h-sec">Pedido {{ order.name }}</h1></div>
+  <p class="alt" style="text-align:center;margin-bottom:24px">Feito em {{ order.created_at | date: '%d/%m/%Y %H:%M' }} · {{ order.financial_status_label }} · {{ order.fulfillment_status_label }}</p>
+
+  <table class="acct-table">
+    <thead><tr><th>Produto</th><th>Qtd</th><th>Preço</th><th>Total</th></tr></thead>
+    <tbody>
+    {%- for line in order.line_items -%}
+      <tr>
+        <td>{{ line.title }}</td>
+        <td>{{ line.quantity }}</td>
+        <td>{{ line.price | money }}</td>
+        <td>{{ line.final_line_price | money }}</td>
+      </tr>
+    {%- endfor -%}
+    </tbody>
+    <tfoot>
+      <tr><td colspan="3">Subtotal</td><td>{{ order.line_items_subtotal_price | money }}</td></tr>
+      {%- for discount in order.cart_level_discount_applications -%}
+        <tr><td colspan="3">Desconto ({{ discount.title }})</td><td>−{{ discount.total_allocated_amount | money }}</td></tr>
+      {%- endfor -%}
+      {%- for shipping in order.shipping_methods -%}
+        <tr><td colspan="3">Envio ({{ shipping.title }})</td><td>{{ shipping.price | money }}</td></tr>
+      {%- endfor -%}
+      <tr><td colspan="3"><strong>Total</strong></td><td><strong>{{ order.total_price | money }}</strong></td></tr>
+    </tfoot>
+  </table>
+
+  <h3 class="legal-h">Morada de envio</h3>
+  {%- if order.shipping_address -%}<p>{{ order.shipping_address | format_address }}</p>{%- else -%}<p>—</p>{%- endif -%}
+  <p style="margin-top:24px"><a href="{{ routes.account_url }}">&larr; Voltar à conta</a></p>
+</div></section>

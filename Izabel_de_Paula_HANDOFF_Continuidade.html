@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handoff / Continuidade — Izabel de Paula</title>
+<style>
+  :root{--ink:#211B13;--ink2:#16110B;--gold:#C9A227;--cream:#FAF4EC;--grey:#5A555F;--lgrey:#ECE8EF;--ok:#1E8E5A;--okbg:#E9F7EF;--warn:#8a6d00;--warnbg:#FFF6E6;--stop:#A3123F;--stopbg:#FDE7EF;--line:#E4DECF;}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.55;margin:0;font-size:15px;background:#fff;}
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px 80px;}
+  header.cover{background:var(--ink);color:#fff;padding:38px 22px;}
+  header.cover .inner{max-width:940px;margin:0 auto;}
+  .tag{display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;font-size:12px;letter-spacing:.6px;padding:5px 12px;border-radius:20px;text-transform:uppercase;}
+  h1{font-size:27px;margin:14px 0 4px;letter-spacing:.3px;}
+  header.cover .sub{opacity:.92;margin:0;font-size:14px;}
+  h2{color:var(--ink);font-size:20px;margin:34px 0 8px;border-bottom:2px solid var(--gold);padding-bottom:7px;}
+  h3{font-size:16px;margin:20px 0 4px;color:var(--ink2);}
+  p{margin:8px 0;} ul,ol{margin:8px 0;padding-left:22px;} li{margin:5px 0;}
+  code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:#F2ECE0;border-radius:4px;padding:1px 6px;color:#7a5b00;word-break:break-word;}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:13px;}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--ink);color:#fff;font-weight:600;}
+  tr:nth-child(even) td{background:var(--cream);}
+  .mono{font-family:Consolas,Menlo,monospace;font-size:12px;word-break:break-all;}
+  .callout{border-left:4px solid var(--gold);background:var(--warnbg);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;}
+  .callout.ok{border-color:var(--ok);background:var(--okbg);}
+  .callout.stop{border-color:var(--stop);background:var(--stopbg);}
+  .small{font-size:12.5px;color:var(--grey);}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;white-space:nowrap;}
+  .p-ok{background:var(--okbg);color:var(--ok);border:1px solid var(--ok);}
+  .p-wait{background:var(--warnbg);color:var(--warn);border:1px solid var(--gold);}
+  .p-block{background:var(--stopbg);color:var(--stop);border:1px solid var(--stop);}
+  .toc{background:var(--cream);border:1px solid var(--line);border-radius:10px;padding:14px 20px;margin:18px 0;}
+  .toc a{color:var(--ink2);text-decoration:none;}
+  .toc a:hover{color:var(--gold);}
+  .swatch{display:inline-block;width:13px;height:13px;border-radius:3px;border:1px solid #0002;vertical-align:middle;margin-right:5px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;}
+  @media(max-width:680px){.grid2{grid-template-columns:1fr;}}
+  .donot{border-left:4px solid var(--stop);}
+</style>
+</head>
+<body>
+<header class="cover"><div class="inner">
+  <span class="tag">Handoff · Continuidade</span>
+  <h1>Izabel de Paula — Estado do projeto e passos seguintes</h1>
+  <p class="sub">Site izabeldepaula.com (WordPress + estático) · Loja store.izabeldepaula.com (Shopify) · Funil de email · DNS · Junho 2026</p>
+</div></header>
+<div class="wrap">
+
+<div class="callout">
+  <strong>Para quem recebe isto:</strong> documento de passagem de testemunho. Lê primeiro o <strong>Contexto</strong> e as <strong>Regras (o que NÃO fazer)</strong> — são a parte mais importante para não partir nada. Depois vê <strong>A fazer</strong> para saber por onde continuar.
+</div>
+
+<div class="toc">
+  <strong>Índice</strong>
+  <ol>
+    <li><a href="#ctx">Contexto rápido</a></li>
+    <li><a href="#acessos">Acessos e ferramentas</a></li>
+    <li><a href="#feito">✅ Já feito (concluído)</a></li>
+    <li><a href="#afazer">⏳ A fazer (pendente / próximos passos)</a></li>
+    <li><a href="#regras">🚫 Regras — o que NÃO deve ser feito</a></li>
+    <li><a href="#ref">📌 Referência técnica (cores, fontes, snippets, DNS, códigos)</a></li>
+    <li><a href="#ficheiros">📁 Ficheiros e documentos produzidos</a></li>
+    <li><a href="#armadilhas">⚠️ Armadilhas conhecidas (gotchas)</a></li>
+  </ol>
+</div>
+
+<h2 id="ctx">1. Contexto rápido</h2>
+<p>A marca tem <strong>dois sites separados</strong> (que continuam separados — não foram fundidos):</p>
+<ul>
+  <li><strong>izabeldepaula.com</strong> — site institucional/conteúdo. É <strong>híbrido</strong>:
+    <ul>
+      <li><em>Parte estática</em> (HTML): o <strong>homepage</strong> e sub-páginas como <code>guia-protocolos.html</code>, <code>contactos.html</code>, <code>protocolos/detox-stop.html</code> — já no <strong>template novo</strong> (classe de body <code>final-premium</code>).</li>
+      <li><em>Parte WordPress</em> (tema Hello Elementor + Elementor): o <strong>/blog/</strong> (~530 posts) e a página <strong>/formacoes/</strong>. As páginas WP internas antigas (Quem somos, Mentoria, etc.) <strong>redirecionam para o site novo</strong> — não expõem design antigo.</li>
+    </ul>
+  </li>
+  <li><strong>store.izabeldepaula.com</strong> — loja <strong>Shopify</strong> (vendas + funil de email). É a <strong>referência de design</strong> (template/branding) que estamos a replicar no site.</li>
+</ul>
+<p><strong>Objetivo global do trabalho:</strong> deixar TODO o site izabeldepaula.com com o mesmo template moderno da loja Shopify (cores, tipografia, botões), <strong>sem apagar nada</strong> (blog incluído) e <strong>sem perder SEO/URLs</strong> — além de pôr a funcionar o <strong>funil de email</strong> da Shopify.</p>
+
+<h2 id="acessos">2. Acessos e ferramentas</h2>
+<table>
+  <tr><th>Área</th><th>Onde / como</th><th>Notas</th></tr>
+  <tr><td>Alojamento</td><td>cPanel (Jupiter) via painel central <strong>HospedaInfo</strong> (SSO “Login cPanel”). Utilizador cPanel: <code>izabelde</code>. Nameservers: <span class="mono">ns1/ns2.orion.servidor.net.br</span></td><td>O próprio host gere DNS (Zone Editor) e o cache do servidor.</td></tr>
+  <tr><td>WordPress</td><td>Admin completo. Plugins-chave: <strong>Elementor</strong> (Hello Elementor, kit-17), <strong>WPCode</strong> (snippets CSS), <strong>WP Rocket</strong> (cache), <strong>Redirection</strong>, <strong>GDPR Cookie Consent</strong> (WebToffee), <strong>Popupsmart</strong>, <strong>UpdraftPlus</strong>/<strong>JetBackup</strong> (backups)</td><td>Sessões expiram quando o IP muda — basta voltar a entrar.</td></tr>
+  <tr><td>Loja</td><td><strong>Shopify Admin</strong> → Marketing / Automações / Email · Definições → Notificações (autenticação de email)</td><td>O funil vive no Shopify Messaging/Flow.</td></tr>
+  <tr><td>Email do remetente</td><td><code>marketing@izabeldepaula.com</code></td><td>Precisa de ser <strong>verificado</strong> (clicar no link recebido nessa caixa) — só o cliente consegue.</td></tr>
+</table>
+
+<h2 id="feito">3. ✅ Já feito (concluído)</h2>
+
+<h3>Site / reskin (visual novo)</h3>
+<table>
+  <tr><th>Item</th><th>Detalhe</th><th>Como está implementado</th></tr>
+  <tr><td><strong>Backups verificados</strong></td><td>Ficheiros + base de dados confirmados antes de qualquer alteração.</td><td>JetBackup (diário) + UpdraftPlus (BD).</td></tr>
+  <tr><td><strong>Nº de WhatsApp corrigido</strong></td><td>Passou a usar <strong>+351 912 976 633</strong> (<code>wa.me/351912976633</code>); o antigo <s>966 423 050</s> foi substituído.</td><td>Inclui o schema do homepage estático.</td></tr>
+  <tr><td><strong>Reskin Blog — Fase 1</strong></td><td>~530 posts ao visual novo (títulos Cormorant, corpo Jost, links dourados, sem magenta), mantendo URLs/SEO.</td><td>Snippet WPCode <em>“Reskin Blog Fase 1 — posts (Izabel)”</em>, âmbito <code>body.single-post</code>.</td></tr>
+  <tr><td><strong>Reskin Fase 2 (chrome)</strong></td><td>Cabeçalho, menu, pesquisa, carrinho, <strong>rodapé</strong> (ink + dourado), <strong>barra de cookies</strong> e logótipo alinhados.</td><td>Snippet WPCode <em>“Reskin Blog Fase 2 — cabeçalho/rodapé/cookies (Izabel)”</em>, âmbito global.</td></tr>
+  <tr><td><strong>Reskin páginas internas (conteúdo)</strong></td><td>Títulos Cormorant (ink), corpo Jost, links dourados nas páginas WP.</td><td>Snippet WPCode <strong>ID 32616</strong> <em>“Reskin Páginas Internas — conteúdo (Izabel)”</em>, âmbito <code>body.page</code>.</td></tr>
+  <tr><td><strong>Reskin Fase 3 — botões + foto</strong> <span class="pill p-ok">novo</span></td><td><strong>Botões CTA</strong> estilo loja: fundo ink <code>#211B13</code>, texto branco MAIÚSCULAS, Jost, espaçamento, cantos ~2px, <strong>hover dourado</strong>. <strong>Foto da Izabel</strong> na secção das Formações (desktop; oculta no mobile de propósito).</td><td>Anexado ao <strong>mesmo snippet 32616</strong>. Verificado ao vivo no URL normal (4/4 botões ink). Cache WP Rocket limpo.</td></tr>
+  <tr><td><strong>Domínio do homepage</strong></td><td>No <code>index.html</code> estático: todos os <code>izabeldepaula.pt</code> → <code>www.izabeldepaula.com</code> (canonical, og:url, og:image, schema).</td><td>Gravado no disco. <strong>Ver pendência do cache LiteSpeed</strong> abaixo.</td></tr>
+  <tr><td><strong>Auditoria final</strong></td><td>Confirmado: tudo o que o visitante vê está no template novo; páginas antigas redirecionam; zero magenta/zero botões verdes nas superfícies live.</td><td>—</td></tr>
+</table>
+
+<h3>Funil de email (Shopify) + DNS</h3>
+<table>
+  <tr><th>Item</th><th>Detalhe</th></tr>
+  <tr><td><strong>6 fluxos construídos como rascunho INATIVO</strong></td><td>F1 Boas-vindas, F2 Carrinho abandonado, F3 Checkout abandonado (melhorado), F4 Pós-venda, F5 Recompra/Reposição, F6 Win-back. Cópia integral PT-PT entregue no <em>Build Pack</em>.</td></tr>
+  <tr><td><strong>Cópia aprovada</strong></td><td>O cliente aprovou a cópia dos emails.</td></tr>
+  <tr><td><strong>Registos DNS de autenticação adicionados</strong></td><td>6× CNAME (DKIM) + 1× TXT (DMARC) no Zone Editor do cPanel. A Shopify aceitou; estado fica “Autenticado” quando propagar (até 48h). Ver tabela na secção de referência.</td></tr>
+  <tr><td><strong>Auditoria + limpeza de disco</strong></td><td>Disco a 84% = conteúdo legítimo; guia de limpeza segura entregue para o cliente executar (o assistente não apaga ficheiros).</td></tr>
+</table>
+
+<h2 id="afazer">4. ⏳ A fazer (pendente / próximos passos)</h2>
+<table>
+  <tr><th>Tarefa</th><th>Responsável</th><th>Estado</th><th>Detalhe</th></tr>
+  <tr><td><strong>Purgar cache do LiteSpeed</strong> (servidor)</td><td>Host / IT</td><td><span class="pill p-block">Pendente</span></td><td>As edições do <code>index.html</code> (nº + .pt→.com) estão no disco, mas a versão em cache do servidor ainda serve a antiga. cPanel não tem botão de purga → pedir ao host. Texto pronto em <em>Pedido IT/Host</em>.</td></tr>
+  <tr><td><strong>DNS “Autenticado” no Shopify</strong></td><td>Propagação + verificar no Shopify</td><td><span class="pill p-wait">A propagar</span></td><td>Após propagar, em Shopify → Definições → Notificações → Autenticação de domínio → “Atualizei os registos DNS”.</td></tr>
+  <tr><td><strong>Verificar email do remetente</strong></td><td>Cliente</td><td><span class="pill p-block">Pendente</span></td><td>Clicar no link de verificação enviado para <code>marketing@izabeldepaula.com</code>. Sem isto, nenhum email pode ser ativado.</td></tr>
+  <tr><td><strong>Terminar fluxos F2, F3, F6 (2.º email) + construir F5</strong></td><td>Continuação</td><td><span class="pill p-wait">A fazer</span></td><td>Já estão como rascunho; falta finalizar segundos emails e o F5. Inserir best-seller (F1·E2) e produto complementar (F4·E2).</td></tr>
+  <tr><td><strong>Go-live do funil</strong></td><td>Continuação</td><td><span class="pill p-block">Bloqueado</span></td><td>Só depois de: DNS verde + remetente verificado + cópia aprovada (✔) + <strong>teste seed</strong>. Ordem: testar → <strong>pausar a “Checkout abandonado” antiga</strong> e ativar a nova → ativar F1/F2/F4/F5/F6 → monitorizar 72h.</td></tr>
+  <tr><td><strong>(Cosmético) 3 títulos em Montserrat no homepage</strong></td><td>Opcional</td><td><span class="pill p-wait">Opcional</span></td><td>Os outros ~27 títulos já são Cormorant. Confirmar se são intencionais antes de mexer.</td></tr>
+  <tr><td><strong>(Cosmético) Link morto <code>/Inicio/</code></strong></td><td>Opcional</td><td><span class="pill p-wait">Opcional</span></td><td>Devolve página de erro. Corrigir destino ou remover o link.</td></tr>
+</table>
+
+<h2 id="regras">5. 🚫 Regras — o que NÃO deve ser feito</h2>
+<div class="callout stop donot">
+  Estas regras vêm do cliente e são <strong>inegociáveis</strong>. Foram repetidas várias vezes (“com cuidado”, “sem quebrar nada”).
+</div>
+<ul>
+  <li><strong>NÃO apagar o blog</strong> nem qualquer conteúdo. “Só redesenhar o design, não apagar nada.”</li>
+  <li><strong>NÃO quebrar nada</strong> — preservar <strong>100% do SEO, URLs e redirects</strong> existentes.</li>
+  <li><strong>Só alterar o design/template</strong> (botões, tipografia, cores). Nada de migração destrutiva nem de fundir os dois sites.</li>
+  <li><strong>Preview primeiro, gravar depois.</strong> Toda a alteração de visual é feita por injeção/preview e só depois aplicada. Tudo fica em <strong>snippets WPCode reversíveis</strong> (desligar o snippet = desfazer).</li>
+  <li><strong>NÃO ativar nenhum email</strong> antes de: DNS verde + remetente verificado + cópia aprovada + teste seed.</li>
+  <li><strong>NUNCA apagar a automação “Checkout abandonado” ativa</strong> da Shopify — quando a nova entrar, a antiga é <strong>pausada</strong>, nunca apagada.</li>
+  <li><strong>Ações sensíveis fá-las o humano</strong>: introduzir passwords, fazer login, pagamentos, mudar permissões/partilhas, apagar definitivamente. O assistente <strong>nunca</strong> faz isto — guia e prepara, mas a execução é da pessoa.</li>
+</ul>
+
+<h2 id="ref">6. 📌 Referência técnica</h2>
+
+<div class="grid2">
+<div>
+<h3>Cores da marca</h3>
+<ul class="small" style="list-style:none;padding-left:0;">
+  <li><span class="swatch" style="background:#211B13"></span><strong>Ink</strong> <code>#211B13</code> (texto/títulos, fundo botões)</li>
+  <li><span class="swatch" style="background:#16110B"></span>Ink escuro <code>#16110B</code></li>
+  <li><span class="swatch" style="background:#C9A227"></span><strong>Dourado</strong> <code>#C9A227</code> (hover, detalhes)</li>
+  <li><span class="swatch" style="background:#FAF4EC"></span><strong>Creme</strong> <code>#FAF4EC</code> (fundos suaves)</li>
+  <li><span class="swatch" style="background:#9a7d12"></span>Link dourado (texto) <code>#9a7d12</code></li>
+  <li><span class="swatch" style="background:#AB00B6"></span><s>Magenta antigo</s> <code>rgb(171,0,182)</code> — eliminar</li>
+  <li><span class="swatch" style="background:#27A300"></span><s>Verde antigo dos botões</s> (gradiente <code>#27A300</code>→preto) — eliminar</li>
+</ul>
+</div>
+<div>
+<h3>Tipografia</h3>
+<ul class="small">
+  <li><strong>Títulos:</strong> Cormorant Garamond</li>
+  <li><strong>Corpo (WordPress):</strong> Jost</li>
+  <li><strong>Corpo (site estático):</strong> Inter (diferença mínima e intencional)</li>
+  <li><strong>Loja Shopify:</strong> Muller (não existe no WP → fallback Jost)</li>
+</ul>
+<h3>Foto da Izabel</h3>
+<p class="small">WP Media <strong>ID 32617</strong> · 1122×1402 · clínica, casaco branco.<br><span class="mono">/wp-content/uploads/2026/06/WhatsApp-Image-2026-06-15-at-16.51.26.jpeg</span></p>
+</div>
+</div>
+
+<h3>Snippets WPCode (todos reversíveis — desligar = desfazer)</h3>
+<table>
+  <tr><th>Snippet</th><th>Âmbito</th><th>Faz</th></tr>
+  <tr><td>Reskin Blog Fase 1 — posts (Izabel)</td><td><code>body.single-post</code></td><td>Visual dos posts do blog.</td></tr>
+  <tr><td>Reskin Blog Fase 2 — cabeçalho/rodapé/cookies (Izabel)</td><td>global</td><td>Cabeçalho, menu, pesquisa, carrinho, rodapé, barra de cookies.</td></tr>
+  <tr><td><strong>Reskin Páginas Internas — conteúdo (Izabel)</strong> — <strong>ID 32616</strong></td><td><code>body.page</code></td><td>Tipografia/cores das páginas + (Fase 3) <strong>botões ink</strong> e <strong>foto da Izabel</strong> nas Formações.</td></tr>
+</table>
+<p class="small">Atalhos úteis: <code>?nowprocket=1</code> no fim de um URL vê a versão <strong>não-cacheada</strong> (bypass ao WP Rocket). Limpar cache em <em>Definições → WP Rocket → “Limpar e pré-carregar”</em>.</p>
+
+<h3>Registos DNS adicionados (autenticação de email Shopify)</h3>
+<table>
+  <tr><th>Tipo</th><th>Nome / Host</th><th>Valor</th></tr>
+  <tr><td>CNAME</td><td class="mono">fpr._domainkey</td><td class="mono">dkim1.906653f2e996.p347.email.myshopify.com</td></tr>
+  <tr><td>CNAME</td><td class="mono">fpr2._domainkey</td><td class="mono">dkim2.906653f2e996.p347.email.myshopify.com</td></tr>
+  <tr><td>CNAME</td><td class="mono">pdk1._domainkey.mailera77</td><td class="mono">dkim3.857cab25fb9a.p944.email.myshopify.com</td></tr>
+  <tr><td>CNAME</td><td class="mono">pdk2._domainkey.mailera77</td><td class="mono">dkim4.857cab25fb9a.p944.email.myshopify.com</td></tr>
+  <tr><td>CNAME</td><td class="mono">mailerfpr</td><td class="mono">906653f2e996.p347.email.myshopify.com</td></tr>
+  <tr><td>CNAME</td><td class="mono">mailera77</td><td class="mono">857cab25fb9a.p944.email.myshopify.com</td></tr>
+  <tr><td>TXT</td><td class="mono">_dmarc</td><td class="mono">v=DMARC1; p=none; rua=mailto:marketing@izabeldepaula.com; fo=1</td></tr>
+</table>
+<p class="small">SPF: manter apenas <strong>um</strong> registo SPF se já existir (não criar segundo). Método de DKIM por CNAME não exige adicionar a Shopify ao SPF.</p>
+
+<h3>Códigos de desconto por fluxo (reais)</h3>
+<table>
+  <tr><th>Fluxo</th><th>Tempos</th><th>Código</th></tr>
+  <tr><td>F1 Boas-vindas</td><td>E1 imediato · E2 +48h · E3 +5 dias</td><td><code>BEMVINDA5</code> (5%)</td></tr>
+  <tr><td>F2 Carrinho abandonado</td><td>E1 +1h (sem desconto) · E2 +24h</td><td><code>OPORTUNIDADE10</code> (10%)</td></tr>
+  <tr><td>F3 Checkout abandonado (melhorado)</td><td>E1 ~10h · E2 +24h</td><td><code>OPORTUNIDADE10</code> (10%)</td></tr>
+  <tr><td>F4 Pós-venda</td><td>E1 na expedição · E2 +7–10 dias</td><td><code>DETOX5</code> (opcional, só Detox)</td></tr>
+  <tr><td>F5 Recompra/Reposição</td><td>E1 ~30–45 dias após entrega</td><td><code>RECOMPRA10</code> / <code>REPOSICAO10</code></td></tr>
+  <tr><td>F6 Win-back</td><td>E1 60–90 dias sem compra · E2 +5 dias</td><td><code>VOLTEI15</code> (15%)</td></tr>
+</table>
+<p class="small">Todos os CTAs de WhatsApp usam <strong>+351 912 976 633</strong>.</p>
+
+<h2 id="ficheiros">7. 📁 Ficheiros e documentos produzidos</h2>
+<p>Na pasta de trabalho do cliente (<code>izabeldepaula-site</code>):</p>
+<ul>
+  <li><code>reskin-blog-fase1.css</code> · <code>reskin-blog-fase2.css</code> · <code>reskin-paginas-internas.css</code> · <code>reskin-botoes-fase3.css</code> — o CSS de cada fase (cópia de referência do que está nos snippets).</li>
+  <li><code>Izabel_de_Paula_Pedido_IT_Host.html</code> — texto pronto a enviar ao host: purgar cache LiteSpeed + (já feito) registos DNS.</li>
+  <li><code>Izabel_de_Paula_Funil_Email_Aprovacao_GoLive.html</code> — aprovação da cópia + plano de ativação (os 3 “gates”).</li>
+  <li><code>Izabel_de_Paula_Funil_Email_BuildPack.html</code> — cópia integral PT-PT dos 6 fluxos + specs.</li>
+  <li><code>Izabel_de_Paula_DNS_Autenticacao_Email.html</code> — os registos DNS explicados.</li>
+  <li><code>Izabel_de_Paula_Limpeza_Disco_e_Plano_Reskin.html</code> — guia de limpeza de disco.</li>
+  <li><strong>Este documento</strong>: <code>Izabel_de_Paula_HANDOFF_Continuidade.html</code>.</li>
+</ul>
+
+<h2 id="armadilhas">8. ⚠️ Armadilhas conhecidas (gotchas)</h2>
+<ul>
+  <li><strong>Cache LiteSpeed (servidor):</strong> não há botão de purga no cPanel — pedir ao host. É por isso que edições ao <code>index.html</code> podem demorar a aparecer.</li>
+  <li><strong>WP Rocket (cache do WordPress):</strong> depois de mudar snippets, limpar em <em>WP Rocket → “Limpar e pré-carregar”</em>. Usar <code>?nowprocket=1</code> para confirmar a versão fresca.</li>
+  <li><strong>Modo de manutenção do WP Toolkit (host):</strong> durante trabalho do host o site pode devolver <strong>503 “Manutenção agendada”</strong> nos pedidos dinâmicos; o front-end cacheado continua a servir normalmente. Não aplicar alterações enquanto isto estiver ativo.</li>
+  <li><strong>Elementor — especificidade:</strong> as regras por-elemento do Elementor são “teimosas”. Usar <code>!important</code> <em>e</em> reforçar a especificidade (ex.: repetir a classe) para vencer. O verde dos botões era um <strong>gradiente</strong> (anular com <code>background-image:none</code>, não só a cor).</li>
+  <li><strong>Transições CSS enganam a leitura:</strong> ao previsualizar por injeção, o <code>getComputedStyle</code> pode devolver o valor antigo durante a transição — num carregamento real da página o visual final aparece logo. Confirmar sempre no URL normal.</li>
+  <li><strong>Sessões expiram</strong> (cPanel/WP/HospedaInfo) quando o IP muda — basta voltar a entrar.</li>
+  <li><strong>Páginas Elementor pesadas</strong> podem dar timeout em screenshots; usar separadores frescos ou ler por JS.</li>
+  <li><strong>Páginas WP internas antigas redirecionam para o site novo</strong> — ao testar por <code>?page_id=</code> vais ver o homepage novo (é o esperado).</li>
+</ul>
+
+<p class="small" style="margin-top:30px;border-top:1px solid var(--line);padding-top:14px;">Documento de continuidade · Izabel de Paula® · PT · Junho 2026. Tudo o que foi alterado é reversível (snippets WPCode + ficheiros guardados). Em caso de dúvida sobre uma alteração de visual: previsualizar primeiro, confirmar no URL normal, e só depois limpar o cache.</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartão presente · {{ shop.name }}</title>
+<link rel="icon" type="image/png" href="{{ 'favicon.png' | asset_url }}">
+{{ 'styles.css' | asset_url | stylesheet_tag }}
+{{ content_for_header }}
+</head>
+<body class="template-gift-card" style="text-align:center">
+  <div class="wrap" style="max-width:520px;margin:48px auto;padding:0 20px">
+    <img src="{{ 'logo-izb.png' | asset_url }}" alt="{{ shop.name }}" width="180" height="100">
+    <h1 class="h-sec" style="margin-top:10px">Cartão presente</h1>
+    <p style="font-size:18px;margin:14px 0">Saldo: <strong>{{ gift_card.balance | money }}</strong>{% if gift_card.expired %} · (expirado){% endif %}</p>
+    <div style="border:1px solid var(--line);padding:18px 14px;margin:20px 0;font-family:monospace;font-size:20px;letter-spacing:3px;word-break:break-all">{{ gift_card.code }}</div>
+    <p class="alt">Use este código no checkout da loja.</p>
+    <p style="margin-top:20px"><a class="btn btn--ink" href="{{ shop.url }}">Visitar a loja</a></p>
+  </div>
+</body>
+</html>

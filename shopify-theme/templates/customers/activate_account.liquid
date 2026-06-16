@@ -1,0 +1,13 @@
+<section class="section"><div class="wrap auth">
+  <div class="head-c" data-reveal><span class="kicker">Conta</span><h1 class="h-sec">Ativar a conta</h1></div>
+  <p class="alt" style="margin-bottom:22px">Crie a sua senha para ativar a conta.</p>
+  {%- form 'activate_customer_password' -%}
+    {%- if form.errors -%}<div class="errors">{{ form.errors | default_errors }}</div>{%- endif -%}
+    <div class="field"><label for="act-pass">Senha</label>
+      <input type="password" id="act-pass" name="customer[password]" autocomplete="new-password" required></div>
+    <div class="field"><label for="act-conf">Confirmar senha</label>
+      <input type="password" id="act-conf" name="customer[password_confirmation]" autocomplete="new-password" required></div>
+    <button type="submit" class="btn btn--ink">Ativar conta</button>
+    <button type="submit" name="decline" value="{{ customer.id }}" class="btn btn--ghost" style="margin-top:10px">Recusar convite</button>
+  {%- endform -%}
+</div></section>

@@ -1,0 +1,69 @@
+/* ===========================================================
+   RESKIN FASE 2 — Cabeçalho + Rodapé + Barra de cookies
+   Izabel de Paula · aplica o visual novo (ink #211B13, dourado
+   #C9A227, creme) à "moldura" partilhada de TODAS as páginas WP.
+   - NÃO muda URLs nem conteúdo.
+   - 100% reversível: desativar/remover o snippet WPCode.
+   - Tema: Hello Elementor + Elementor (header/footer via Theme Builder).
+   - Snippet separado da Fase 1 (posts) para poder ligar/desligar à parte.
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+/* ---------- CABEÇALHO (todas as páginas WP) ---------- */
+/* barra de promo no topo: magenta -> ink + dourado */
+.elementor-element-1fbd29d{ background-color:#211B13 !important; }
+.elementor-element-1fbd29d *{ color:#E9D8A6 !important; }
+
+/* menu: magenta -> ink, fonte Jost */
+nav.elementor-nav-menu--main a,
+nav.elementor-nav-menu--main .elementor-item{ color:#211B13 !important; font-family:'Jost', sans-serif !important; }
+nav.elementor-nav-menu--main a:hover,
+nav.elementor-nav-menu--main .elementor-item:hover{ color:#9a7d12 !important; }
+
+/* pesquisa */
+button.e-search-submit{ background-color:#211B13 !important; }
+button.e-search-submit *{ color:#E9D8A6 !important; fill:#E9D8A6 !important; }
+input.e-search-input{ background:#FBF6EE !important; border:1px solid #e3d6bd !important; color:#211B13 !important; border-radius:6px; }
+input.e-search-input::placeholder{ color:#8a8378 !important; }
+
+/* ícones do cabeçalho (carrinho, etc.) */
+.elementor-location-header .e-eicon-bag-solid,
+.elementor-location-header .e-eicon-bag-solid path,
+.elementor-location-header .elementor-button-icon,
+.elementor-location-header .elementor-icon,
+.elementor-location-header i.huge{ color:#211B13 !important; fill:#211B13 !important; }
+
+/* ---------- RODAPÉ ---------- */
+/* faixa superior (benefícios): rosa-clara -> creme, texto/ícones ink */
+footer.elementor-location-footer .elementor-element-cb10c51{ background-color:#FAF4EC !important; }
+footer.elementor-location-footer .elementor-element-cb10c51 *{ color:#3a2f1d !important; }
+footer.elementor-location-footer .elementor-element-cb10c51 .elementor-icon i,
+footer.elementor-location-footer .elementor-element-cb10c51 .elementor-icon svg,
+footer.elementor-location-footer .elementor-element-cb10c51 .elementor-icon svg *{ color:#211B13 !important; fill:#211B13 !important; }
+
+/* secção principal de colunas: magenta -> ink */
+footer.elementor-location-footer .elementor-element-ac71785{ background-color:#211B13 !important; }
+footer.elementor-location-footer .elementor-element-ac71785 .elementor-heading-title{ color:#C9A227 !important; font-family:'Cormorant Garamond', serif !important; }
+footer.elementor-location-footer .elementor-element-ac71785,
+footer.elementor-location-footer .elementor-element-ac71785 a,
+footer.elementor-location-footer .elementor-element-ac71785 p,
+footer.elementor-location-footer .elementor-element-ac71785 li,
+footer.elementor-location-footer .elementor-element-ac71785 span{ color:#F1E7D2 !important; }
+footer.elementor-location-footer .elementor-element-ac71785 a:hover{ color:#C9A227 !important; }
+
+/* barra inferior do logótipo: magenta -> ink */
+footer.elementor-location-footer .elementor-element-de78097{ background-color:#211B13 !important; }
+
+/* ícones sociais: caixa rosa -> dourado, ícone ink */
+footer.elementor-location-footer .elementor-social-icon{ background-color:#C9A227 !important; }
+footer.elementor-location-footer .elementor-social-icon i,
+footer.elementor-location-footer .elementor-social-icon svg,
+footer.elementor-location-footer .elementor-social-icon svg *{ color:#211B13 !important; fill:#211B13 !important; }
+
+/* ---------- BARRA DE COOKIES (WebToffee GDPR) ---------- */
+#cookie-law-info-bar{ background-color:#211B13 !important; border-top:1px solid #3a3128 !important; }
+#cookie-law-info-bar, #cookie-law-info-bar *{ color:#F1E7D2 !important; }
+#cookie-law-info-bar #cookie_action_close_header,
+#cookie-law-info-bar .cli_action_button,
+#cookie-law-info-bar .cli-plugin-main-button{ background-color:#C9A227 !important; color:#211B13 !important; border-color:#C9A227 !important; }

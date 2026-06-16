@@ -1,0 +1,19 @@
+{%- comment -%}
+  Coleção / "Loja". O catálogo é data-driven: cart.js (renderShop) preenche
+  [data-grid] a partir de window.PRODUCTS (todos os produtos vivos do Shopify).
+  Os filtros são por categoria curada (data-cat), tratados por theme.js.
+{%- endcomment -%}
+<section class="section" id="loja">
+  <div class="wrap">
+    <div class="shop-bar">
+      <h2 class="h-sec" data-reveal>{{ collection.title | default: 'A coleção completa.' }}</h2>
+      <div class="filters" data-reveal data-delay="1">
+        <button class="active" data-filter="all">Todos</button>
+        <button data-filter="creme">Cremes &amp; Géis</button>
+        <button data-filter="capsula">Detox &amp; Cápsulas</button>
+        <button data-filter="kit">Kits</button>
+      </div>
+    </div>
+    <div class="grid" data-grid><!-- cart.js --></div>
+  </div>
+</section>

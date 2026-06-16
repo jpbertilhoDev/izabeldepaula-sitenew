@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedido pronto para IT / Host · Izabel de Paula</title>
+<style>
+  :root{--gold:#C9A227;--ink:#211B13;--cream:#FAF4EC;--grey:#5A555F;--lgrey:#ECE8EF;--ok:#1E8E5A;--okbg:#E9F7EF;--warnbg:#FFF6E6;}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.5;margin:0;font-size:15px;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px 70px;}
+  header.cover{background:var(--ink);color:#fff;padding:32px 22px;}
+  header.cover .inner{max-width:880px;margin:0 auto;}
+  .tag{display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;font-size:12px;letter-spacing:.5px;padding:5px 12px;border-radius:20px;text-transform:uppercase;}
+  h1{font-size:24px;margin:12px 0 4px;}
+  header.cover .sub{opacity:.9;margin:0;font-size:14px;}
+  h2{color:var(--ink);font-size:18px;margin:28px 0 6px;border-bottom:2px solid var(--gold);padding-bottom:6px;}
+  p{margin:7px 0;} ul,ol{margin:7px 0;padding-left:20px;} li{margin:5px 0;}
+  table{border-collapse:collapse;width:100%;margin:10px 0;font-size:12.5px;}
+  th,td{border:1px solid var(--lgrey);padding:7px 9px;text-align:left;vertical-align:top;}
+  th{background:var(--ink);color:#fff;}
+  .mono{font-family:Consolas,Menlo,monospace;font-size:12px;word-break:break-all;}
+  .msg{background:#F7F3EB;border:1px dashed #d8c79a;border-radius:8px;padding:14px 16px;white-space:pre-wrap;font-family:Consolas,Menlo,monospace;font-size:13px;line-height:1.55;}
+  .callout{border-left:4px solid var(--gold);background:var(--warnbg);padding:11px 15px;border-radius:0 8px 8px 0;margin:13px 0;}
+  .small{font-size:12.5px;color:var(--grey);}
+</style>
+</head>
+<body>
+<header class="cover"><div class="inner">
+  <span class="tag">Pedido pronto a enviar</span>
+  <h1>Para o IT / suporte HospedaInfo — izabeldepaula.com</h1>
+  <p class="sub">2 pedidos: (1) purgar cache LiteSpeed · (2) adicionar registos DNS de autenticação de email · Junho 2026</p>
+</div></header>
+<div class="wrap">
+
+<div class="callout">
+  Como o domínio <code>izabeldepaula.com</code> usa os nameservers do HospedaInfo (<span class="mono">ns1/ns2.orion.servidor.net.br</span>), o <strong>próprio host pode tratar dos dois pedidos</strong>. Copia o texto abaixo e envia por ticket/email ao suporte (ou ao teu IT).
+</div>
+
+<h2>Mensagem (copiar e enviar)</h2>
+<div class="msg">Assunto: izabeldepaula.com — purgar cache LiteSpeed + adicionar registos DNS (autenticação de email Shopify)
+
+Olá,
+
+Tenho dois pedidos para a conta do domínio izabeldepaula.com (cPanel: utilizador izabelde):
+
+1) PURGAR O CACHE DO LITESPEED (server-level) para izabeldepaula.com.
+Atualizámos o ficheiro index.html mas a versão em cache continua a ser servida (a resposta traz last-modified de 5 jun e não reflete as alterações). Por favor esvaziem/purguem o cache do LiteSpeed para este domínio.
+
+2) ADICIONAR OS SEGUINTES REGISTOS DNS (autenticação de email da Shopify — só autenticam o envio; NÃO alteram o site nem o apontam para a Shopify):
+
+DKIM — 6 registos CNAME:
+- CNAME  fpr._domainkey                 ->  dkim1.906653f2e996.p347.email.myshopify.com
+- CNAME  fpr2._domainkey                ->  dkim2.906653f2e996.p347.email.myshopify.com
+- CNAME  pdk1._domainkey.mailera77      ->  dkim3.857cab25fb9a.p944.email.myshopify.com
+- CNAME  pdk2._domainkey.mailera77      ->  dkim4.857cab25fb9a.p944.email.myshopify.com
+- CNAME  mailerfpr                      ->  906653f2e996.p347.email.myshopify.com
+- CNAME  mailera77                      ->  857cab25fb9a.p944.email.myshopify.com
+
+DMARC — 1 registo TXT:
+- TXT  _dmarc  ->  v=DMARC1; p=none; rua=mailto:marketing@izabeldepaula.com; fo=1
+
+SPF — verificar:
+- Se já existir um TXT que começa por "v=spf1", manter apenas UM registo SPF (não criar um segundo). Com este método DKIM por CNAME não é preciso adicionar a Shopify ao SPF.
+
+Notas: usar exatamente estes nomes/valores; se o painel acrescentar o domínio automaticamente ao "Nome", não duplicar; TTL automático.
+
+Obrigado!</div>
+
+<h2>Referência rápida dos registos</h2>
+<table>
+  <tr><th>Tipo</th><th>Nome / Host</th><th>Valor</th></tr>
+  <tr><td>CNAME</td><td class="mono">fpr._domainkey</td><td class="mono">dkim1.906653f2e996.p347.email.myshopify.com</td></tr>
+  <tr><td>CNAME</td><td class="mono">fpr2._domainkey</td><td class="mono">dkim2.906653f2e996.p347.email.myshopify.com</td></tr>
+  <tr><td>CNAME</td><td class="mono">pdk1._domainkey.mailera77</td><td class="mono">dkim3.857cab25fb9a.p944.email.myshopify.com</td></tr>
+  <tr><td>CNAME</td><td class="mono">pdk2._domainkey.mailera77</td><td class="mono">dkim4.857cab25fb9a.p944.email.myshopify.com</td></tr>
+  <tr><td>CNAME</td><td class="mono">mailerfpr</td><td class="mono">906653f2e996.p347.email.myshopify.com</td></tr>
+  <tr><td>CNAME</td><td class="mono">mailera77</td><td class="mono">857cab25fb9a.p944.email.myshopify.com</td></tr>
+  <tr><td>TXT</td><td class="mono">_dmarc</td><td class="mono">v=DMARC1; p=none; rua=mailto:marketing@izabeldepaula.com; fo=1</td></tr>
+</table>
+
+<div class="callout">
+  <strong>Depois de feito:</strong> no Shopify → Definições → Notificações → Autenticação de domínio de email, clicar "Atualizei os registos DNS" para validar (fica verde) e verificar o remetente <code>marketing@izabeldepaula.com</code>. Aí, avisas-me e eu faço o go-live dos emails (testes seed → pausar a "Checkout abandonado" antiga → ativar as novas).
+</div>
+
+<p class="small">Documento de trabalho · Izabel de Paula · Pedido para IT/host · PT-PT · Junho 2026. Estes registos só autenticam o envio de email; não alteram o site, URLs nem juntam os dois sites. O cache do LiteSpeed regenera-se sozinho após a purga.</p>
+
+</div>
+</body>
+</html>

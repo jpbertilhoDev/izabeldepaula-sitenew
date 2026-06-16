@@ -1,0 +1,46 @@
+{%- comment -%}
+  Gera window.SHOP + window.SHOPIFY_LIVE (dados VIVOS do Shopify: preço, compare-at,
+  variante, imagem, media) para os produtos do catálogo, indexados por handle.
+  Os metadados curados (categoria, selos, descrições) vêm de theme-meta.js.
+  bootstrap.js junta os dois em window.PRODUCTS (formato que o front-end já usa).
+
+  A lista de handles é gerada por _work/gen-theme-meta.py. Validar contra a loja real
+  no preview (handles com ® / muito longos podem ter sido sanitizados pelo Shopify).
+{%- endcomment -%}
+{%- assign hlist = "creme-barriga-fit-redutor,body-cream-sublime-lush-com-oleo-de-sacha-inchi,gel-leg-fit-express-250-ml,gel-levanta-bumbum-250-ml,barriga-fit-stop-gordura,barriga-fit-detox-500ml,leg-fit-pernas-leves,barriga-fit-depur,kit-seca-barriga,kit-stop-gordura,kit-detox-stop-desintoxica-queima-gordura-e-acelera-o-metabolismo-pack-stop-gordura-detox-liquido,kit-fire,kit-stop-celulite-10-off,kit-verao,kit-renovacao-total" | split: "," -%}
+<script>
+window.SHOP = {
+  whatsapp: {{ settings.whatsapp_number | default: '351912976633' | json }},
+  phoneDisplay: {{ settings.phone_display | default: '+351 912 976 633' | json }},
+  email: "izabeldepaula.geral@gmail.com",
+  freeShip: {{ settings.free_ship_threshold | default: 100 | json }},
+  freeShipNote: {{ settings.free_ship_note | default: 'Portugal Continental' | json }},
+  currency: "€",
+  storeUrl: {{ shop.url | json }},
+  routes: { cart: {{ routes.cart_url | json }}, root: {{ routes.root_url | json }}, allProducts: {{ routes.all_products_collection_url | json }} },
+  // prefixo do CDN de assets do tema (pasta plana) — usado pelo proof.js p/ imagens.
+  // ex.: "//cdn.shopify.com/s/files/.../assets/" -> base + 'ba-1.jpg'
+  assets: {{ 'ba-1.jpg' | asset_url | split: 'ba-1.jpg' | first | json }}
+};
+window.SHOPIFY_LIVE = {
+{%- assign first = true -%}
+{%- for h in hlist -%}
+  {%- assign p = all_products[h] -%}
+  {%- comment -%} p.handle != blank exclui stubs de produtos não publicados na Loja Online (all_products devolve um objeto vazio, não nil) {%- endcomment -%}
+  {%- if p.id and p.handle != blank -%}
+    {%- assign v = p.selected_or_first_available_variant | default: p.variants.first -%}
+    {%- unless first %},{% endunless -%}{%- assign first = false -%}
+  {{ p.handle | json }}: {
+    "title": {{ p.title | json }},
+    "price": {{ p.price | divided_by: 100.0 }},
+    "compareAt": {% if p.compare_at_price > p.price %}{{ p.compare_at_price | divided_by: 100.0 }}{% else %}null{% endif %},
+    "variant": {{ v.id | json }},
+    "available": {{ p.available }},
+    "img": {% if p.featured_image %}{{ p.featured_image | image_url: width: 1000 | json }}{% else %}null{% endif %},
+    "media": [{%- assign mf = true -%}{% for m in p.media %}{% if m.media_type == 'image' and m.preview_image %}{%- unless mf %},{% endunless -%}{%- assign mf = false -%}{{ m.preview_image | image_url: width: 1000 | json }}{% endif %}{% endfor %}],
+    "url": {{ p.url | json }}
+  }
+  {%- endif -%}
+{%- endfor -%}
+};
+</script>

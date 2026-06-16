@@ -1,0 +1,18 @@
+<section class="section"><div class="wrap">
+  <div class="head-c" data-reveal><span class="kicker">{{ blog.title }}</span><h1 class="h-sec">Diário</h1></div>
+  {%- paginate blog.articles by 12 -%}
+    <div class="grid">
+      {%- for article in blog.articles -%}
+        <article class="pcard">
+          {%- if article.image -%}<div class="media"><a href="{{ article.url }}"><img src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title | escape }}" loading="lazy" width="600" height="400"></a></div>{%- endif -%}
+          <div class="body">
+            <span class="cat">{{ article.published_at | date: '%d/%m/%Y' }}</span>
+            <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+            <p class="blurb">{{ article.excerpt_or_content | strip_html | truncatewords: 24 }}</p>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+    <div style="margin-top:24px">{{ paginate | default_pagination }}</div>
+  {%- endpaginate -%}
+</div></section>

@@ -1,0 +1,40 @@
+{%- comment -%}
+  SEO/GEO — meta description (com fallback inteligente) + Open Graph + Twitter Card.
+  Renderizado no <head>. Prioridade da descrição:
+  SEO do admin (page_description) > descrição do produto/coleção > descrição da marca.
+{%- endcomment -%}
+{%- liquid
+  assign brand_desc = 'Izabel de Paula® — Body Shaper Expert. Cosméticos corporais, géis, detox e suplementos com método próprio e patenteado, para uma rotina de leveza, firmeza e bem-estar. Envios para toda a Europa.'
+  if page_description != blank
+    assign meta_desc = page_description
+  elsif request.page_type == 'product' and product.description != blank
+    assign meta_desc = product.description | strip_html | strip_newlines | strip | truncate: 160
+  elsif request.page_type == 'collection' and collection.description != blank
+    assign meta_desc = collection.description | strip_html | strip_newlines | strip | truncate: 160
+  else
+    assign meta_desc = shop.description | default: brand_desc
+  endif
+
+  assign og_type = 'website'
+  if request.page_type == 'product'
+    assign og_type = 'product'
+  endif
+
+  if request.page_type == 'product' and product.featured_image
+    assign og_image = product.featured_image | image_url: width: 1200 | prepend: 'https:'
+  else
+    assign og_image = 'hero-1-universo.jpg' | asset_url | prepend: 'https:'
+  endif
+-%}
+<meta name="description" content="{{ meta_desc | escape }}">
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:site_name" content="{{ shop.name | escape }}">
+<meta property="og:title" content="{{ page_title | escape }}">
+<meta property="og:description" content="{{ meta_desc | escape }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:locale" content="{{ request.locale.iso_code | replace: '-', '_' }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page_title | escape }}">
+<meta name="twitter:description" content="{{ meta_desc | escape }}">
+<meta name="twitter:image" content="{{ og_image }}">

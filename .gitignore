@@ -1,0 +1,16 @@
+# Diretório de trabalho/scratch — perfis descartáveis do Edge, backups do tema,
+# scripts de automação e screenshots de QA. NÃO versionar (chega a ~2 GB).
+_work/
+
+# Dependências
+node_modules/
+
+# Lixo do sistema operacional / editores
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+
+# Logs e temporários
+*.log
+*.tmp

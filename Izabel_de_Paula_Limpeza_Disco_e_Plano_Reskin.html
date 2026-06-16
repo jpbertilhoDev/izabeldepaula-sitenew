@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano cuidadoso — limpeza de disco + reskin do blog · izabeldepaula.com</title>
+<style>
+  :root{--gold:#C9A227;--ink:#211B13;--cream:#FAF4EC;--rose:#B81D5B;--grey:#5A555F;--lgrey:#ECE8EF;--ok:#1E8E5A;--okbg:#E9F7EF;--warnbg:#FFF6E6;--stopbg:#FDE7EF;}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.5;margin:0;font-size:15px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px 70px;}
+  header.cover{background:var(--ink);color:#fff;padding:34px 22px;}
+  header.cover .inner{max-width:920px;margin:0 auto;}
+  .tag{display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;font-size:12px;letter-spacing:.5px;padding:5px 12px;border-radius:20px;text-transform:uppercase;}
+  h1{font-size:25px;margin:12px 0 4px;}
+  header.cover .sub{opacity:.9;margin:0;font-size:14px;}
+  h2{color:var(--ink);font-size:19px;margin:30px 0 6px;border-bottom:2px solid var(--gold);padding-bottom:6px;}
+  h3{font-size:15.5px;margin:16px 0 4px;}
+  p{margin:7px 0;} ul,ol{margin:7px 0;padding-left:22px;} li{margin:5px 0;}
+  code{font-family:"SFMono-Regular",Consolas,Menlo,monospace;font-size:12.5px;background:#F2ECE0;border-radius:4px;padding:1px 6px;color:#7a5b00;}
+  table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13px;}
+  th,td{border:1px solid var(--lgrey);padding:7px 9px;text-align:left;vertical-align:top;}
+  th{background:var(--ink);color:#fff;}
+  tr:nth-child(even) td{background:var(--cream);}
+  .callout{border-left:4px solid var(--gold);background:var(--warnbg);padding:11px 15px;border-radius:0 8px 8px 0;margin:13px 0;}
+  .callout.ok{border-color:var(--ok);background:var(--okbg);}
+  .callout.stop{border-color:var(--rose);background:var(--stopbg);}
+  .small{font-size:12.5px;color:var(--grey);}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;}
+  .p-safe{background:var(--okbg);color:var(--ok);border:1px solid var(--ok);}
+  .p-keep{background:#EEF;color:#33356b;border:1px solid #9a9ccd;}
+  .p-care{background:var(--warnbg);color:#8a6d00;border:1px solid var(--gold);}
+</style>
+</head>
+<body>
+<header class="cover"><div class="inner">
+  <span class="tag">Plano cuidadoso</span>
+  <h1>izabeldepaula.com — limpeza de disco (segura) + plano de reskin do blog</h1>
+  <p class="sub">Disco a 84% · WordPress vivo + homepage estática nova · SEO intacto (530 posts a responder) · backups JetBackup do host (hoje 06:00) · Junho 2026</p>
+</div></header>
+<div class="wrap">
+
+<div class="callout ok">
+  <strong>Já feito nesta sessão:</strong> nº antigo do WhatsApp corrigido no <em>schema</em> do homepage (<code>966 423 050</code> → <code>912 976 633</code>, gravado e verificado no ficheiro); backups confirmados seguros; SEO confirmado intacto (os 530 posts abrem 200 nas URLs originais).
+</div>
+
+<h2>1. A verdade sobre o disco (para não criar falsas expectativas)</h2>
+<p>Estás a usar <strong>~24 GB de 29,3 GB (84%)</strong>. A grande maioria é <strong>conteúdo legítimo</strong> — a tua pegada de 25 anos — e <strong>não se apaga</strong>:</p>
+<table>
+  <tr><th>Local</th><th>Tamanho</th><th>O que é</th><th></th></tr>
+  <tr><td><code>public_html/</code></td><td><strong>18,3 GB</strong></td><td>WordPress + biblioteca de média (fotos/vídeos de anos) + site</td><td><span class="pill p-keep">manter</span></td></tr>
+  <tr><td>ebookbarrigafit.izabeldepaula.com/</td><td>1,09 GB</td><td>site/landing do subdomínio</td><td><span class="pill p-keep">manter</span></td></tr>
+  <tr><td>bodyshaperexpert.izabeldepaula.com/</td><td>856 MB</td><td>subdomínio</td><td><span class="pill p-keep">manter</span></td></tr>
+  <tr><td>bodyshaperexpertpresencial…/</td><td>632 MB</td><td>subdomínio</td><td><span class="pill p-keep">manter</span></td></tr>
+  <tr><td>bodyshaperexpertbr…/</td><td>514 MB</td><td>subdomínio</td><td><span class="pill p-keep">manter</span></td></tr>
+  <tr><td>cursopresencial…/ · kitfitexpress…/</td><td>332 + 155 MB</td><td>subdomínios</td><td><span class="pill p-keep">manter</span></td></tr>
+  <tr><td><code>tmp/</code></td><td>780 MB</td><td>ficheiros temporários do sistema</td><td><span class="pill p-care">pedir ao host</span></td></tr>
+</table>
+<div class="callout stop">
+  <strong>Conclusão honesta:</strong> apagar o lixo de sessões anteriores (lista abaixo) liberta só <strong>~0,25–0,5 GB</strong> (faz cair de 84% para ~82–83%). É boa higiene e tira confusão, mas <strong>não resolve sozinho</strong> o 84%. Para baixar a sério: ver "Como resolver o 84% a sério" (secção 3).
+</div>
+
+<h2>2. Lixo seguro de remover (sobras de automações anteriores)</h2>
+<p>Estão todos em <code>/home/izabelde/public_html</code>. São cópias/registos antigos — <strong>nenhum é usado pelo site</strong>.</p>
+
+<h3><span class="pill p-safe">Remover</span> Nível 1 — inequívocos</h3>
+<table>
+  <tr><th>Ficheiro / padrão</th><th>Tamanho</th><th>O que é</th></tr>
+  <tr><td><code>izabel_site_updated.zip</code></td><td><strong>226 MB</strong></td><td>Arquivo de um deploy antigo. O maior ganho.</td></tr>
+  <tr><td><code>error_log</code></td><td>17,6 MB</td><td>Registo de erros — regenera-se sozinho.</td></tr>
+  <tr><td><code>index-html-backup-antes-*.html</code></td><td>~180–200 KB cada (dezenas)</td><td>Backups datados da homepage (19 mai / 5 jun).</td></tr>
+  <tr><td><code>novo-site-v2-index-backup-antes-*.html</code></td><td>~184–198 KB cada (vários)</td><td>Backups datados de versões da homepage.</td></tr>
+  <tr><td><code>index-html-BACKUP-VERSAO-QUEBRADA-antes-rollback-*.html</code></td><td>198 KB</td><td>Cópia de uma versão partida (já revertida).</td></tr>
+  <tr><td><code>.htaccess.bk</code> · <code>.htaccess-backup-*</code></td><td>pequenos</td><td>Cópias antigas do .htaccess. <em>(o <code>.htaccess</code> ativo fica!)</em></td></tr>
+  <tr><td><code>registro-*-wordpress-*.txt</code></td><td>29 B cada</td><td>Logs de uma recuperação anterior.</td></tr>
+</table>
+
+<h3><span class="pill p-care">Confirmar e remover</span> Nível 2 — pastas de trabalho antigas</h3>
+<p>Espreita cada uma (são pastas de auditoria/backup datadas) e remove se confirmares que são só cópias:</p>
+<ul>
+  <li><code>auditoria-recovery-20260519-*</code> (3 pastas) · <code>auditoria-assets-home-*</code> · <code>auditoria-links-izabel</code></li>
+  <li><code>backups-logo-formacoes-20260605-123329</code></li>
+</ul>
+
+<div class="callout stop">
+  <strong>NUNCA apagar</strong> <span class="pill p-keep">manter</span>: <code>index.html</code>, <code>index.php</code>, <code>wp-admin/</code>, <code>wp-content/</code>, <code>wp-includes/</code>, <code>wp-*.php</code>, <code>wp-config.php</code>, <code>.htaccess</code> (o ativo), <code>.user.ini</code>, <code>.well-known/</code>, <code>cgi-bin/</code>, <code>assets/</code>, <code>assets-brand/</code>, <code>assets-home/</code>, <code>assets-optimized/</code> (usadas pela homepage nova), <code>IMAGEM DOS PRODUTOS/</code>, <code>clinicalisboa/</code>, <code>mapa-redirecionamentos-lote1-produtos.csv</code> (mapa de redirects — útil, guardar), <code>litespeed.conf</code>, <code>license.txt</code>, <code>readme.html</code>.
+</div>
+
+<h3>Como remover com segurança (cPanel → Gestor de ficheiros)</h3>
+<ol>
+  <li>Confirma que existe um backup recente — <strong>existe</strong> (JetBackup, hoje 06:00). Não precisas de criar nada.</li>
+  <li>Entra no <strong>Gestor de ficheiros → <code>public_html</code></strong>.</li>
+  <li>Seleciona os ficheiros da lista acima (Ctrl+clique para vários). Confere o nome de cada um antes.</li>
+  <li>Clica <strong>Excluir</strong>. Na janela, <strong>deixa DESMARCADA</strong> a opção "Ignorar a lixeira / apagar permanentemente" → assim vão para a <strong>Lixeira</strong> (recuperável).</li>
+  <li>Abre o site (<code>www.izabeldepaula.com</code> e um post do blog) e confirma que está tudo bem.</li>
+  <li>Só <strong>depois de confirmares</strong>, esvazia a lixeira para libertar o espaço de vez.</li>
+</ol>
+
+<h2>3. Como resolver o 84% a sério (sem apagar conteúdo)</h2>
+<ul>
+  <li><strong>Otimizar a média</strong> (a maior alavanca): comprimir/converter as fotos e vídeos antigos do WordPress (ex.: plugin de imagens como Imagify/ShortPixel, ou converter para WebP). Mantém o conteúdo, reduz muito o peso. Fazer com cópia/preview.</li>
+  <li><strong>Pedir ao host</strong> (HospedaInfo) para limpar o <code>tmp/</code> (780 MB) e, se preciso, <strong>aumentar a quota</strong> de 29,3 GB — é o caminho mais simples e sem risco.</li>
+  <li><strong>Arquivar média muito antiga</strong> que já não é usada (offload para armazenamento externo) — só depois de auditoria.</li>
+</ul>
+
+<h2>4. Plano de reskin do blog (Opção recomendada — preview-first)</h2>
+<p>Objetivo: dar aos 530 posts o <strong>visual novo</strong> (fundo claro, dourado, Cormorant Garamond + Jost) <strong>sem mudar uma única URL</strong> — logo, zero risco para o SEO. Mudamos só a "pele", não os endereços nem o conteúdo.</p>
+<div class="callout">
+  <strong>Estado atual:</strong> homepage e índice <code>/blog/</code> = visual novo; os <strong>posts individuais</strong> ainda no tema antigo (roxo/dourado, logo e menu antigos). É só inconsistência visual — tudo funciona.
+</div>
+<h3>Abordagem por fases (da mais segura para a mais completa)</h3>
+<ol>
+  <li><strong>Fase 1 — CSS (reversível a 100%):</strong> aplicar uma folha de estilo nova aos posts via <em>Personalizar → CSS adicional</em> do WordPress (tipografia Cormorant+Jost, paleta branco/dourado/ink, barra de topo e títulos no novo estilo). Vê-se em <strong>pré-visualização</strong> antes de publicar; remove-se num clique.</li>
+  <li><strong>Fase 2 — cabeçalho/menu/rodapé:</strong> alinhar o header e o menu dos posts ao do site novo (via tema-filho ou template). Também testado em preview.</li>
+  <li><strong>Publicar só com o teu "OK"</strong>; o tema/CSS antigo fica guardado → rollback imediato.</li>
+</ol>
+<div class="callout stop">
+  <strong>Regras do reskin:</strong> não mexer em permalinks/URLs; não tocar no <code>store.izabeldepaula.com</code>; nada vai a sério sem pré-visualização + a tua aprovação; tema antigo sempre guardado.
+</div>
+
+<h2>5. Próximo passo</h2>
+<p>Quando deres luz verde, começo a <strong>Fase 1</strong> do reskin: preparo o CSS novo e mostro-te em <strong>pré-visualização</strong> (sem publicar) para aprovares. A limpeza de disco podes fazer em paralelo seguindo a secção 2 (ou eu guio-te clique a clique).</p>
+
+<p class="small">Documento de trabalho · Izabel de Paula · Limpeza de disco + plano de reskin · PT-PT · Junho 2026. Eu não apago ficheiros nem publico alterações ao vivo sem a tua aprovação; tudo reversível, com JetBackup como rede.</p>
+
+</div>
+</body>
+</html>

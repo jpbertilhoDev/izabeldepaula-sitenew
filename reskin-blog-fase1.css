@@ -1,0 +1,99 @@
+/* ===========================================================
+   RESKIN FASE 1 — Posts do blog · Izabel de Paula
+   Aplica o visual novo (fundo claro + dourado, Cormorant Garamond
+   + Jost) à página de LEITURA dos posts do WordPress.
+   - NÃO muda URLs nem conteúdo (zero risco de SEO).
+   - Âmbito: apenas posts individuais (body.single-post).
+   - 100% reversível: basta remover este bloco do "CSS adicional".
+   Tema: Hello Elementor + Elementor (kit-17).
+   =========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+/* --- fundo claro só nos posts --- */
+body.single-post{ background:#FAF4EC !important; }
+
+/* --- barra de topo: magenta (rgb 171,0,182) -> ink + dourado --- */
+body.single-post .elementor-element-1fbd29d{ background-color:#211B13 !important; }
+body.single-post .elementor-element-1fbd29d *{ color:#E9D8A6 !important; }
+
+/* --- título do post -> Cormorant Garamond --- */
+body.single-post .elementor-widget-theme-post-title h1,
+body.single-post .elementor-widget-theme-post-title .elementor-heading-title{
+  font-family:'Cormorant Garamond', Georgia, serif !important;
+  color:#211B13 !important;
+  font-weight:600 !important;
+  line-height:1.08 !important;
+  letter-spacing:.2px;
+}
+
+/* --- corpo do post -> Jost, leitura confortável --- */
+body.single-post .elementor-widget-theme-post-content,
+body.single-post .elementor-widget-theme-post-content p,
+body.single-post .elementor-widget-theme-post-content li{
+  font-family:'Jost', -apple-system, "Segoe UI", Roboto, sans-serif !important;
+  color:#2b2620 !important;
+  font-size:1.07rem !important;
+  line-height:1.85 !important;
+}
+body.single-post .elementor-widget-theme-post-content .elementor-widget-container{
+  max-width:760px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* --- subtítulos dentro do conteúdo -> Cormorant --- */
+body.single-post .elementor-widget-theme-post-content h2,
+body.single-post .elementor-widget-theme-post-content h3{
+  font-family:'Cormorant Garamond', Georgia, serif !important;
+  color:#211B13 !important;
+  font-weight:600 !important;
+}
+
+/* --- links dourados --- */
+body.single-post .elementor-widget-theme-post-content a{
+  color:#9a7d12 !important;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+
+/* --- meta (autor/data/categorias) discreto e dourado --- */
+body.single-post .elementor-widget-theme-post-info a,
+body.single-post .elementor-post-info a,
+body.single-post .elementor-widget-theme-post-info{
+  color:#9a7d12 !important;
+}
+
+/* ===== Afinamentos do cabeçalho (só posts) ===== */
+
+/* menu: magenta -> ink, fonte Jost */
+body.single-post nav.elementor-nav-menu--main a,
+body.single-post nav.elementor-nav-menu--main .elementor-item{
+  color:#211B13 !important;
+  font-family:'Jost', sans-serif !important;
+}
+body.single-post nav.elementor-nav-menu--main a:hover,
+body.single-post nav.elementor-nav-menu--main .elementor-item:hover{
+  color:#9a7d12 !important;
+}
+
+/* pesquisa: botão magenta -> ink, ícone claro; input creme */
+body.single-post button.e-search-submit{ background-color:#211B13 !important; }
+body.single-post button.e-search-submit *{ color:#E9D8A6 !important; fill:#E9D8A6 !important; }
+body.single-post input.e-search-input{
+  background:#FBF6EE !important;
+  border:1px solid #e3d6bd !important;
+  color:#211B13 !important;
+  border-radius:6px;
+}
+body.single-post input.e-search-input::placeholder{ color:#8a8378 !important; }
+
+/* ícones do cabeçalho (carrinho, etc.): magenta -> ink */
+body.single-post .elementor-location-header .e-eicon-bag-solid,
+body.single-post .elementor-location-header .e-eicon-bag-solid path,
+body.single-post .elementor-location-header .elementor-button-icon,
+body.single-post .elementor-location-header .elementor-icon,
+body.single-post .elementor-location-header i.huge{
+  color:#211B13 !important;
+  fill:#211B13 !important;
+}

@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "whatsapp_number": "351912976633",
+    "phone_display": "+351 912 976 633",
+    "contact_email": "izabeldepaula.geral@gmail.com",
+    "free_ship_threshold": 100,
+    "free_ship_note": "Portugal Continental"
+  },
+  "presets": {
+    "Izabel de Paula": {
+      "whatsapp_number": "351912976633",
+      "phone_display": "+351 912 976 633",
+      "contact_email": "izabeldepaula.geral@gmail.com",
+      "free_ship_threshold": 100,
+      "free_ship_note": "Portugal Continental"
+    }
+  }
+}

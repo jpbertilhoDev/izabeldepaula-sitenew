@@ -1,0 +1,137 @@
+{%- comment -%}
+  Home — conteúdo data-driven. Os contentores .rail-track/.grid são preenchidos
+  em runtime por cart.js (renderShop) e proof.js a partir de window.PRODUCTS,
+  que bootstrap.js monta com os dados VIVOS do Shopify + metadados curados.
+  Cabeçalho, anúncio e rodapé vêm do layout/theme.liquid.
+{%- endcomment -%}
+
+<!-- ============ HERO — carrossel ============ -->
+<section class="hero" id="topo" data-hero data-screen-label="Hero">
+  <div class="hslides">
+    <a class="hslide active" href="{{ routes.all_products_collection_url }}" aria-label="Descubra o universo Izabel de Paula">
+      <picture><source media="(max-width:680px)" type="image/webp" srcset="{{ 'm-universo.webp' | asset_url }}"><source media="(max-width:680px)" srcset="{{ 'm-universo.jpg' | asset_url }}"><source type="image/webp" srcset="{{ 'hero-1-universo.webp' | asset_url }}"><img src="{{ 'hero-1-universo.jpg' | asset_url }}" alt="Descubra o universo Izabel de Paula — soluções premium" loading="eager" fetchpriority="high" decoding="async" width="1672" height="941"></picture>
+    </a>
+    <a class="hslide" href="{{ routes.all_products_collection_url }}" aria-label="Barriga Fit Detox">
+      <picture><source media="(max-width:680px)" type="image/webp" srcset="{{ 'm-legfitgel.webp' | asset_url }}"><source media="(max-width:680px)" srcset="{{ 'm-legfitgel.jpg' | asset_url }}"><source type="image/webp" srcset="{{ 'hero-2-detox.webp' | asset_url }}"><img src="{{ 'hero-2-detox.jpg' | asset_url }}" alt="Barriga Fit Detox — quando o inchaço pesa, a leveza faz diferença" loading="lazy" decoding="async" width="1672" height="941"></picture>
+    </a>
+    <a class="hslide" href="{{ routes.all_products_collection_url }}" aria-label="Barriga Fit Stop Gordura">
+      <picture><source media="(max-width:680px)" type="image/webp" srcset="{{ 'm-stopgordura.webp' | asset_url }}"><source media="(max-width:680px)" srcset="{{ 'm-stopgordura.jpg' | asset_url }}"><source type="image/webp" srcset="{{ 'hero-3-stopgordura.webp' | asset_url }}"><img src="{{ 'hero-3-stopgordura.jpg' | asset_url }}" alt="Barriga Fit Stop Gordura — mais controlo para uma rotina sem excessos" loading="lazy" decoding="async" width="1672" height="941"></picture>
+    </a>
+    <a class="hslide" href="{{ routes.all_products_collection_url }}" aria-label="Barriga Fit Depur">
+      <picture><source media="(max-width:680px)" type="image/webp" srcset="{{ 'm-depur.webp' | asset_url }}"><source media="(max-width:680px)" srcset="{{ 'm-depur.jpg' | asset_url }}"><source type="image/webp" srcset="{{ 'hero-4-depur.webp' | asset_url }}"><img src="{{ 'hero-4-depur.jpg' | asset_url }}" alt="Barriga Fit Depur — cuida por dentro para sentires diferença por fora" loading="lazy" decoding="async" width="1672" height="941"></picture>
+    </a>
+    <a class="hslide" href="{{ routes.all_products_collection_url }}" aria-label="Leg Fit Express Pernas Leves">
+      <picture><source media="(max-width:680px)" type="image/webp" srcset="{{ 'm-pernasleves.webp' | asset_url }}"><source media="(max-width:680px)" srcset="{{ 'm-pernasleves.jpg' | asset_url }}"><source type="image/webp" srcset="{{ 'hero-5-legfit.webp' | asset_url }}"><img src="{{ 'hero-5-legfit.jpg' | asset_url }}" alt="Leg Fit Express Pernas Leves — para dias em que as pernas pedem alívio" loading="lazy" decoding="async" width="1672" height="941"></picture>
+    </a>
+    <a class="hslide" href="{{ routes.all_products_collection_url }}" aria-label="Creme Barriga Fit">
+      <picture><source media="(max-width:680px)" type="image/webp" srcset="{{ 'm-cremebarriga.webp' | asset_url }}"><source media="(max-width:680px)" srcset="{{ 'm-cremebarriga.jpg' | asset_url }}"><source type="image/webp" srcset="{{ 'hero-6-cremebarriga.webp' | asset_url }}"><img src="{{ 'hero-6-cremebarriga.jpg' | asset_url }}" alt="Creme Barriga Fit — cuida da zona onde a gordura localizada mais incomoda" loading="lazy" decoding="async" width="1672" height="941"></picture>
+    </a>
+    <a class="hslide" href="{{ routes.all_products_collection_url }}" aria-label="Gel Levanta Bum">
+      <picture><source media="(max-width:680px)" type="image/webp" srcset="{{ 'm-levantabum.webp' | asset_url }}"><source media="(max-width:680px)" srcset="{{ 'm-levantabum.jpg' | asset_url }}"><source type="image/webp" srcset="{{ 'hero-7-levantabum.webp' | asset_url }}"><img src="{{ 'hero-7-levantabum.jpg' | asset_url }}" alt="Gel Levanta Bum — cuida da zona que mais revela celulite e flacidez" loading="lazy" decoding="async" width="1672" height="941"></picture>
+    </a>
+  </div>
+  <button class="hero-arrow prev" data-hprev aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="hero-arrow next" data-hnext aria-label="Próximo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div class="hero-dots" data-hdots></div>
+</section>
+
+<!-- ============ INTRO / MARCA (H1 — SEO/GEO) ============ -->
+<section class="section intro" id="sobre" aria-labelledby="intro-h1">
+  <div class="wrap">
+    <div class="head-c" data-reveal>
+      <span class="kicker">Body Shaper Expert®</span>
+      <h1 class="h-sec" id="intro-h1">Izabel de Paula<span class="it gold">®</span> — cosmética corporal com método.</h1>
+      <p class="intro-lede">Pioneira do conceito <strong>Body Shaper</strong> em Portugal, a Izabel de Paula reúne mais de 30 anos de experiência num método próprio e patenteado. Cremes, géis, detox e suplementos para uma rotina de leveza, firmeza e bem-estar — com envios para toda a Europa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAIS VENDIDOS ============ -->
+<section class="section" id="bestsellers">
+  <div class="wrap">
+    <div class="head-c" data-reveal>
+      <span class="kicker">Favoritos da casa</span>
+      <h2 class="h-sec">Mais <span class="it gold">vendidos.</span></h2>
+    </div>
+    <div class="rail" data-rail>
+      <button class="rail-arrow prev" data-prev aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="rail-arrow next" data-next aria-label="Próximo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <div class="rail-track" data-bestsellers><!-- cart.js --></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATÁLOGO ============ -->
+<section class="section" id="loja">
+  <div class="wrap">
+    <div class="shop-bar">
+      <h2 class="h-sec" data-reveal>A coleção <span class="it gold">completa.</span></h2>
+      <div class="filters" data-reveal data-delay="1">
+        <button class="active" data-filter="all">Todos</button>
+        <button data-filter="creme">Cremes &amp; Géis</button>
+        <button data-filter="capsula">Detox &amp; Cápsulas</button>
+        <button data-filter="kit">Kits</button>
+      </div>
+    </div>
+    <div class="grid" data-grid><!-- cart.js --></div>
+  </div>
+</section>
+
+<!-- ============ RESULTADOS REAIS ============ -->
+<section class="section resultados" id="resultados">
+  <div class="wrap">
+    <div class="head-c" data-reveal>
+      <span class="kicker">Provas reais</span>
+      <h2 class="h-sec">Resultados <span class="it gold">reais.</span></h2>
+      <p class="resultados-sub">Clientes reais da Izabel de Paula — antes e depois partilhados com consentimento.</p>
+    </div>
+    <div class="awards" data-awards data-reveal><!-- proof.js --></div>
+    <div class="rail rail--ba" data-rail data-reveal>
+      <button class="rail-arrow prev" data-prev aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="rail-arrow next" data-next aria-label="Próximo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <div class="rail-track" data-resultados><!-- proof.js --></div>
+    </div>
+    <p class="proof-disclaimer">Resultados podem variar de pessoa para pessoa. Imagens de clientes reais, partilhadas com consentimento.</p>
+  </div>
+</section>
+
+<!-- ============ EXPERIÊNCIA ============ -->
+<section class="section exp" id="experiencia">
+  <div class="wrap">
+    <div class="head-c" data-reveal>
+      <span class="kicker">A experiência</span>
+      <h2 class="h-sec">Ritual <span class="it gold">Izabel de Paula.</span></h2>
+    </div>
+    <div class="rail" data-rail>
+      <button class="rail-arrow prev" data-prev aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="rail-arrow next" data-next aria-label="Próximo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <div class="rail-track" data-exp><!-- cart.js --></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GARANTIAS ============ -->
+<section class="assure assure-end">
+  <div class="wrap">
+    <div class="it"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3z"/><path d="M16 10h3l2 3v2h-5z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg><div class="tx"><b>Enviamos para a Europa</b><span>Garantimos a entrega do seu pedido</span></div></div>
+    <div class="it"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M3 10h18"/></svg><div class="tx"><b>Pagamento facilitado</b><span>Principais cartões e métodos</span></div></div>
+    <div class="it"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><div class="tx"><b>Site seguro</b><span>Protegemos os seus dados</span></div></div>
+    <div class="it"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 20l1.1-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg><div class="tx"><b>Fale connosco</b><span>Clique no botão do WhatsApp</span></div></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+{% section 'faq' %}
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="news">
+  <div class="wrap">
+    <h2 class="it">Newsletter</h2>
+    <p class="sub">Cadastre-se e receba as nossas ofertas e novidades em primeira mão.</p>
+    {% form 'customer' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <input type="email" name="contact[email]" placeholder="Cadastre o seu e-mail…" aria-label="E-mail" required>
+      <button type="submit">Enviar</button>
+    {% endform %}
+  </div>
+</section>

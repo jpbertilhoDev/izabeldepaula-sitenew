@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Funil de Email — Aprovação + Go-live · Izabel de Paula</title>
+<style>
+  :root{--gold:#C9A227;--ink:#211B13;--cream:#FAF4EC;--rose:#B81D5B;--grey:#5A555F;--lgrey:#ECE8EF;--ok:#1E8E5A;--okbg:#E9F7EF;--warnbg:#FFF6E6;--stopbg:#FDE7EF;}
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.5;margin:0;font-size:15px;}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px 70px;}
+  header.cover{background:var(--ink);color:#fff;padding:34px 22px;}
+  header.cover .inner{max-width:920px;margin:0 auto;}
+  .tag{display:inline-block;background:var(--gold);color:var(--ink);font-weight:700;font-size:12px;letter-spacing:.5px;padding:5px 12px;border-radius:20px;text-transform:uppercase;}
+  h1{font-size:25px;margin:12px 0 4px;}
+  header.cover .sub{opacity:.9;margin:0;font-size:14px;}
+  h2{color:var(--ink);font-size:19px;margin:30px 0 6px;border-bottom:2px solid var(--gold);padding-bottom:6px;}
+  p{margin:7px 0;} ul,ol{margin:7px 0;padding-left:22px;} li{margin:5px 0;}
+  code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:#F2ECE0;border-radius:4px;padding:1px 6px;color:#7a5b00;}
+  table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13px;}
+  th,td{border:1px solid var(--lgrey);padding:7px 9px;text-align:left;vertical-align:top;}
+  th{background:var(--ink);color:#fff;}
+  tr:nth-child(even) td{background:var(--cream);}
+  .callout{border-left:4px solid var(--gold);background:var(--warnbg);padding:11px 15px;border-radius:0 8px 8px 0;margin:13px 0;}
+  .callout.ok{border-color:var(--ok);background:var(--okbg);}
+  .callout.stop{border-color:var(--rose);background:var(--stopbg);}
+  .small{font-size:12.5px;color:var(--grey);}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;}
+  .p-ok{background:var(--okbg);color:var(--ok);border:1px solid var(--ok);}
+  .p-wait{background:var(--warnbg);color:#8a6d00;border:1px solid var(--gold);}
+  .p-block{background:var(--stopbg);color:#a3123f;border:1px solid var(--rose);}
+  .chk{list-style:none;padding-left:0;} .chk li:before{content:"\2610 ";color:var(--gold);font-weight:700;}
+</style>
+</head>
+<body>
+<header class="cover"><div class="inner">
+  <span class="tag">Aprovação + Go-live</span>
+  <h1>Funil de Email — aprovação da cópia e plano de ativação</h1>
+  <p class="sub">6 fluxos · Shopify Messaging · PT-PT · Portugal (€) · complementa o Build Pack (cópia integral) · Junho 2026</p>
+</div></header>
+<div class="wrap">
+
+<div class="callout stop">
+  <strong>Nada está ativo.</strong> Os fluxos ficam <strong>inativos</strong> até: (1) autenticação de email verde, (2) tua aprovação da cópia, (3) teste seed. A automação "Checkout abandonado" ativa <strong>não foi tocada</strong>.
+</div>
+
+<h2>1. Os 6 fluxos (resumo para aprovação)</h2>
+<table>
+  <tr><th>Fluxo</th><th>Emails · tempos</th><th>Código</th><th>Exclusão-chave</th></tr>
+  <tr><td><strong>F1 Boas-vindas</strong></td><td>E1 imediato · E2 +48h (best-seller) · E3 +5 dias (urgência)</td><td><code>BEMVINDA5</code> (5%)</td><td>Quem já comprou</td></tr>
+  <tr><td><strong>F2 Carrinho abandonado</strong></td><td>E1 +1h (sem desconto) · E2 +24h</td><td><code>OPORTUNIDADE10</code> (10%)</td><td>Quem entrou no checkout → vai p/ F3</td></tr>
+  <tr><td><strong>F3 Checkout abandonado</strong> (melhorado)</td><td>E1 ~10h (com logótipo) · E2 +24h</td><td><code>OPORTUNIDADE10</code> (10%)</td><td>No go-live: pausar a antiga, ativar esta (nunca apagar)</td></tr>
+  <tr><td><strong>F4 Pós-venda</strong></td><td>E1 na expedição (modo de uso) · E2 +7–10 dias (avaliação)</td><td><code>DETOX5</code> (opcional, só Detox)</td><td>—</td></tr>
+  <tr><td><strong>F5 Recompra/Reposição</strong></td><td>E1 ~30–45 dias após entrega</td><td><code>RECOMPRA10</code> / <code>REPOSICAO10</code> (10%)</td><td>—</td></tr>
+  <tr><td><strong>F6 Win-back</strong></td><td>E1 60–90 dias sem compra · E2 +5 dias (urgência)</td><td><code>VOLTEI15</code> (15%)</td><td>Exclui pós-venda/recompra recente</td></tr>
+</table>
+<p class="small">Todos os CTAs de WhatsApp usam <strong>+351 912 976 633</strong> (<code>wa.me/351912976633</code>). Cópia integral PT-PT de cada email: ver <em>Build Pack</em>.</p>
+
+<h2>2. Aprovação da cópia (marca o que aprovas)</h2>
+<ul class="chk">
+  <li>F1 Boas-vindas (E1 · E2 · E3)</li>
+  <li>F2 Carrinho abandonado (E1 · E2)</li>
+  <li>F3 Checkout abandonado melhorado (E1 · E2)</li>
+  <li>F4 Pós-venda (E1 · E2)</li>
+  <li>F5 Recompra/Reposição (E1)</li>
+  <li>F6 Win-back (E1 · E2)</li>
+</ul>
+<p class="small">2 confirmações de conteúdo em falta: <strong>best-seller</strong> para o F1·E2 e <strong>produto complementar</strong> para o F4·E2 (escolho via relatório de vendas/seletor, ou indicas tu).</p>
+
+<h2>3. Os 3 gates antes do go-live</h2>
+<table>
+  <tr><th>Gate</th><th>Quem</th><th>Estado</th></tr>
+  <tr><td><strong>Autenticação de email</strong> (SPF/DKIM/DMARC verde + remetente verificado)</td><td>IT / host (tens o doc com os registos DNS)</td><td><span class="pill p-block">Pendente</span></td></tr>
+  <tr><td><strong>Aprovação da cópia</strong></td><td>Tu</td><td><span class="pill p-wait">A aguardar</span></td></tr>
+  <tr><td><strong>Fonte de captura</strong> (Shopify Forms p/ alimentar o F1)</td><td>Eu (não bloqueia construir)</td><td><span class="pill p-wait">A ativar</span></td></tr>
+</table>
+
+<h2>4. O que eu faço quando os gates ficarem verdes</h2>
+<ol>
+  <li>Terminar de construir os fluxos <strong>F2–F6</strong> como rascunhos inativos no Shopify Messaging (o F1 já está criado).</li>
+  <li>Inserir best-seller (F1·E2) e produto complementar (F4·E2) via seletor.</li>
+  <li><strong>Teste seed</strong> de cada email (render, links, códigos, variáveis) para um endereço interno.</li>
+  <li>F3: <strong>pausar a "Checkout abandonado" antiga + ativar a nova</strong> — nunca apagar a antiga.</li>
+  <li>Ativar F1, F2, F4, F5 e F6.</li>
+  <li>Monitorizar entregabilidade e aberturas/cliques nas primeiras 72h.</li>
+</ol>
+
+<div class="callout ok">
+  <strong>Segurança:</strong> só produtos e códigos reais; sem alegações médicas; RGPD respeitado (só ao segmento subscrito, com cancelamento); nenhuma automação ativa apagada; nada é enviado até o gate verde + a tua aprovação.
+</div>
+
+<p class="small">Documento de trabalho · Izabel de Paula® · Funil de email — aprovação + go-live · PT-PT · Junho 2026. Cópia integral no Build Pack. Ativação só com autenticação verde + aprovação.</p>
+
+</div>
+</body>
+</html>

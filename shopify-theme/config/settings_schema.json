@@ -1,0 +1,50 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Izabel de Paula",
+    "theme_version": "1.0.0",
+    "theme_author": "Izabel de Paula",
+    "theme_documentation_url": "https://store.izabeldepaula.com",
+    "theme_support_url": "https://store.izabeldepaula.com"
+  },
+  {
+    "name": "Loja",
+    "settings": [
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp (só dígitos, com indicativo)",
+        "default": "351912976633"
+      },
+      {
+        "type": "text",
+        "id": "phone_display",
+        "label": "Telefone (exibição)",
+        "default": "+351 912 976 633"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "E-mail de contacto",
+        "default": "izabeldepaula.geral@gmail.com"
+      },
+      {
+        "type": "number",
+        "id": "free_ship_threshold",
+        "label": "Portes grátis acima de (€)",
+        "default": 100
+      },
+      {
+        "type": "text",
+        "id": "free_ship_note",
+        "label": "Nota dos portes",
+        "default": "Portugal Continental"
+      },
+      {
+        "type": "collection",
+        "id": "bestsellers_collection",
+        "label": "Coleção «Mais vendidos» (ordem manual)"
+      }
+    ]
+  }
+]

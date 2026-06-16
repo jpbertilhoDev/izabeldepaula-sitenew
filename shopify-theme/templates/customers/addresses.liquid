@@ -1,0 +1,47 @@
+<section class="section"><div class="wrap">
+  <div class="head-c" data-reveal><span class="kicker">Conta</span><h1 class="h-sec">As minhas moradas</h1></div>
+  <p class="alt" style="text-align:center;margin-bottom:30px"><a href="{{ routes.account_url }}">&larr; Voltar à conta</a></p>
+
+  {%- paginate customer.addresses by 6 -%}
+    {%- for address in customer.addresses -%}
+      <div class="acct-addr" style="border:1px solid var(--line);padding:18px;margin-bottom:16px">
+        {%- if address == customer.default_address -%}<p class="kicker">Morada principal</p>{%- endif -%}
+        <p>{{ address | format_address }}</p>
+        <details>
+          <summary>Editar</summary>
+          {%- form 'customer_address', address -%}
+            <div class="auth">
+              <div class="field"><label>Nome</label><input type="text" name="address[first_name]" value="{{ address.first_name }}"></div>
+              <div class="field"><label>Apelido</label><input type="text" name="address[last_name]" value="{{ address.last_name }}"></div>
+              <div class="field"><label>Morada</label><input type="text" name="address[address1]" value="{{ address.address1 }}"></div>
+              <div class="field"><label>Cidade</label><input type="text" name="address[city]" value="{{ address.city }}"></div>
+              <div class="field"><label>Código postal</label><input type="text" name="address[zip]" value="{{ address.zip }}"></div>
+              <div class="field"><label>País</label><select name="address[country]">{{ all_country_option_tags }}</select></div>
+              <div class="field"><label>Telefone</label><input type="tel" name="address[phone]" value="{{ address.phone }}"></div>
+              <button type="submit" class="btn btn--ink">Guardar</button>
+            </div>
+          {%- endform -%}
+          <form method="post" action="/account/addresses/{{ address.id }}">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn btn--ghost" onclick="return confirm('Apagar esta morada?')">Apagar</button>
+          </form>
+        </details>
+      </div>
+    {%- endfor -%}
+    <div style="margin:20px 0">{{ paginate | default_pagination }}</div>
+  {%- endpaginate -%}
+
+  <h3 class="legal-h">Adicionar morada</h3>
+  {%- form 'customer_address', customer.new_address -%}
+    <div class="auth" style="margin:0">
+      <div class="field"><label>Nome</label><input type="text" name="address[first_name]"></div>
+      <div class="field"><label>Apelido</label><input type="text" name="address[last_name]"></div>
+      <div class="field"><label>Morada</label><input type="text" name="address[address1]"></div>
+      <div class="field"><label>Cidade</label><input type="text" name="address[city]"></div>
+      <div class="field"><label>Código postal</label><input type="text" name="address[zip]"></div>
+      <div class="field"><label>País</label><select name="address[country]">{{ all_country_option_tags }}</select></div>
+      <div class="field"><label>Telefone</label><input type="tel" name="address[phone]"></div>
+      <button type="submit" class="btn btn--ink">Adicionar morada</button>
+    </div>
+  {%- endform -%}
+</div></section>

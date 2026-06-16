@@ -1,0 +1,146 @@
+{%- comment -%}
+  Dados estruturados schema.org (JSON-LD) para SEO + GEO (Google rich results + IAs).
+  - Organization + Person (fundadora) + WebSite (SearchAction): em todas as páginas —
+    definem a entidade da marca e ligam aos sites/redes oficiais (sameAs) para o grafo
+    de conhecimento e citação por IAs.
+  - ItemList de produtos: na homepage — dá o catálogo às IAs mesmo sem executar JS.
+  - Product + BreadcrumbList: nas páginas de produto, com preço/disponibilidade VIVOS.
+  Nota: aggregateRating/review propositadamente omitido enquanto a secção de avaliações
+  estiver oculta (política do Google exige avaliações visíveis na página).
+{%- endcomment -%}
+{%- liquid
+  assign brand_desc = 'Izabel de Paula® — Body Shaper Expert, pioneira em Portugal, com mais de 30 anos de experiência e método próprio e patenteado. Cosméticos corporais, géis, detox e suplementos para leveza, firmeza e bem-estar.'
+  assign logo_url = 'logo-izb.png' | asset_url | prepend: 'https:'
+  assign tel = settings.whatsapp_number | prepend: '+'
+  assign org_id = shop.url | append: '/#organization'
+  assign person_id = shop.url | append: '/#izabel-de-paula'
+-%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": {{ org_id | json }},
+      "name": {{ shop.name | json }},
+      "alternateName": "Izabel de Paula® Body Shaper Expert",
+      "url": {{ shop.url | append: '/' | json }},
+      "logo": {{ logo_url | json }},
+      "image": {{ logo_url | json }},
+      "description": {{ brand_desc | json }},
+      "slogan": "Body Shaper Expert®",
+      "founder": { "@id": {{ person_id | json }} },
+      "areaServed": { "@type": "Place", "name": "Europa" },
+      {% if settings.contact_email != blank %}"email": {{ settings.contact_email | json }},{% endif %}
+      "telephone": {{ tel | json }},
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": {{ tel | json }},
+        "contactType": "customer service",
+        "areaServed": "EU",
+        "availableLanguage": ["Portuguese", "Spanish", "English"]
+      },
+      "sameAs": [
+        "https://www.izabeldepaula.com/",
+        "https://clinicaizabeldepaula.com/",
+        "https://formacoes.izabeldepaula.com/",
+        "https://www.instagram.com/izabeldepaula_oficial",
+        "https://www.tiktok.com/@izabeldepaula_oficial",
+        "https://www.facebook.com/IzabeldiPaula/",
+        "https://www.youtube.com/@IzabelDePaulaOficial"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": {{ person_id | json }},
+      "name": "Izabel de Paula",
+      "jobTitle": "Body Shaper Expert · Fundadora",
+      "description": "Pioneira do conceito Body Shaper em Portugal, com mais de 30 anos de experiência e um método próprio e patenteado de cuidado corporal.",
+      "worksFor": { "@id": {{ org_id | json }} },
+      "knowsAbout": ["Body Shaper", "cosmética corporal", "cuidado corporal", "bem-estar", "estética corporal"],
+      "sameAs": [
+        "https://www.instagram.com/izabeldepaula_oficial",
+        "https://www.tiktok.com/@izabeldepaula_oficial",
+        "https://www.youtube.com/@IzabelDePaulaOficial",
+        "https://www.facebook.com/IzabeldiPaula/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": {{ shop.url | append: '/#website' | json }},
+      "url": {{ shop.url | append: '/' | json }},
+      "name": {{ shop.name | json }},
+      "inLanguage": {{ request.locale.iso_code | json }},
+      "publisher": { "@id": {{ org_id | json }} },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "{{ shop.url }}/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    {%- if request.page_type == 'index' -%}
+    ,
+    {
+      "@type": "ItemList",
+      "@id": {{ shop.url | append: '/#produtos' | json }},
+      "name": "Produtos Izabel de Paula",
+      "itemListElement": [
+        {%- assign feat = settings.bestsellers_collection -%}
+        {%- if feat == blank or feat.products_count == 0 -%}{%- assign feat = collections.all -%}{%- endif -%}
+        {%- for p in feat.products limit: 12 -%}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "item": {
+            "@type": "Product",
+            "@id": {{ p.url | prepend: shop.url | append: '#product' | json }},
+            "name": {{ p.title | json }},
+            "url": {{ p.url | prepend: shop.url | json }},
+            "image": {% if p.featured_image %}{{ p.featured_image | image_url: width: 800 | prepend: 'https:' | json }}{% else %}{{ logo_url | json }}{% endif %},
+            "offers": {
+              "@type": "Offer",
+              "price": {{ p.price | divided_by: 100.0 }},
+              "priceCurrency": {{ cart.currency.iso_code | json }},
+              "availability": {% if p.available %}"https://schema.org/InStock"{% else %}"https://schema.org/OutOfStock"{% endif %}
+            }
+          }
+        }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+    {%- endif -%}
+    {%- if request.page_type == 'product' -%}
+    ,
+    {
+      "@type": "Product",
+      "@id": {{ canonical_url | append: '#product' | json }},
+      "name": {{ product.title | json }},
+      "description": {{ product.description | strip_html | strip_newlines | strip | truncate: 320 | json }},
+      "image": [{% if product.images.size > 0 %}{% for image in product.images limit: 5 %}{{ image | image_url: width: 1200 | prepend: 'https:' | json }}{% unless forloop.last %},{% endunless %}{% endfor %}{% else %}{{ logo_url | json }}{% endif %}],
+      "brand": { "@type": "Brand", "name": "Izabel de Paula" },
+      {% if product.selected_or_first_available_variant.sku != blank %}"sku": {{ product.selected_or_first_available_variant.sku | json }},{% endif %}
+      "url": {{ canonical_url | json }},
+      "offers": {
+        "@type": "Offer",
+        "price": {{ product.price | divided_by: 100.0 }},
+        "priceCurrency": {{ cart.currency.iso_code | json }},
+        "availability": {% if product.available %}"https://schema.org/InStock"{% else %}"https://schema.org/OutOfStock"{% endif %},
+        "url": {{ canonical_url | json }},
+        "seller": { "@id": {{ org_id | json }} }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Início", "item": {{ shop.url | append: '/' | json }} },
+        { "@type": "ListItem", "position": 2, "name": "Loja", "item": {{ shop.url | append: routes.all_products_collection_url | json }} },
+        { "@type": "ListItem", "position": 3, "name": {{ product.title | json }}, "item": {{ canonical_url | json }} }
+      ]
+    }
+    {%- endif -%}
+  ]
+}
+</script>

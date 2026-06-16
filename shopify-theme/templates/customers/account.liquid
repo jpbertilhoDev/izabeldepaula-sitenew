@@ -1,0 +1,32 @@
+<section class="section"><div class="wrap">
+  <div class="head-c" data-reveal><span class="kicker">A minha conta</span>
+    <h1 class="h-sec">Olá, {{ customer.first_name | default: customer.email }}</h1></div>
+  <p class="alt" style="text-align:center;margin-bottom:30px">
+    <a href="{{ routes.account_addresses_url }}">Moradas</a> ·
+    <a href="{{ routes.account_logout_url }}">Sair</a>
+  </p>
+
+  <h3 class="legal-h">Os meus pedidos</h3>
+  {%- paginate customer.orders by 20 -%}
+    {%- if customer.orders.size > 0 -%}
+      <table class="acct-table">
+        <thead><tr><th>Pedido</th><th>Data</th><th>Pagamento</th><th>Envio</th><th>Total</th></tr></thead>
+        <tbody>
+        {%- for order in customer.orders -%}
+          <tr>
+            <td><a href="{{ order.customer_url }}">{{ order.name }}</a></td>
+            <td>{{ order.created_at | date: '%d/%m/%Y' }}</td>
+            <td>{{ order.financial_status_label }}</td>
+            <td>{{ order.fulfillment_status_label }}</td>
+            <td>{{ order.total_price | money }}</td>
+          </tr>
+        {%- endfor -%}
+        </tbody>
+      </table>
+      <div style="margin-top:20px">{{ paginate | default_pagination }}</div>
+    {%- else -%}
+      <p>Ainda não realizou nenhum pedido.</p>
+      <p><a class="btn btn--ink" href="{{ routes.all_products_collection_url }}">Ver a coleção</a></p>
+    {%- endif -%}
+  {%- endpaginate -%}
+</div></section>

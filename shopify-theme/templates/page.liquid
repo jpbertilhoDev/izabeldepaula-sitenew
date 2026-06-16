@@ -1,0 +1,14 @@
+{%- comment -%}
+  Página de conteúdo (Política de privacidade, Termos, Entregas & portes…).
+  Reaproveita o layout legal do design (.legal / .legal-body). O conteúdo HTML
+  é editado no admin do Shopify (Páginas) e injetado por {{ page.content }}.
+{%- endcomment -%}
+<section class="section legal">
+  <div class="wrap">
+    <span class="kicker" data-reveal>Izabel de Paula · Body Shaper Expert®</span>
+    <h1 data-reveal>{{ page.title }}</h1>
+    <div class="legal-body rte" data-reveal>
+      {{ page.content }}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,76 @@
+{%- comment -%}
+  Página de produto. product.js renderiza #pdp e [data-related] a partir de
+  window.PRODUCTS, identificando o produto por window.IZB_HANDLE (handle do
+  Shopify). Os scripts do layout correm no fim do body, depois deste inline.
+{%- endcomment -%}
+<script>window.IZB_HANDLE = {{ product.handle | json }};</script>
+
+<!-- ============ PRODUTO ============ -->
+{%- comment -%}
+  Conteúdo server-side (SEO/GEO): visível sem JS e legível por crawlers de IA
+  (que não executam JavaScript). O product.js substitui este bloco pela versão
+  interativa quando o JS corre. Mantém um <h1> e a descrição reais no HTML inicial.
+{%- endcomment -%}
+<main class="pdp" id="pdp">
+  <div class="wrap">
+    <nav class="breadcrumb"><a href="{{ routes.root_url }}">Início</a><span>/</span><a href="{{ routes.all_products_collection_url }}">Loja</a><span>/</span><b>{{ product.title | escape }}</b></nav>
+    <div class="pdp-wrap">
+      <div class="pdp-gallery">
+        <div class="pdp-main">
+          {%- if product.featured_image -%}
+          <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.featured_image.alt | default: product.title | escape }}" width="900" height="900" fetchpriority="high" decoding="async">
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="pdp-info">
+        <span class="pdp-cat">{{ product.type | default: 'Izabel de Paula' | escape }}</span>
+        <h1 class="pdp-title">{{ product.title | escape }}</h1>
+        {%- if product.description != blank -%}
+        <p class="pdp-short">{{ product.description | strip_html | strip_newlines | truncate: 200 | escape }}</p>
+        {%- endif -%}
+        <div class="pdp-price">
+          {%- if product.compare_at_price > product.price -%}<span class="pdp-was">{{ product.compare_at_price | money }}</span>{%- endif -%}
+          <span class="pdp-now">{{ product.price | money }}</span>
+        </div>
+        {%- if product.available -%}
+        <form method="post" action="{{ routes.cart_add_url }}" class="pdp-actions">
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="quantity" value="1">
+          <button type="submit" class="btn btn--ink btn--block">Adicionar à sacola</button>
+        </form>
+        {%- else -%}
+        <p class="pdp-soldout">Esgotado de momento.</p>
+        {%- endif -%}
+        <ul class="pdp-trust"><li>Envio para toda a Europa</li><li>Portes grátis acima de €{{ settings.free_ship_threshold }}</li><li>Pagamento seguro</li><li>Garantia de 15 dias</li></ul>
+        {%- if product.description != blank -%}
+        <div class="pdp-desc pdp-desc--col">{{ product.description }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ RELACIONADOS ============ -->
+<section class="section" id="related">
+  <div class="wrap">
+    <div class="head-c" data-reveal>
+      <span class="kicker">Combina com</span>
+      <h2 class="h-sec">Você também vai <span class="it gold">gostar.</span></h2>
+    </div>
+    <div class="rail" data-rail>
+      <button class="rail-arrow prev" data-prev aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="rail-arrow next" data-next aria-label="Próximo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <div class="rail-track" data-related><!-- product.js --></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GARANTIAS ============ -->
+<section class="assure assure-end">
+  <div class="wrap">
+    <div class="it"><svg viewBox="0 0 24 24"><path d="M3 7h13v8H3z"/><path d="M16 10h3l2 3v2h-5z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg><div class="tx"><b>Enviamos para a Europa</b><span>Garantimos a entrega do seu pedido</span></div></div>
+    <div class="it"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M3 10h18"/></svg><div class="tx"><b>Pagamento facilitado</b><span>Principais cartões e métodos</span></div></div>
+    <div class="it"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><div class="tx"><b>Site seguro</b><span>Protegemos os seus dados</span></div></div>
+    <div class="it"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 20l1.1-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg><div class="tx"><b>Fale connosco</b><span>Clique no botão do WhatsApp</span></div></div>
+  </div>
+</section>

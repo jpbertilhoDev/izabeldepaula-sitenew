@@ -1,0 +1,20 @@
+{%- comment -%}
+  Carrinho. A sacola do tema é a gaveta lateral (cart.js, via localStorage).
+  Esta página existe para visitas diretas a /cart: sinaliza o cart.js para abrir
+  a gaveta e oferece um fallback acessível caso o JS não corra.
+{%- endcomment -%}
+<script>window.IZB_OPEN_CART = true;</script>
+
+<section class="section">
+  <div class="wrap" style="text-align:center;max-width:640px">
+    <div class="head-c" data-reveal>
+      <span class="kicker">A sua sacola</span>
+      <h2 class="h-sec">A sua <span class="it gold">sacola.</span></h2>
+    </div>
+    <p class="lead" style="margin:18px 0 28px">Reveja os seus produtos na gaveta lateral. Se não abrir automaticamente, toque abaixo.</p>
+    <p>
+      <button class="btn btn--ink" type="button" data-cart-open>Abrir a sacola</button>
+      <a class="btn btn--ghost" href="{{ routes.all_products_collection_url }}">Continuar a comprar</a>
+    </p>
+  </div>
+</section>
