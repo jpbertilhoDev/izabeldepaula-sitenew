@@ -726,3 +726,10 @@ a.ba-card--link:hover .ba-shop{ color:var(--gold); }
 .pdp-desc--col .ds-actives b{ font-size:16px; }
 .pdp-desc--col .ds-trust-line{ display:flex; align-items:center; gap:9px; margin-top:28px; padding-top:20px; border-top:1px solid var(--line-soft); font-family:var(--mono); font-size:10.5px; letter-spacing:.04em; color:var(--muted); line-height:1.5; }
 .pdp-desc--col .ds-trust-line svg{ flex:0 0 18px; width:18px; height:18px; stroke:var(--gold); fill:none; }
+
+/* ---- catalogo completo: estado esgotado + preco sob consulta ---- */
+.pcard .tag.soldout, .pdp-tags .tag.soldout{ background:var(--muted); color:#fff; }
+.pcard.is-sold .media>a img{ opacity:.7; filter:grayscale(.2); }
+.price .now.price-na, .pdp-now.price-na{ color:var(--muted); font-style:italic; }
+.add--sold, .buy--sold{ opacity:.5; pointer-events:none; cursor:not-allowed; }
+.buy--sold{ text-decoration:line-through; }

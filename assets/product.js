@@ -24,10 +24,49 @@
   var md = document.querySelector('meta[name="description"]');
   if (md) md.setAttribute('content', p.short);
 
+  /* ---------- SEO dinâmico da PDP (espelha o schema server-side da loja) ---------- */
+  (function () {
+    var origin = (location.origin && location.origin.indexOf('http') === 0) ? location.origin : 'https://www.izabeldepaula.com';
+    var orgId = 'https://www.izabeldepaula.com/#organization';
+    var pageUrl = origin + location.pathname + '?produto=' + encodeURIComponent(p.slug);
+    function abs(u) { return (u && u.indexOf('http') === 0) ? u : origin + '/' + String(u || '').replace(/^\//, ''); }
+    function setMeta(sel, val) { var el = document.querySelector(sel); if (el) el.setAttribute('content', val); }
+
+    var can = document.querySelector('link[rel="canonical"]'); if (can) can.setAttribute('href', pageUrl);
+    setMeta('meta[property="og:url"]', pageUrl);
+    setMeta('meta[property="og:title"]', p.name + ' · Izabel de Paula');
+    setMeta('meta[property="og:description"]', p.short || '');
+    setMeta('meta[name="twitter:title"]', p.name + ' · Izabel de Paula');
+    setMeta('meta[name="twitter:description"]', p.short || '');
+    if (p.img) { setMeta('meta[property="og:image"]', abs(p.img)); setMeta('meta[name="twitter:image"]', abs(p.img)); }
+
+    var imgs = [];
+    (p.gallery || []).forEach(function (g) { if (g && g.full) imgs.push(abs(g.full)); });
+    if (!imgs.length && p.img) imgs.push(abs(p.img));
+
+    var graph = { '@context': 'https://schema.org', '@graph': [
+      { '@type': 'Product', '@id': pageUrl + '#product', 'name': p.name,
+        'description': p.short || p.blurb || '', 'image': imgs,
+        'brand': { '@type': 'Brand', 'name': 'Izabel de Paula' }, 'url': pageUrl,
+        'offers': { '@type': 'Offer', 'price': p.price, 'priceCurrency': 'EUR',
+          'availability': 'https://schema.org/InStock', 'url': pageUrl, 'seller': { '@id': orgId } } },
+      { '@type': 'BreadcrumbList', 'itemListElement': [
+        { '@type': 'ListItem', 'position': 1, 'name': 'Início', 'item': origin + '/' },
+        { '@type': 'ListItem', 'position': 2, 'name': 'Loja', 'item': origin + '/index.html#loja' },
+        { '@type': 'ListItem', 'position': 3, 'name': p.name, 'item': pageUrl } ] }
+    ] };
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(graph);
+    document.head.appendChild(s);
+  })();
+
   var d = IZB.discount(p);
-  var priceBlock = (p.compareAt && p.compareAt > p.price ? '<span class="pdp-was">' + money(p.compareAt) + '</span>' : '')
-    + '<span class="pdp-now">' + money(p.price) + '</span>'
-    + (d ? '<span class="pdp-off">-' + d + '%</span>' : '');
+  var priceBlock = !p.price
+    ? '<span class="pdp-now price-na">Sob consulta</span>'
+    : (p.compareAt && p.compareAt > p.price ? '<span class="pdp-was">' + money(p.compareAt) + '</span>' : '')
+      + '<span class="pdp-now">' + money(p.price) + '</span>'
+      + (d ? '<span class="pdp-off">-' + d + '%</span>' : '');
 
   var tags = '';
   (p.badges || []).forEach(function (b) { tags += '<span class="tag ' + (b.cls || '') + '">' + esc(b.t) + '</span>'; });
@@ -120,7 +159,7 @@
   });
 
   /* ---------- WhatsApp de dúvidas: contextualiza a mensagem com o produto ---------- */
-  var waMsg = 'Olá Isabel, vendo o site, tenho uma dúvida sobre ' + p.name + '.';
+  var waMsg = 'Olá Izabel, vendo o site, tenho uma dúvida sobre ' + p.name + '.';
   var waHref = 'https://wa.me/' + IZB.SHOP.whatsapp + '?text=' + encodeURIComponent(waMsg);
   document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
     a.setAttribute('href', waHref);

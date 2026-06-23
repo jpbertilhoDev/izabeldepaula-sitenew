@@ -130,7 +130,7 @@
   });
 
   /* ---------- WhatsApp de dúvidas: contextualiza a mensagem com o produto ---------- */
-  var waMsg = 'Olá Isabel, vendo o site, tenho uma dúvida sobre ' + p.name + '.';
+  var waMsg = 'Olá Izabel, vendo o site, tenho uma dúvida sobre ' + p.name + '.';
   var waHref = 'https://wa.me/' + IZB.SHOP.whatsapp + '?text=' + encodeURIComponent(waMsg);
   document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
     a.setAttribute('href', waHref);

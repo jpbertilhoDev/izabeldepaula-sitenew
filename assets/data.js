@@ -15,6 +15,7 @@ window.PRODUCTS=[
   "bestseller": false,
   "bsRank": 99,
   "exp": false,
+  "available": true,
   "variant": "45697367015691",
   "d2": "BARRIGAFIT5",
   "d3": "BARRIGAFIT10",
@@ -71,6 +72,7 @@ window.PRODUCTS=[
   "bestseller": false,
   "bsRank": 99,
   "exp": false,
+  "available": true,
   "variant": "45697366655243",
   "d2": "SUBLIME5",
   "d3": "SUBLIME10",
@@ -122,6 +124,7 @@ window.PRODUCTS=[
   "bestseller": false,
   "bsRank": 99,
   "exp": false,
+  "available": true,
   "variant": "45697335296267",
   "d2": "LEGFIT5",
   "d3": "LEGFIT10",
@@ -173,6 +176,7 @@ window.PRODUCTS=[
   "bestseller": false,
   "bsRank": 99,
   "exp": false,
+  "available": true,
   "variant": "45697334968587",
   "d2": "BUMBUM5",
   "d3": "BUMBUM10",
@@ -229,6 +233,7 @@ window.PRODUCTS=[
   "bestseller": true,
   "bsRank": 3,
   "exp": false,
+  "available": true,
   "variant": "45697364033803",
   "d2": "STOPGORDURA5",
   "d3": "STOPGORDURA10",
@@ -285,6 +290,7 @@ window.PRODUCTS=[
   "bestseller": true,
   "bsRank": 4,
   "exp": false,
+  "available": true,
   "variant": "45697334116619",
   "d2": "DETOX5",
   "d3": "DETOX10",
@@ -336,6 +342,7 @@ window.PRODUCTS=[
   "bestseller": false,
   "bsRank": 99,
   "exp": false,
+  "available": false,
   "variant": "45697333199115",
   "d2": "LEGFITCAPS5",
   "d3": "LEGFITCAPS10",
@@ -368,6 +375,7 @@ window.PRODUCTS=[
   "bestseller": true,
   "bsRank": 5,
   "exp": false,
+  "available": true,
   "variant": "45697366065419",
   "d2": "DEPUR5",
   "d3": "DEPUR10",
@@ -424,6 +432,7 @@ window.PRODUCTS=[
   "bestseller": true,
   "bsRank": 2,
   "exp": false,
+  "available": true,
   "variant": "53166813806859",
   "d2": "SECABARRIGA5",
   "d3": "SECABARRIGA10",
@@ -480,6 +489,7 @@ window.PRODUCTS=[
   "bestseller": false,
   "bsRank": 99,
   "exp": true,
+  "available": true,
   "variant": "45697366294795",
   "d2": "KITSTOP5",
   "d3": "KITSTOP10",
@@ -512,6 +522,7 @@ window.PRODUCTS=[
   "bestseller": true,
   "bsRank": 1,
   "exp": true,
+  "available": true,
   "variant": "52909670596875",
   "d2": "DETOXSTOP5",
   "d3": "DETOXSTOP10",
@@ -552,6 +563,7 @@ window.PRODUCTS=[
   "bestseller": false,
   "bsRank": 99,
   "exp": true,
+  "available": false,
   "variant": "51884698206475",
   "d2": "KITFIRE5",
   "d3": "KITFIRE10",
@@ -579,6 +591,7 @@ window.PRODUCTS=[
   "bestseller": false,
   "bsRank": 99,
   "exp": true,
+  "available": false,
   "variant": "45800051605771",
   "d2": "KITLIPEDEMA5",
   "d3": "KITLIPEDEMA10",
@@ -627,6 +640,7 @@ window.PRODUCTS=[
   "bestseller": false,
   "bsRank": 99,
   "exp": true,
+  "available": false,
   "variant": "52958214390027",
   "d2": "KITVERAO5",
   "d3": "KITVERAO10",
@@ -659,6 +673,7 @@ window.PRODUCTS=[
   "bestseller": false,
   "bsRank": 99,
   "exp": true,
+  "available": true,
   "variant": "46020681105675",
   "d2": "KITRENOVACAO5",
   "d3": "KITRENOVACAO10",
@@ -669,6 +684,217 @@ window.PRODUCTS=[
    {
     "full": "images/kit-emagrecimento-depur.jpeg",
     "thumb": "images/kit-emagrecimento-depur.jpeg"
+   }
+  ]
+ },
+ {
+  "slug": "kit-tratamento-intensivo",
+  "name": "Kit de Tratamento Intensivo",
+  "cat": "kit",
+  "catLabel": "Tratamento intensivo · profissional",
+  "vol": "Protocolo completo",
+  "img": "images/kit-tratamento-intensivo.jpg",
+  "rating": "4.9",
+  "badges": [
+   {
+    "t": "Intensivo",
+    "cls": "best"
+   }
+  ],
+  "price": 287.0,
+  "compareAt": null,
+  "bestseller": false,
+  "bsRank": 99,
+  "exp": false,
+  "available": true,
+  "variant": "46094872117515",
+  "d2": null,
+  "d3": null,
+  "short": "O nosso programa mais completo: um protocolo de tratamento intensivo que reúne os cuidados-chave da linha Izabel de Paula numa rotina pensada para quem quer ir mais longe.",
+  "blurb": "O protocolo mais completo da casa — tratamento intensivo para uma rotina de cuidado avançada.",
+  "descHtml": "<h2>Kit de tratamento intensivo</h2>\n<p>Imagine um kit de tratamento completo e intensivo, desenhado para ajudar a perder peso, reduzir medidas, desinchar e desinflamar, e ainda combater a flacidez e a celulite de forma eficaz. </p>\n<h3>O que está incluído?</h3>\n<ul>\n<li>\n<strong>Barriga Fit Detox</strong>\n<p>– Elimine toxinas e promova o bem-estar intestinal (Valor normal: 37€)</li></p>\n<li>\n<strong>Leg Fit Express®️ Pernas Leves</strong>\n<p>– Reduza a retenção de líquidos e inchaço (Valor normal: 34€)</li></p>\n<li>\n<strong>Creme Barriga Fit®️ – 250 ml</strong>\n<p>– Combata a gordura abdominal e firme a pele (Valor normal: 49€)</li></p>\n<li>\n<strong>Tónico Profissional Celulite 30ml</strong>\n<p>– Reduza celulite de forma eficaz (Valor normal: 70€)</li></p>\n<li>\n<strong>Gel Leg Fit Express®️</strong>\n<p>– Combate a flacidez, a celulite e a retenção de líquidos (Valor normal: 49€)</li></p>\n<li>\n<strong>Lush Body Cream</strong>\n<p>– Hidratação intensa para uma pele macia e firme (Valor normal: 48€)</li></p>\n</ul>\n<h3>Benefícios do Pack:</h3>\n<ul>\n<li>Redução eficaz de celulite e gordura localizada</li>\n<li>Tonificação e firmeza da pele</li>\n<li>Sensação de leveza e bem-estar</li>\n<li>Hidratação profunda e revitalização da pele</li>\n</ul>",
+  "gallery": [
+   {
+    "full": "images/kit-tratamento-intensivo.jpg",
+    "thumb": "images/kit-tratamento-intensivo.jpg"
+   }
+  ]
+ },
+ {
+  "slug": "tonico-celulite",
+  "name": "Tónico Profissional Celulite 30 ml",
+  "cat": "creme",
+  "catLabel": "Tónico profissional",
+  "vol": "30 ml",
+  "img": "images/tonico-celulite.jpg",
+  "rating": "4.8",
+  "badges": [
+   {
+    "t": "Esgotado",
+    "cls": "soldout"
+   }
+  ],
+  "price": 0.0,
+  "compareAt": null,
+  "bestseller": false,
+  "bsRank": 99,
+  "exp": false,
+  "available": false,
+  "variant": "52724146274571",
+  "d2": null,
+  "d3": null,
+  "short": "Tónico profissional concentrado (30 ml) para um cuidado direcionado às zonas com tendência a celulite, a integrar na sua rotina de pele.",
+  "blurb": "Tónico profissional concentrado para um cuidado direcionado às zonas com celulite.",
+  "descHtml": "<h3>Tónico Profissional Anti-Celulite de Alta Performance</h3>\n<p>O\n<strong>Tónico Profissional Celulite 30ml</strong>\n<p>é a solução concentrada de excelência para tratamentos intensivos de celulite em gabinete. Com ativos de alta performance e textura fluida de rápida absorção, proporciona resultados visíveis e duradouros em protocolos profissionais.</p></p>\n<h4>Benefícios Principais:</h4>\n<ul>\n<li>\n<strong>Ação anti-celulite intensiva</strong>\n<p>que reduz a aparência da celulite</li></p>\n<li>\n<strong>Melhoria da textura da pele</strong>\n<p>e redução do aspeto casca de laranja</li></p>\n<li>\n<strong>Estimula a microcirculação</strong>\n<p>e drenagem de toxinas</li></p>\n<li>\n<strong>Fórmula concentrada</strong>\n<p>de alta eficácia profissional</li></p>\n<li>\n<strong>Rápida absorção</strong>\n<p>para uso em protocolos combinados</li></p>\n<li>\n<strong>Formato 30ml</strong>\n<p>ideal para tratamentos localizados</li></p>\n</ul>\n<h4>Modo de Uso Profissional:</h4>\n<p>Aplicar algumas gotas nas áreas afetadas pela celulite, massajando com movimentos circulares até completa absorção. Ideal para uso antes de tratamentos com aparelhos estéticos, massagem modeladora, ventosaterapia e protocolos de drenagem linfática. Potencializa os resultados quando combinado com outros tratamentos.</p>\n<p>\n<strong>Exclusivo para uso profissional em gabinete.</strong>\n<p>Produto de alta performance desenvolvido para esteticistas e profissionais de estética corporal.</p></p>",
+  "gallery": [
+   {
+    "full": "images/tonico-celulite.jpg",
+    "thumb": "images/tonico-celulite.jpg"
+   }
+  ]
+ },
+ {
+  "slug": "bag-pano",
+  "name": "Bag de Pano Izabel de Paula",
+  "cat": "acessorio",
+  "catLabel": "Acessório · 100% pano",
+  "vol": "Tote bag",
+  "img": "images/bag-pano.jpg",
+  "rating": "4.9",
+  "badges": [],
+  "price": 6.0,
+  "compareAt": null,
+  "bestseller": false,
+  "bsRank": 99,
+  "exp": false,
+  "available": true,
+  "variant": "53092257071371",
+  "d2": null,
+  "d3": null,
+  "short": "A tote bag de pano Izabel de Paula: leve, resistente e reutilizável, para levar consigo todos os dias.",
+  "blurb": "Tote bag de pano Izabel de Paula — leve, resistente e reutilizável.",
+  "descHtml": "<p>Bag de pano de qualidade premium com o logotipo da marca\n<strong>Izabel de Paula</strong>\n<p>. Elegante, prática e sustentável — a escolha perfeita para o dia a dia.</p></p>",
+  "gallery": [
+   {
+    "full": "images/bag-pano.jpg",
+    "thumb": "images/bag-pano.jpg"
+   }
+  ]
+ },
+ {
+  "slug": "caderno-izb",
+  "name": "Caderno IZB A5",
+  "cat": "acessorio",
+  "catLabel": "Acessório · caderno A5",
+  "vol": "Pautado",
+  "img": "images/caderno-izb.jpg",
+  "rating": "4.8",
+  "badges": [],
+  "price": 7.99,
+  "compareAt": 12.0,
+  "bestseller": false,
+  "bsRank": 99,
+  "exp": false,
+  "available": true,
+  "variant": "49543130808587",
+  "d2": null,
+  "d3": null,
+  "short": "Caderno A5 Izabel de Paula para registar a sua rotina, hábitos e metas de bem-estar, com o cuidado de marca em cada detalhe.",
+  "blurb": "Caderno A5 Izabel de Paula para organizar a sua rotina e as suas metas.",
+  "descHtml": "<h2>Detalhes do produto</h2>\n<p>-Com Papel Interno Vazio Do Bloco De Notas 98sheets Da Página Do Marcador</p>\n<br>-Tipo de folha pautada: Simples\n<p>-Tipo de acabamento: Não revestido</p>",
+  "gallery": [
+   {
+    "full": "images/caderno-izb.jpg",
+    "thumb": "images/caderno-izb.jpg"
+   }
+  ]
+ },
+ {
+  "slug": "ebook-barriga-fit",
+  "name": "E-book Barriga Fit",
+  "cat": "acessorio",
+  "catLabel": "E-book · digital (PDF)",
+  "vol": "Download",
+  "img": "images/ebook-barriga-fit.jpg",
+  "rating": "5.0",
+  "badges": [],
+  "price": 9.99,
+  "compareAt": 39.9,
+  "bestseller": false,
+  "bsRank": 99,
+  "exp": false,
+  "available": true,
+  "variant": "46462955553035",
+  "d2": null,
+  "d3": null,
+  "short": "E-book Barriga Fit (PDF digital): um guia prático para organizar a sua rotina de autocuidado com método, constância e naturalidade.",
+  "blurb": "Guia digital Barriga Fit — comece a sua rotina com método, em PDF.",
+  "descHtml": "<h2>📚 A Sua Transformação Começa Aqui! 📚</h2>\n<p>\n<strong>E-Book Barriga Fit - Guia Completo de Emagrecimento</strong>\n</p>\n<p>💾 Download Imediato | 📧 Recebe no E-mail</p>\n<p>\n<strong>Preço Normal:</strong>\n<p>€39.90 |</p>\n<strong>Preço:</strong>\n<p>€17.90 -55%</p></p>\n<p>Economize €22 | ✓ Download imediato após pagamento</p>\n<h2>📖 O Que Está Incluído no E-Book?</h2>\n<p>O\n<strong>E-Book Barriga Fit</strong>\n<p>é o seu guia completo para emagrecer de forma saudável, no conforto da sua casa. Um plano prático e eficaz para transformar o seu corpo e resgatar a sua autoestima!</p></p>\n<h4>🍽️ Plano Alimentar</h4>\n<p>Guia completo de alimentação saudável para emagrecer sem passar fome.</p>\n<h4>💆 Auto-Massagem</h4>\n<p>Técnicas de massagem para reduzir medidas e celulite em casa.</p>\n<h4>🏠 Dicas Caseiras</h4>\n<p>Receitas e truques naturais para potencializar resultados.</p>\n<h4>💪 Transformação</h4>\n<p>Plano completo e eficaz para transformar o seu corpo.</p>\n<h2>✨ Benefícios do E-Book</h2>\n<ul>\n<li><strong>Emagreça de Forma Saudável</strong>\n<p>– Sem dietas radicais</li></p>\n<li><strong>No Conforto de Casa</strong>\n<p>– Sem precisar de ginásio</li></p>\n<li><strong>Plano Completo</strong>\n<h3 class=\"ds-h\">– Alimentação + Massagem + Dicas</li></h3>\n<li><strong>Resgate a Autoestima</strong>\n<p>– Sinta-se incrível</li></p>\n<li><strong>Guia Prático</strong>\n<p>– Fácil de seguir</li></p>\n<li><strong>Download Imediato</strong>\n<p>– Comece hoje mesmo</li></p>\n</ul>\n<h2>📥 Como Funciona?</h2>\n<h4>1️⃣ COMPRA:</h4>\n<p>Finalize o pagamento de forma segura</p>\n<h4>2️⃣ RECEBE NO E-MAIL:</h4>\n<p>O E-Book será enviado automaticamente para o seu e-mail</p>\n<h4>3️⃣ DOWNLOAD:</h4>\n<p>Faça o download e comece a sua transformação imediatamente</p>\n<p>\n<strong>💡 Dica:</strong>\n<h3 class=\"ds-h\">Acesso vitalício! Pode consultar sempre que quiser.</p></h3>\n<h2>❓ Perguntas Frequentes</h2>\n<p>Como recebo o E-Book?</p>\n<p>Após a confirmação do pagamento, o E-Book será enviado automaticamente para o e-mail cadastrado na compra. Verifique também a pasta de spam.</p>\n<p>Quanto tempo tenho acesso?</p>\n<p>O acesso é vitalício! Após fazer o download, o E-Book é seu para sempre. Pode consultar quantas vezes quiser.</p>\n<p>Posso imprimir o E-Book?</p>\n<p>Sim! Pode imprimir o E-Book para consultar em formato físico, se preferir.</p>\n<p>Funciona para homens e mulheres?</p>\n<p>Sim! O guia é eficaz tanto para homens quanto para mulheres que querem emagrecer de forma saudável.</p>\n<p>Preciso de equipamentos?</p>\n<p>Não! Todas as técnicas e dicas podem ser feitas em casa, sem necessidade de equipamentos especiais.</p>\n<h2>🎯 Para Quem é Este E-Book?</h2>\n<p>Quer emagrecer saudável</p>\n<p>Prefere treinar em casa</p>\n<p>Quer barriga lisa</p>\n<p>Busca autoestima</p>\n<p>Quer guia prático</p>\n<p>Precisa de motivação</p>\n<h3>📚 Comece Hoje a Transformação!</h3>\n<p>Download imediato após o pagamento</p>\n<p>💾 Formato Digital PDF | 📧 Enviado por E-mail | ♾️ Acesso Vitalício</p>\n<p>Nota: Este é um produto digital (E-Book em PDF). Não há envio físico. O arquivo será enviado para o e-mail cadastrado após confirmação do pagamento. Verifique a pasta de spam caso não receba em até 24 horas.</p>",
+  "gallery": [
+   {
+    "full": "images/ebook-barriga-fit.jpg",
+    "thumb": "images/ebook-barriga-fit.jpg"
+   }
+  ]
+ },
+ {
+  "slug": "garrafa-termica-izb",
+  "name": "Garrafa Térmica IZB® 250 ml",
+  "cat": "acessorio",
+  "catLabel": "Acessório · inox 250 ml",
+  "vol": "250 ml",
+  "img": "images/garrafa-termica.jpg",
+  "rating": "4.8",
+  "badges": [],
+  "price": 15.0,
+  "compareAt": null,
+  "bestseller": false,
+  "bsRank": 99,
+  "exp": false,
+  "available": true,
+  "variant": "45697334411531",
+  "d2": null,
+  "d3": null,
+  "short": "Garrafa térmica Izabel de Paula em inox (250 ml) — mantém a temperatura e acompanha a sua rotina de hidratação ao longo do dia.",
+  "blurb": "Garrafa térmica em inox (250 ml) — hidratação com estilo o dia todo.",
+  "descHtml": "<h4>GARRAFA TÉRMICA IZB®️\n<strong>250 ml</strong>\n</h4>\n<p>A garrafa ideal para andar consigo todo o dia. Nela pode colocar água ou a sua bebida favorita para o seu dia!.</p>",
+  "gallery": [
+   {
+    "full": "images/garrafa-termica.jpg",
+    "thumb": "images/garrafa-termica.jpg"
+   }
+  ]
+ },
+ {
+  "slug": "caneta-izb",
+  "name": "Caneta Personalizada IZB",
+  "cat": "acessorio",
+  "catLabel": "Acessório · edição IZB",
+  "vol": "Caneta",
+  "img": "images/logo-izb.png",
+  "rating": "5.0",
+  "badges": [
+   {
+    "t": "Esgotado",
+    "cls": "soldout"
+   }
+  ],
+  "price": 5.0,
+  "compareAt": null,
+  "bestseller": false,
+  "bsRank": 99,
+  "exp": false,
+  "available": false,
+  "variant": "53113548767499",
+  "d2": null,
+  "d3": null,
+  "short": "A caneta oficial Izabel de Paula — um pequeno detalhe de marca para o seu dia a dia.",
+  "blurb": "A caneta oficial Izabel de Paula — o detalhe de marca no seu dia a dia.",
+  "descHtml": "<p>Apresentamos a\n<strong>Caneta Personalizada Izabel de Paula</strong>\n<p>— um acessório elegante e exclusivo, criado para quem valoriza os detalhes e quer levar a identidade da marca em cada momento do dia.</p></p>\n<p>Perfeita para uso pessoal, como oferta corporativa ou lembrança especial, esta caneta combina funcionalidade com um toque premium que reflete os valores da Izabel de Paula: sofisticação, cuidado e autenticidade.</p>\n<ul>\n<li>Design exclusivo com identidade visual Izabel de Paula</li>\n<li>Escrita suave e precisa</li>\n<li>Ideal para presentes e brindes personalizados</li>\n<li>Acabamento premium</li>\n</ul>",
+  "gallery": [
+   {
+    "full": "images/logo-izb.png",
+    "thumb": "images/logo-izb.png"
    }
   ]
  }
