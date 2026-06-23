@@ -33,9 +33,11 @@
   if (md) md.setAttribute('content', p.short);
 
   var d = IZB.discount(p);
-  var priceBlock = (p.compareAt && p.compareAt > p.price ? '<span class="pdp-was">' + money(p.compareAt) + '</span>' : '')
-    + '<span class="pdp-now">' + money(p.price) + '</span>'
-    + (d ? '<span class="pdp-off">-' + d + '%</span>' : '');
+  var priceBlock = !p.price
+    ? '<span class="pdp-now price-na">Sob consulta</span>'
+    : (p.compareAt && p.compareAt > p.price ? '<span class="pdp-was">' + money(p.compareAt) + '</span>' : '')
+      + '<span class="pdp-now">' + money(p.price) + '</span>'
+      + (d ? '<span class="pdp-off">-' + d + '%</span>' : '');
 
   var tags = '';
   (p.badges || []).forEach(function (b) { tags += '<span class="tag ' + (b.cls || '') + '">' + esc(b.t) + '</span>'; });

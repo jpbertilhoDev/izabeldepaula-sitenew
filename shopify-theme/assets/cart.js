@@ -48,6 +48,7 @@
     return html ? '<div class="tags">' + html + '</div>' : '';
   }
   function priceHTML(p) {
+    if (!p.price) return '<div class="price"><span class="now price-na">Sob consulta</span></div>';
     var s = '';
     if (p.compareAt && p.compareAt > p.price) s += '<span class="was">' + money(p.compareAt) + '</span><br>';
     s += '<span class="now">' + money(p.price) + '</span>';
@@ -55,10 +56,17 @@
   }
   function cardHTML(p) {
     var u = url(p);
-    return '<article class="pcard" data-cat="' + p.cat + '" data-reveal>'
+    var sold = p.available === false;
+    var addBtn = sold
+      ? '<span class="add add--sold" aria-disabled="true">Esgotado</span>'
+      : '<button class="add" type="button" data-add="' + esc(p.slug) + '">Adicionar à sacola</button>';
+    var buyBtn = sold
+      ? '<span class="buy buy--sold" aria-disabled="true">Esgotado</span>'
+      : '<a class="buy" href="' + u + '">Comprar</a>';
+    return '<article class="pcard' + (sold ? ' is-sold' : '') + '" data-cat="' + p.cat + '" data-reveal>'
       + '<div class="media">' + badgesHTML(p)
       + '<a href="' + u + '" aria-label="' + esc(p.name) + '"><img src="' + p.img + '" alt="' + esc(p.name) + '" loading="lazy"></a>'
-      + '<button class="add" type="button" data-add="' + esc(p.slug) + '">Adicionar à sacola</button>'
+      + addBtn
       + '</div>'
       + '<div class="body">'
       + '<span class="cat">' + esc(p.catLabel) + '</span>'
@@ -66,7 +74,7 @@
       + '<span class="vol">' + esc(p.vol) + '</span>'
       + (p.blurb ? '<p class="blurb">' + esc(p.blurb) + '</p>' : '')
       + '<span class="stars">★★★★★ ' + esc(p.rating) + '</span>'
-      + '<div class="foot">' + priceHTML(p) + '<a class="buy" href="' + u + '">Comprar</a></div>'
+      + '<div class="foot">' + priceHTML(p) + buyBtn + '</div>'
       + '</div></article>';
   }
   function expSlideHTML(p) {
