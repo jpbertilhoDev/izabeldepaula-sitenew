@@ -278,7 +278,10 @@ for m in META:
         d3=(sh[2] if sh else None),
         short=SHORT.get(m['slug']) or m.get('short') or short_desc(m['handle'], m['name']),
         blurb=BLURB.get(m['slug'], ''),
-        descHtml=clean(p.get('body_html')),
+        # descHtml (body_html da loja) removido do output: não é renderizado em
+        # lado nenhum (a PDP usa content.js) e continha claims não-conformes
+        # (emagrecimento / perda de peso / queima de gordura). Fonte preservada
+        # em real-products.json; a descrição curada vive em assets/content.js.
     ))
 
 # galeria de cada produto: foto limpa (p.img) + slides do carrossel em images/gallery/<slug>/
@@ -307,4 +310,4 @@ print('products:', len(products))
 print('singles:', sum(1 for p in products if p['cat']!='kit'), '| kits:', sum(1 for p in products if p['cat']=='kit'))
 print('data.js bytes:', len(js))
 for p in products:
-    print(' -', p['slug'], '| €%.2f'%p['price'], ('(was €%.2f)'%p['compareAt']) if p['compareAt'] else '', '| desc', len(p['descHtml']),'b')
+    print(' -', p['slug'], '| €%.2f'%p['price'], ('(was €%.2f)'%p['compareAt']) if p['compareAt'] else '')
