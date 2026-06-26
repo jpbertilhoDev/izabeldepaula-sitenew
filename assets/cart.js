@@ -67,6 +67,7 @@
       + '<div class="body">'
       + '<span class="cat">' + esc(p.catLabel) + '</span>'
       + '<h3><a href="' + u + '">' + esc(p.name) + '</a></h3>'
+      + (p.blurb ? '<p class="pc-blurb">' + esc(p.blurb) + '</p>' : '')
       + '<span class="vol">' + esc(p.vol) + '</span>'
       + '<span class="stars">★★★★★ ' + esc(p.rating) + '</span>'
       + '<div class="foot">' + priceHTML(p) + buyBtn + '</div>'

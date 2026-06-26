@@ -122,6 +122,7 @@
     + '<h1 class="pdp-title">' + esc(p.name) + '</h1>'
     + '<div class="pdp-rating"><span class="stars">★★★★★</span><span class="pdp-rate-n">' + esc(p.rating) + '</span><span class="pdp-rate-tx">· avaliação das clientes</span></div>'
     + '<p class="pdp-short">' + esc(p.short) + '</p>'
+    + (window.IZBCONTENT && window.IZBCONTENT.keyBenefitsHTML ? window.IZBCONTENT.keyBenefitsHTML(p) : '')
     + '<div class="pdp-price">' + priceBlock + '</div>'
     + '<div class="pdp-vol">' + esc(p.vol) + '</div>'
     + unitsHTML

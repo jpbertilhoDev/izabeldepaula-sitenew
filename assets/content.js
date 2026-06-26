@@ -305,5 +305,118 @@
     return h;
   }
 
-  window.IZBCONTENT = { data: CONTENT, fullDescriptionHTML: fullDescriptionHTML };
+  /* ---------- Benefícios-chave da PDP ("Porque vai adorar") ----------
+     3-4 motivos escaneáveis de desejo, acima do preço. Conformidade UE:
+     só aspeto/sensação/leveza/firmeza/conforto/rotina — sem cura/emagrecimento. */
+  var BENEFITS = {
+    'creme-barriga-fit': [
+      'Textura de toque seco que absorve depressa, sem pegar na roupa.',
+      'Calor termogénico suave que transforma a massagem num ritual diário.',
+      'Cafeína e ativos botânicos que ajudam a realçar o aspeto firme e liso.',
+      'Foco na zona abdominal — onde mais quer cuidar.'
+    ],
+    'sublime-lush': [
+      'Óleo amazónico de Sacha Inchi, rico em ómegas 3, 6 e 9.',
+      'Hidratação profunda com toque sedoso, sem sensação oleosa.',
+      'Ideal para peles secas ou sensíveis que pedem nutrição diária.',
+      'Pele visivelmente mais macia, nutrida e luminosa.'
+    ],
+    'leg-fit-express': [
+      'Efeito frio imediato que refresca e alivia as pernas cansadas.',
+      'Sensação de leveza logo na primeira aplicação.',
+      'Absorve depressa e não deixa a pele pegajosa.',
+      'Mentol, aloé e centella para um aspeto de pele mais liso e firme.'
+    ],
+    'levanta-bumbum': [
+      'Efeito termogénico que ativa a massagem em glúteos e coxas.',
+      'Cafeína e centella para realçar o aspeto firme e elástico.',
+      'Ajuda a melhorar o aspeto da celulite e da flacidez.',
+      'Um gesto diário de autocuidado para a sua confiança.'
+    ],
+    'stop-gordura': [
+      'As cápsulas mais vendidas da linha Barriga Fit.',
+      'Probióticos e ativos botânicos numa fórmula natural premium.',
+      'Apoiam o conforto digestivo e a sensação de leveza no dia a dia.',
+      'Toma simples: 1 cápsula antes do almoço e do jantar.'
+    ],
+    'detox-liquido': [
+      'Drenante líquido de origem natural, com plantas associadas à leveza.',
+      'Ajuda na sensação de menos inchaço ao longo do dia.',
+      'Sabor agradável — fácil de incluir na rotina, diluído em água.',
+      '1 frasco rende cerca de 25 dias de utilização.'
+    ],
+    'pernas-leves': [
+      'Pensado para quem passa o dia em pé ou sentada.',
+      'Castanha-da-índia e centella associadas ao conforto das pernas.',
+      'Apoiam a sensação de pernas leves e descansadas.',
+      'Com vitamina C, que contribui para a formação normal de colagénio.'
+    ],
+    'depur': [
+      'Detox em ampolas de toma prática.',
+      'Plantas associadas ao bem-estar do fígado e à sensação de leveza.',
+      'Ideal para arrancar a rotina detox nos primeiros 15 dias.',
+      'Com cardo-mariano, alcachofra e reishi.'
+    ],
+    'kit-seca-barriga': [
+      'O duo da barriga: cápsulas Stop Gordura mais ampolas Depur.',
+      'Cuidado de dentro para fora, para mais leveza e menos inchaço.',
+      'Rotina pensada para as primeiras semanas.',
+      'Mais vantajoso do que comprar em separado.'
+    ],
+    'kit-stop-gordura': [
+      'O trio Barriga Fit completo: creme, detox e cápsulas.',
+      'Cuidado interno e externo a trabalhar em conjunto.',
+      'Aspeto mais firme e liso na zona abdominal, com sensação de leveza.',
+      'Toda a linha reunida, com melhor valor.'
+    ],
+    'kit-detox-stop': [
+      'A nossa dupla mais vendida: detox líquido mais cápsulas Stop Gordura.',
+      'A combinação perfeita para começar a rotina com leveza.',
+      'Cuidado interno simples, para o dia a dia.',
+      'Melhor valor do que comprar em separado.'
+    ],
+    'kit-fire': [
+      'O kit mais intensivo: depur, cápsulas e drenagem.',
+      'Três passos que se completam numa rotina focada.',
+      'Cuidado de dentro para fora, para a sensação de leveza.',
+      'Para quem quer uma rotina de bem-estar mais completa.'
+    ],
+    'kit-celulite-lipedema': [
+      'Foco nas pernas e no aspeto da celulite.',
+      'Gel de efeito frio, detox e cápsulas Pernas Leves.',
+      'Pele com toque mais firme e liso e sensação de leveza.',
+      'Cuidado externo e interno a complementarem-se.'
+    ],
+    'kit-verao': [
+      'Pack 4 em 1: detox, gordura, pernas leves e firmeza.',
+      'A rotina completa para se sentir bem na estação.',
+      'Cuidado por dentro e por fora, num só kit.',
+      '4 produtos premium com melhor valor.'
+    ],
+    'kit-renovacao-total': [
+      'O pack mais completo da Izabel de Paula.',
+      'Detox, suplementos e cosméticos numa rotina integrada.',
+      'Cuidado de dentro para fora, em cada fase.',
+      'Para quem quer ir mais longe no autocuidado.'
+    ],
+    'kit-tratamento-intensivo': [
+      'O protocolo mais completo da casa.',
+      'Tratamento intensivo com os cuidados-chave da linha.',
+      'Rotina avançada para quem quer ir mais longe.'
+    ],
+    'tonico-celulite': [
+      'Tónico profissional concentrado, em 30 ml.',
+      'Cuidado direcionado às zonas com tendência a celulite.',
+      'Integra-se facilmente na sua rotina de pele.'
+    ]
+  };
+
+  function keyBenefitsHTML(p) {
+    var b = BENEFITS[p.slug];
+    if (!b || !b.length) return '';
+    return '<div class="pdp-benefits"><span class="pdp-benefits-h">Porque vai adorar</span><ul>'
+      + b.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul></div>';
+  }
+
+  window.IZBCONTENT = { data: CONTENT, fullDescriptionHTML: fullDescriptionHTML, keyBenefitsHTML: keyBenefitsHTML };
 })();
