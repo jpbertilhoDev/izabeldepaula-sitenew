@@ -229,11 +229,11 @@ BLURB = {
 # (aspecto/sensação/rotina) — SEM promessas médicas / de cura. Sobrepõe-se ao texto
 # raspado por short_desc(): este é a fonte de verdade, não o body_html da loja.
 SHORT = {
- 'creme-barriga-fit': 'Creme corporal de toque seco para a zona da barriga — massaje todos os dias para uma pele com aspecto mais firme, liso e cuidado.',
+ 'creme-barriga-fit': 'A barriga é a zona que mais a incomoda? Creme de toque seco para massajar todos os dias, por uma pele com aspecto mais firme, liso e cuidado.',
  'sublime-lush':      'Creme corporal premium com óleo amazónico de Sacha Inchi, rico em ómega — hidratação profunda e um toque sedoso e aveludado na pele.',
- 'leg-fit-express':   'Gel de efeito frio para as pernas — alívio imediato e sensação de leveza ao fim do dia. Absorve depressa e não deixa a pele pegajosa.',
- 'levanta-bumbum':    'Gel reafirmante para glúteos, coxas e abdómen — massaje diariamente para uma pele com aspecto mais firme, tonificado e uniforme.',
- 'stop-gordura':      'As cápsulas mais vendidas da linha Barriga Fit — um apoio diário à sua rotina de controlo de peso e bem-estar, para se sentir mais leve.',
+ 'leg-fit-express':   'Pernas pesadas ao fim do dia? Gel de efeito frio com alívio imediato e sensação de leveza. Absorve depressa e não deixa a pele pegajosa.',
+ 'levanta-bumbum':    'O cuidado que os seus glúteos merecem: gel reafirmante para massajar diariamente, por uma pele com aspecto mais firme, tonificado e uniforme.',
+ 'stop-gordura':      'As cápsulas mais vendidas da linha Barriga Fit — um apoio diário à sua rotina de bem-estar, para se sentir mais leve no dia a dia.',
  'detox-liquido':     'Detox líquido saboroso para tomar todos os dias — a sua rotina de leveza, com menos sensação de inchaço e mais bem-estar.',
  'pernas-leves':      'Cápsulas pensadas para quem passa o dia em pé — um apoio diário à sensação de pernas leves e descansadas, sem aquele peso ao fim do dia.',
  'depur':             'Ampolas bebíveis para uma rotina detox de 15 dias — um cuidado depurativo de dentro para fora, a complementar a sua linha Barriga Fit.',

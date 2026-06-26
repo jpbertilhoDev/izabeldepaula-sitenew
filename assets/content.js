@@ -30,7 +30,7 @@
 
   var CONTENT = {
     'creme-barriga-fit': {
-      opening: 'O Creme Barriga Fit® é um creme corporal de toque aveludado, criado para a zona abdominal — onde a gordura localizada e a flacidez mais incomodam. A fórmula termogénica aquece suavemente a pele durante a massagem, num gesto reconfortante de autocuidado. Com uso contínuo, ajuda a melhorar o aspeto da pele e a deixar a barriga com toque mais firme e liso.',
+      opening: 'Aquela zona da barriga que mais a incomoda merece um cuidado à altura. O Creme Barriga Fit® é um creme corporal de toque aveludado, com fórmula termogénica que aquece suavemente a pele durante a massagem — um gesto diário e reconfortante de autocuidado. Com uso contínuo, ajuda a melhorar o aspeto da pele e a deixar a barriga com toque mais firme e liso.',
       resultsTime: 'Resultados percebidos a partir de 21 dias de uso contínuo.',
       howto: [
         'Após o banho, com a pele limpa e seca, aplique uma quantidade generosa na zona abdominal.',
@@ -48,7 +48,7 @@
       ]
     },
     'sublime-lush': {
-      opening: 'O Body Cream Sublime Lush é um creme corporal de hidratação profunda com óleo de Sacha Inchi, rico em ómegas. Funde-se na pele num toque sedoso, sem oleosidade, devolvendo conforto e maciez imediatos. Ideal para peles secas ou sensíveis que pedem nutrição diária, deixa a pele mais lisa, nutrida e luminosa.',
+      opening: 'Imagine o conforto de uma pele macia e nutrida logo na primeira aplicação. O Body Cream Sublime Lush é um creme corporal de hidratação profunda com óleo amazónico de Sacha Inchi, rico em ómegas, que se funde na pele num toque sedoso e sem oleosidade. Ideal para peles secas ou sensíveis que pedem nutrição diária, deixa a pele mais lisa, nutrida e luminosa.',
       resultsTime: 'Conforto imediato; pele visivelmente mais nutrida a partir de 14 dias de uso contínuo.',
       howto: [
         'Aplique sobre a pele limpa, de preferência ainda húmida após o banho.',
@@ -62,7 +62,7 @@
       ]
     },
     'leg-fit-express': {
-      opening: 'O Gel Leg Fit Express® é um gel de efeito frio imediato, pensado para pernas cansadas e pesadas e para o aspeto da celulite. Ao aplicar, refresca e proporciona uma sensação drenante de alívio e leveza. Com uso contínuo, ajuda a melhorar o aspeto da pele, deixando as pernas com toque mais firme e liso.',
+      opening: 'Chega ao fim do dia com as pernas pesadas? O Gel Leg Fit Express® é um gel de efeito frio imediato, pensado para pernas cansadas e para o aspeto da celulite. Ao aplicar, refresca e proporciona uma sensação drenante de alívio e leveza instantânea. Com uso contínuo, ajuda a melhorar o aspeto da pele, deixando as pernas com toque mais firme e liso.',
       resultsTime: 'Alívio e leveza desde a primeira aplicação; aspeto da pele melhora a partir de 21 dias de uso contínuo.',
       howto: [
         'À noite, após o banho, aplique uma quantidade generosa nas pernas.',
@@ -80,7 +80,7 @@
       ]
     },
     'levanta-bumbum': {
-      opening: 'O Gel Levanta Bumbum® é um gel corporal termogénico para glúteos, coxas e abdómen. Ao massajar, aquece suavemente a pele numa sensação ativadora — ideal no momento do autocuidado. Com uso contínuo, ajuda a melhorar o aspeto da celulite e da flacidez, deixando a pele com toque mais firme e elástico.',
+      opening: 'Dê aos seus glúteos o cuidado que eles merecem. O Gel Levanta Bumbum® é um gel corporal termogénico para glúteos, coxas e abdómen que, ao massajar, aquece suavemente a pele numa sensação ativadora — ideal no momento do autocuidado. Com uso contínuo, ajuda a melhorar o aspeto da celulite e da flacidez, deixando a pele com toque mais firme e elástico.',
       resultsTime: 'Resultados percebidos a partir de 28 dias de uso contínuo.',
       howto: [
         'Após o banho, aplique nos glúteos, coxas e abdómen.',
@@ -98,7 +98,7 @@
       ]
     },
     'stop-gordura': {
-      opening: 'Barriga Fit® Stop Gordura é um suplemento alimentar em cápsulas com uma fórmula natural premium. Combina probióticos e ativos botânicos que acompanham a tua rotina de bem-estar, apoiando o conforto digestivo e a sensação de leveza no dia a dia. Um gesto simples para te sentires mais leve, a par de uma alimentação equilibrada.',
+      opening: 'As cápsulas mais vendidas da linha Barriga Fit, num gesto simples para o seu dia a dia. O Stop Gordura é um suplemento alimentar com fórmula natural premium que combina probióticos e ativos botânicos para acompanhar a sua rotina de bem-estar, apoiando o conforto digestivo e a sensação de leveza — a par de uma alimentação equilibrada.',
       resultsTime: 'Sensação de leveza percebida a partir de 2 a 3 semanas de uso contínuo.',
       howto: [
         '1 cápsula 20 a 30 minutos antes do almoço, com um copo de água.',
@@ -116,7 +116,7 @@
       ]
     },
     'detox-liquido': {
-      opening: 'Barriga Fit® Detox é um drenante líquido de origem natural, com uma seleção de plantas tradicionalmente associadas ao bem-estar e à sensação de leveza. Ajuda a manter a hidratação e o cuidado de dentro para fora, contribuindo para a sensação de menos inchaço e mais leveza ao longo do dia.',
+      opening: 'A sensação de leveza começa de dentro para fora. O Barriga Fit® Detox é um drenante líquido de origem natural, com uma seleção de plantas tradicionalmente associadas ao bem-estar e à leveza. Ajuda a manter a hidratação e o cuidado diário, contribuindo para a sensação de menos inchaço e mais leveza ao longo do dia.',
       resultsTime: 'Sensação de leveza percebida a partir de 2 semanas de uso contínuo.',
       howto: [
         'Uso diário: dilua 20 ml em 1 a 1,5 L de água e beba ao longo do dia.',
@@ -133,7 +133,7 @@
       ]
     },
     'pernas-leves': {
-      opening: 'Leg Fit® Pernas Leves é um suplemento em cápsulas com ativos botânicos tradicionalmente associados ao conforto das pernas e à sensação de leveza. Pensado para quem passa muito tempo de pé ou sentada, acompanha a rotina de bem-estar das pernas, a par da hidratação e do movimento.',
+      opening: 'Passa o dia em pé ou sentada e sente as pernas a pesar? O Leg Fit® Pernas Leves é um suplemento em cápsulas com ativos botânicos tradicionalmente associados ao conforto das pernas e à sensação de leveza, para acompanhar a sua rotina de bem-estar das pernas — a par da hidratação e do movimento.',
       resultsTime: 'Sensação de leveza percebida a partir de 3 semanas de uso contínuo.',
       howto: [
         '1 cápsula ao pequeno-almoço, com um copo de água.',
@@ -150,7 +150,7 @@
       ]
     },
     'depur': {
-      opening: 'Barriga Fit Depur é um detox em ampolas de toma prática, com plantas tradicionalmente associadas ao bem-estar do fígado e à sensação de leveza. Ideal como gesto inicial de uma rotina de cuidado de dentro para fora, ajudando a sentires-te mais leve e desinchada no dia a dia.',
+      opening: 'O arranque ideal para a sua rotina detox. O Barriga Fit Depur é um detox em ampolas de toma prática, com plantas tradicionalmente associadas ao bem-estar do fígado e à sensação de leveza, ajudando-a a sentir-se mais leve e desinchada no dia a dia.',
       resultsTime: 'Sensação de leveza percebida a partir de 15 dias de uso contínuo.',
       howto: [
         '1 ampola diluída em meio copo de água, de preferência em jejum.',
@@ -244,7 +244,7 @@
       ]
     },
     'kit-verao': {
-      opening: 'O Kit Verão® é o ritual completo de bem-estar para a estação: 4 produtos premium que unem drenagem, leveza das pernas e cuidado da firmeza da pele. Uma rotina de autocuidado de dentro para fora, para te sentires leve e confiante.',
+      opening: 'O Kit Verão® é o ritual completo de bem-estar para a estação: 4 produtos premium que unem drenagem, leveza das pernas e cuidado da firmeza da pele. Uma rotina de autocuidado de dentro para fora, para se sentir leve e confiante.',
       resultsTime: 'Resultados percebidos a partir de 3 a 4 semanas de uso contínuo do ritual.',
       howto: [
         'Manhã: 1 cápsula Pernas Leves + 30 ml de Detox Líquido diluído em água, em jejum.',

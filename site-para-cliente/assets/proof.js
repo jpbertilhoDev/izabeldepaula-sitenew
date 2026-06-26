@@ -69,7 +69,7 @@
       + '<h2 class="proof-title">Resultados <span class="it gold">reais</span> de clientes.</h2></div>'
       + '<div class="awards">' + awardsChips() + '</div>'
       + railHTML(cards)
-      + '<div class="proof-cta"><p>Sente que pode ser para si? Comece a sua rotina com a <b>' + esc(p.name) + '</b>.</p>'
+      + '<div class="proof-cta"><p>Imagine-se aqui. Dê hoje o primeiro passo e comece a sua rotina com a <b>' + esc(p.name) + '</b>.</p>'
       + '<button class="btn btn--ink" type="button" data-add="' + esc(p.slug) + '">Adicionar à sacola</button></div>'
       + DISCLAIMER + '</section>';
   }

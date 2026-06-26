@@ -129,7 +129,7 @@
     + '<button class="btn btn--ink btn--block pdp-add" type="button" data-pdp-add>Adicionar à sacola</button>'
     + '</div>'
     + '<button class="btn btn--gold btn--block pdp-buy" type="button" data-pdp-buy>' + BUY_LABEL + '</button>'
-    + '<ul class="pdp-trust"><li>Envio para toda a Europa</li><li>Portes grátis acima de ' + money(IZB.SHOP.freeShip) + (IZB.SHOP.freeShipNote ? ' · ' + IZB.SHOP.freeShipNote : '') + '</li><li>Pagamento seguro</li><li>Garantia de 15 dias</li></ul>'
+    + '<ul class="pdp-trust"><li>Garantia de satisfação de 15 dias</li><li>Portes grátis acima de ' + money(IZB.SHOP.freeShip) + (IZB.SHOP.freeShipNote ? ' · ' + IZB.SHOP.freeShipNote : '') + '</li><li>Envio seguro para toda a Europa</li><li>Dúvidas? Apoio no WhatsApp</li></ul>'
     + (window.IZBCONTENT ? '<div class="pdp-desc pdp-desc--col">' + window.IZBCONTENT.fullDescriptionHTML(p) + '</div>' : '')
     + '</div></div>'
     + (window.IZBPROOF ? window.IZBPROOF.pdpBlockHTML(p) : '')
