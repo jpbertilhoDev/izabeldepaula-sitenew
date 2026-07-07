@@ -733,6 +733,9 @@ a.ba-card--link:hover .ba-shop{ color:var(--gold); }
 .price .now.price-na, .pdp-now.price-na{ color:var(--muted); font-style:italic; }
 .add--sold, .buy--sold{ opacity:.5; pointer-events:none; cursor:not-allowed; }
 .buy--sold{ text-decoration:line-through; }
+/* estado esgotado na página de produto (PDP) */
+.pdp-add.is-sold{ opacity:.55; pointer-events:none; cursor:not-allowed; background:var(--muted); border-color:var(--muted); display:flex; align-items:center; justify-content:center; }
+.pdp-soldout-note{ margin-top:10px; font-size:14px; line-height:1.5; color:var(--muted); }
 
 /* ============================================================
    COPY 2026 — blocos persuasivos (ADITIVO: não altera regras acima)

@@ -262,6 +262,12 @@
     checkout: checkout, checkoutWhatsApp: checkoutWhatsApp
   };
 
+  /* ---------- estoque ao vivo ----------
+     live-stock.js corrige window.PRODUCTS (disponibilidade/preço) com os
+     dados reais do Shopify e dispara 'izb:stock' → re-renderizamos vitrines
+     e carrinho para nunca mostrar como disponível algo que já esgotou. */
+  document.addEventListener('izb:stock', function () { renderShop(); sync(); });
+
   /* ---------- init (síncrono: o DOM acima já está parseado) ---------- */
   buildDrawer();
   renderShop();
