@@ -143,6 +143,28 @@ META = [
  dict(handle='kit-renovacao-total', slug='kit-renovacao-total', name='Kit Renovação Total',
       cat='kit', catLabel='Detox · Suplementos · Cosméticos', vol='Pack completo', img='kit-emagrecimento-depur.jpeg',
       rating='4.8', badges=[('Avançado','best'),('sale','sale')], bestseller=False, exp=True),
+ # ---- tratamento premium + acessórios (catálogo completo da loja) ----
+ dict(handle='kit-de-tratamento-intensivo', slug='kit-tratamento-intensivo', name='Kit de Tratamento Intensivo',
+      cat='kit', catLabel='Tratamento intensivo · profissional', vol='Protocolo completo', img='kit-tratamento-intensivo.jpg',
+      rating='4.9', badges=[('Intensivo','best')], bestseller=False, exp=False),
+ dict(handle='tonico-profissional-celulite-30ml-reduza-celulite-de-forma-eficaz-valor-normal-70', slug='tonico-celulite',
+      name='Tónico Profissional Celulite 30 ml', cat='creme', catLabel='Tónico profissional', vol='30 ml', img='tonico-celulite.jpg',
+      rating='4.8', badges=[('Esgotado','soldout')], bestseller=False, exp=False),
+ dict(handle='bag-de-pano-izabel-de-paula', slug='bag-pano', name='Bag de Pano Izabel de Paula',
+      cat='acessorio', catLabel='Acessório · 100% pano', vol='Tote bag', img='bag-pano.jpg',
+      rating='4.9', badges=[], bestseller=False, exp=False),
+ dict(handle='caderno-izb-a5', slug='caderno-izb', name='Caderno IZB A5',
+      cat='acessorio', catLabel='Acessório · caderno A5', vol='Pautado', img='caderno-izb.jpg',
+      rating='4.8', badges=[('sale','sale')], bestseller=False, exp=False),
+ dict(handle='e-book-barriga-fit', slug='ebook-barriga-fit', name='E-book Barriga Fit',
+      cat='acessorio', catLabel='E-book · digital (PDF)', vol='Download', img='ebook-barriga-fit.jpg',
+      rating='5.0', badges=[('sale','sale')], bestseller=False, exp=False),
+ dict(handle='garrafa-termica-izb-250-ml', slug='garrafa-termica-izb', name='Garrafa Térmica IZB® 250 ml',
+      cat='acessorio', catLabel='Acessório · inox 250 ml', vol='250 ml', img='garrafa-termica.jpg',
+      rating='4.8', badges=[], bestseller=False, exp=False),
+ dict(handle='caneta-personalizada-izabel-de-paula', slug='caneta-izb', name='Caneta Personalizada IZB',
+      cat='acessorio', catLabel='Acessório · edição IZB', vol='Caneta', img='logo-izb.png',
+      rating='5.0', badges=[('Esgotado','soldout')], bestseller=False, exp=False),
 ]
 
 # Links de checkout Shopify (enviados pelo cliente): slug -> (variant_id, cupão 2un -5%, cupão 3un -10%)
@@ -165,6 +187,14 @@ SHOPIFY = {
  'kit-celulite-lipedema':('45800051605771', 'KITLIPEDEMA5',  'KITLIPEDEMA10'),
  'kit-verao':            ('52958214390027', 'KITVERAO5',     'KITVERAO10'),
  'kit-renovacao-total':  ('46020681105675', 'KITRENOVACAO5', 'KITRENOVACAO10'),
+ # tratamento premium + acessórios (sem cupões de quantidade)
+ 'kit-tratamento-intensivo': ('46094872117515', None, None),
+ 'tonico-celulite':          ('52724146274571', None, None),
+ 'bag-pano':                 ('53092257071371', None, None),
+ 'caderno-izb':              ('49543130808587', None, None),
+ 'ebook-barriga-fit':        ('46462955553035', None, None),
+ 'garrafa-termica-izb':      ('45697334411531', None, None),
+ 'caneta-izb':               ('53113548767499', None, None),
 }
 
 # Frase curta e chamativa para o card da vitrine (1 linha, "o que é + o que faz").
@@ -185,6 +215,13 @@ BLURB = {
  'kit-celulite-lipedema': 'Foco em pernas e celulite: gel, detox e cápsulas para firmeza e leveza.',
  'kit-verao':         'Pack de verão 4 em 1: detox, gordura, pernas leves e firmeza num só kit.',
  'kit-renovacao-total': 'Rotina completa de renovação: detox, suplementos e cosméticos num só pack.',
+ 'kit-tratamento-intensivo': 'O protocolo mais completo da casa — tratamento intensivo para uma rotina de cuidado avançada.',
+ 'tonico-celulite':   'Tónico profissional concentrado para um cuidado direcionado às zonas com celulite.',
+ 'bag-pano':          'Tote bag de pano Izabel de Paula — leve, resistente e reutilizável.',
+ 'caderno-izb':       'Caderno A5 Izabel de Paula para organizar a sua rotina e as suas metas.',
+ 'ebook-barriga-fit': 'Guia digital Barriga Fit — comece a sua rotina com método, em PDF.',
+ 'garrafa-termica-izb':'Garrafa térmica em inox (250 ml) — hidratação com estilo o dia todo.',
+ 'caneta-izb':        'A caneta oficial Izabel de Paula — o detalhe de marca no seu dia a dia.',
 }
 
 # Sub-título da página de produto (sob o título, acima do preço). 1-2 frases curadas,
@@ -192,11 +229,11 @@ BLURB = {
 # (aspecto/sensação/rotina) — SEM promessas médicas / de cura. Sobrepõe-se ao texto
 # raspado por short_desc(): este é a fonte de verdade, não o body_html da loja.
 SHORT = {
- 'creme-barriga-fit': 'Creme corporal de toque seco para a zona da barriga — massaje todos os dias para uma pele com aspecto mais firme, liso e cuidado.',
+ 'creme-barriga-fit': 'A barriga é a zona que mais a incomoda? Creme de toque seco para massajar todos os dias, por uma pele com aspecto mais firme, liso e cuidado.',
  'sublime-lush':      'Creme corporal premium com óleo amazónico de Sacha Inchi, rico em ómega — hidratação profunda e um toque sedoso e aveludado na pele.',
- 'leg-fit-express':   'Gel de efeito frio para as pernas — alívio imediato e sensação de leveza ao fim do dia. Absorve depressa e não deixa a pele pegajosa.',
- 'levanta-bumbum':    'Gel reafirmante para glúteos, coxas e abdómen — massaje diariamente para uma pele com aspecto mais firme, tonificado e uniforme.',
- 'stop-gordura':      'As cápsulas mais vendidas da linha Barriga Fit — um apoio diário à sua rotina de controlo de peso e bem-estar, para se sentir mais leve.',
+ 'leg-fit-express':   'Pernas pesadas ao fim do dia? Gel de efeito frio com alívio imediato e sensação de leveza. Absorve depressa e não deixa a pele pegajosa.',
+ 'levanta-bumbum':    'O cuidado que os seus glúteos merecem: gel reafirmante para massajar diariamente, por uma pele com aspecto mais firme, tonificado e uniforme.',
+ 'stop-gordura':      'As cápsulas mais vendidas da linha Barriga Fit — um apoio diário à sua rotina de bem-estar, para se sentir mais leve no dia a dia.',
  'detox-liquido':     'Detox líquido saboroso para tomar todos os dias — a sua rotina de leveza, com menos sensação de inchaço e mais bem-estar.',
  'pernas-leves':      'Cápsulas pensadas para quem passa o dia em pé — um apoio diário à sensação de pernas leves e descansadas, sem aquele peso ao fim do dia.',
  'depur':             'Ampolas bebíveis para uma rotina detox de 15 dias — um cuidado depurativo de dentro para fora, a complementar a sua linha Barriga Fit.',
@@ -207,6 +244,13 @@ SHORT = {
  'kit-celulite-lipedema': 'Rotina de cuidado para as pernas: gel reafirmante, detox e cápsulas Pernas Leves — por uma pele com aspecto mais liso e firme e mais leveza.',
  'kit-verao':         'O pack 4 em 1 para chegar ao verão a sentir-se bem consigo: detox, controlo de gordura, pernas leves e firmeza, na rotina completa.',
  'kit-renovacao-total': 'O nosso pack mais completo: detox, suplementos e cosméticos que trabalham juntos para cuidar de si por dentro e por fora, em cada fase.',
+ 'kit-tratamento-intensivo': 'O nosso programa mais completo: um protocolo de tratamento intensivo que reúne os cuidados-chave da linha Izabel de Paula numa rotina pensada para quem quer ir mais longe.',
+ 'tonico-celulite':   'Tónico profissional concentrado (30 ml) para um cuidado direcionado às zonas com tendência a celulite, a integrar na sua rotina de pele.',
+ 'bag-pano':          'A tote bag de pano Izabel de Paula: leve, resistente e reutilizável, para levar consigo todos os dias.',
+ 'caderno-izb':       'Caderno A5 Izabel de Paula para registar a sua rotina, hábitos e metas de bem-estar, com o cuidado de marca em cada detalhe.',
+ 'ebook-barriga-fit': 'E-book Barriga Fit (PDF digital): um guia prático para organizar a sua rotina de autocuidado com método, constância e naturalidade.',
+ 'garrafa-termica-izb':'Garrafa térmica Izabel de Paula em inox (250 ml) — mantém a temperatura e acompanha a sua rotina de hidratação ao longo do dia.',
+ 'caneta-izb':        'A caneta oficial Izabel de Paula — um pequeno detalhe de marca para o seu dia a dia.',
 }
 
 def eur(v):
@@ -228,12 +272,16 @@ for m in META:
         badges=[{'t':t,'cls':c} for (t,c) in m['badges'] if c!='sale'],
         price=price, compareAt=comp,
         bestseller=m['bestseller'], bsRank=m.get('bsRank', 99), exp=m['exp'],
+        available=v.get('available', True),
         variant=(sh[0] if sh else None),
         d2=(sh[1] if sh else None),
         d3=(sh[2] if sh else None),
         short=SHORT.get(m['slug']) or m.get('short') or short_desc(m['handle'], m['name']),
         blurb=BLURB.get(m['slug'], ''),
-        descHtml=clean(p.get('body_html')),
+        # descHtml (body_html da loja) removido do output: não é renderizado em
+        # lado nenhum (a PDP usa content.js) e continha claims não-conformes
+        # (emagrecimento / perda de peso / queima de gordura). Fonte preservada
+        # em real-products.json; a descrição curada vive em assets/content.js.
     ))
 
 # galeria de cada produto: foto limpa (p.img) + slides do carrossel em images/gallery/<slug>/
@@ -262,4 +310,4 @@ print('products:', len(products))
 print('singles:', sum(1 for p in products if p['cat']!='kit'), '| kits:', sum(1 for p in products if p['cat']=='kit'))
 print('data.js bytes:', len(js))
 for p in products:
-    print(' -', p['slug'], '| €%.2f'%p['price'], ('(was €%.2f)'%p['compareAt']) if p['compareAt'] else '', '| desc', len(p['descHtml']),'b')
+    print(' -', p['slug'], '| €%.2f'%p['price'], ('(was €%.2f)'%p['compareAt']) if p['compareAt'] else '')

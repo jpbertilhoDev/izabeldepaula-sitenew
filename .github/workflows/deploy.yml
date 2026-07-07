@@ -1,0 +1,45 @@
+name: Deploy site (izabeldepaula.com)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'produto.html'
+      - 'politica-privacidade.html'
+      - 'trocas-devolucoes.html'
+      - 'sitemap.xml'
+      - 'assets/**'
+      - 'images/**'
+concurrency:
+  group: deploy-producao
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Preparar pasta de publicação (apenas os ficheiros do site)
+        run: |
+          set -e
+          mkdir -p dist
+          for f in index.html produto.html politica-privacidade.html trocas-devolucoes.html sitemap.xml; do
+            [ -f "$f" ] && cp "$f" dist/ || true
+          done
+          cp -r assets dist/
+          cp -r images dist/
+          echo "Ficheiros a publicar: $(find dist -type f | wc -l)"
+      - name: Publicar via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL || 'ftp' }}
+          port: ${{ secrets.FTP_PORT || 21 }}
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_SERVER_DIR || 'public_html/' }}
+          exclude: |
+            **/.git*
+            **/.DS_Store
+            **/Thumbs.db
