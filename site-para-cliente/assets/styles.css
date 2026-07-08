@@ -729,11 +729,15 @@ a.ba-card--link:hover .ba-shop{ color:var(--gold); }
 
 /* ---- catalogo completo: estado esgotado + preco sob consulta ---- */
 .pcard .tag.soldout, .pdp-tags .tag.soldout{ background:var(--muted); color:#fff; }
-.pcard.is-sold .media>a img{ opacity:.7; filter:grayscale(.2); }
+/* esgotado: a própria imagem comunica — esmaecida e dessaturada, com transição
+   suave (quando o stock muda ao vivo, a imagem apaga de forma dinâmica) */
+.pcard.is-sold .media>a img{ opacity:.45; filter:grayscale(.65); transition:opacity .6s var(--ease), filter .6s var(--ease); }
+.pcard.is-sold:hover .media>a img{ transform:none; } /* não "revive" no hover — está indisponível */
 .price .now.price-na, .pdp-now.price-na{ color:var(--muted); font-style:italic; }
 .add--sold, .buy--sold{ opacity:.5; pointer-events:none; cursor:not-allowed; }
 .buy--sold{ text-decoration:line-through; }
 /* estado esgotado na página de produto (PDP) */
+.pdp-wrap.is-sold .pdp-main img{ opacity:.45; filter:grayscale(.65); transition:opacity .6s var(--ease), filter .6s var(--ease); }
 .pdp-add.is-sold{ opacity:.55; pointer-events:none; cursor:not-allowed; background:var(--muted); border-color:var(--muted); display:flex; align-items:center; justify-content:center; }
 .pdp-soldout-note{ margin-top:10px; font-size:14px; line-height:1.5; color:var(--muted); }
 
@@ -758,28 +762,25 @@ a.ba-card--link:hover .ba-shop{ color:var(--gold); }
   display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700;
   color:#fff; background:var(--gold); border-radius:50%; }
 
-/* ---- Hero: overlay de promessa sobre o carrossel ---- */
-.hero-ov{ position:absolute; inset:0; z-index:5; display:flex; align-items:flex-end; pointer-events:none;
-  background:linear-gradient(to top, rgba(8,5,3,.80) 0%, rgba(8,5,3,.40) 34%, rgba(8,5,3,0) 66%),
-             linear-gradient(to right, rgba(8,5,3,.58) 0%, rgba(8,5,3,0) 58%); }
-.hero-ov-in{ width:100%; max-width:var(--mw); margin:0 auto; padding:0 var(--pad) clamp(54px,8vh,104px); }
-.hero-ov-kick{ display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold-3); }
-.hero-ov-h{ font-family:var(--display); font-weight:500; color:#fff; line-height:1.02; letter-spacing:-.015em;
-  font-size:clamp(34px,6vw,82px); margin:14px 0 0; text-shadow:0 2px 30px rgba(0,0,0,.45); max-width:17ch; }
-.hero-ov-h .it{ font-style:italic; color:var(--gold-3); }
-.hero-ov-sub{ font-family:var(--sans); font-weight:300; color:rgba(255,255,255,.92); font-size:clamp(15px,1.5vw,20px);
-  line-height:1.55; margin:18px 0 0; max-width:46ch; text-shadow:0 1px 16px rgba(0,0,0,.4); }
-.hero-ov-cta{ display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; pointer-events:auto; }
-.hero-ov-proof{ display:flex; align-items:center; flex-wrap:wrap; gap:6px 14px; margin-top:22px; pointer-events:auto;
-  font-family:var(--mono); font-size:12px; letter-spacing:.04em; color:rgba(255,255,255,.86); }
-.hero-ov-proof .stars{ color:var(--gold-3); letter-spacing:.08em; }
-.hero-ov-proof b{ color:#fff; font-weight:600; }
+/* ---- Faixa de promessa (sob o hero — já não sobreposta à imagem) ---- */
+.promise{ position:relative; background:var(--espresso); color:var(--on-dark); overflow:hidden; }
+.promise-in{ text-align:center; padding-block:clamp(48px,7vw,92px); position:relative; z-index:2; }
+.promise-kick{ display:inline-block; font-family:var(--mono); font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:var(--gold-3); }
+.promise-h{ font-family:var(--display); font-weight:500; color:#fff; line-height:1.04; letter-spacing:-.015em;
+  font-size:clamp(30px,5vw,62px); margin:16px auto 0; max-width:20ch; }
+.promise-h .it{ font-style:italic; color:var(--gold-3); }
+.promise-sub{ font-family:var(--sans); font-weight:300; color:var(--on-dark); font-size:clamp(15px,1.4vw,19px);
+  line-height:1.6; margin:18px auto 0; max-width:56ch; }
+.promise-cta{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:30px; }
+.promise-proof{ display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:6px 14px; margin-top:24px;
+  font-family:var(--mono); font-size:12px; letter-spacing:.04em; color:var(--on-dark-soft); }
+.promise-proof .stars{ color:var(--gold-3); letter-spacing:.08em; }
+.promise-proof b{ color:#fff; font-weight:600; }
 @media (max-width:680px){
-  .hero-ov{ background:linear-gradient(to top, rgba(8,5,3,.88) 0%, rgba(8,5,3,.48) 44%, rgba(8,5,3,.06) 80%); }
-  .hero-ov-in{ padding-bottom:clamp(58px,11vh,96px); }
-  .hero-ov-h{ font-size:clamp(29px,8.4vw,44px); max-width:20ch; }
-  .hero-ov-sub{ font-size:14.5px; }
-  .hero-ov-cta{ gap:10px; margin-top:22px; } .hero-ov-cta .btn{ flex:1 1 auto; }
+  .promise-in{ padding-block:clamp(40px,10vw,72px); }
+  .promise-h{ font-size:clamp(27px,7.4vw,40px); max-width:18ch; }
+  .promise-sub{ font-size:15px; }
+  .promise-cta{ gap:10px; } .promise-cta .btn{ flex:1 1 auto; }
 }
 
 /* ---- Pilares "porquê" / método ---- */
