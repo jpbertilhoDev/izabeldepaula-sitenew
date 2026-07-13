@@ -214,6 +214,64 @@
     }
     var rel = document.querySelector('[data-related]');
     if (rel) rel.innerHTML = related.map(IZB.cardHTML).join('');
+
+    stickyBar(p, sold);
+  }
+
+  /* ---------- barra fixa de compra (telemóvel) ----------
+     Numa PDP longa — galeria, benefícios, ingredientes, modo de uso, prova —
+     o botão de compra fica lá em cima e some-se. Quem lê tudo até ao fim é
+     precisamente quem está a decidir, e tinha de rolar para trás para comprar.
+     Esta barra segue-a: aparece assim que o botão real sai do ecrã.
+
+     Não duplica lógica nenhuma — clica no botão verdadeiro. Assim respeita a
+     quantidade escolhida (1/2/3 unidades) e o estado esgotado sem poder
+     divergir dele. Duplicar a lógica aqui era o caminho fácil para os dois
+     botões deixarem de concordar um dia. */
+  var io = null;
+  function stickyBar(p, sold) {
+    var old = document.querySelector('[data-pdp-bar]');
+    if (old) old.remove();                       // o render corre outra vez em 'izb:stock'
+    if (io) { io.disconnect(); io = null; }
+
+    var alvo = root.querySelector('[data-pdp-add],[data-pdp-notify]');
+    if (!alvo) return;
+
+    var bar = document.createElement('div');
+    bar.className = 'pdp-bar';
+    bar.setAttribute('data-pdp-bar', '');
+    bar.innerHTML =
+      '<div class="pdp-bar-in">'
+      + '<div class="pdp-bar-info">'
+      + '<span class="pdp-bar-name">' + esc(p.name) + '</span>'
+      + '<span class="pdp-bar-price" data-pdp-bar-price>' + money(p.price) + '</span>'
+      + '</div>'
+      + '<button class="btn btn--ink pdp-bar-btn" type="button">' + (sold ? 'Avise-me' : 'Adicionar') + '</button>'
+      + '</div>';
+    document.body.appendChild(bar);
+
+    bar.querySelector('.pdp-bar-btn').addEventListener('click', function () {
+      var real = root.querySelector('[data-pdp-add],[data-pdp-notify]');
+      if (real) real.click();
+    });
+
+    /* o preço da barra segue a quantidade escolhida — senão dizia €49 e metia três na sacola */
+    var precoEl = bar.querySelector('[data-pdp-bar-price]');
+    root.addEventListener('click', function (e) {
+      if (!e.target.closest || !e.target.closest('.pdp-unit')) return;
+      setTimeout(function () {
+        var ativo = root.querySelector('.pdp-unit.active .u-price');
+        if (ativo && precoEl) precoEl.textContent = ativo.textContent;
+      }, 0);
+    });
+
+    /* aparece quando o botão real sai do ecrã (e só então) */
+    if (!('IntersectionObserver' in window)) return;
+    io = new IntersectionObserver(function (entries) {
+      bar.classList.toggle('on', !entries[0].isIntersecting);
+      document.documentElement.classList.toggle('pdpbar-open', !entries[0].isIntersecting);
+    }, { threshold: 0 });
+    io.observe(alvo);
   }
 
   render();

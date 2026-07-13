@@ -53,11 +53,16 @@
   function cardHTML(p) {
     var u = url(p);
     var sold = p.available === false;
+    /* Esgotado não é um beco. O rótulo sobre a foto continua a informar o estado,
+       mas o botão de ação passa a ser um caminho: leva à página do produto, que já
+       tem a lista de espera ("Avisar-me quando voltar", pelo WhatsApp). Antes era um
+       <span> com pointer-events:none — a cliente mais motivada, a que quer justamente
+       o que está esgotado, batia na parede e ia-se embora. */
     var addBtn = sold
-      ? '<span class="add add--sold" aria-disabled="true">Esgotado</span>'
+      ? '<span class="add add--sold" aria-hidden="true">Esgotado</span>'
       : '<button class="add" type="button" data-add="' + esc(p.slug) + '">Adicionar à sacola</button>';
     var buyBtn = sold
-      ? '<span class="buy buy--sold" aria-disabled="true">Esgotado</span>'
+      ? '<a class="buy buy--wait" href="' + u + '">Avise-me</a>'
       : '<a class="buy" href="' + u + '">Comprar</a>';
     return '<article class="pcard' + (sold ? ' is-sold' : '') + '" data-cat="' + p.cat + '" data-reveal>'
       + '<div class="media">' + badgesHTML(p)
@@ -162,7 +167,7 @@
     var pct = goal > 0 ? Math.min(100, Math.round((sub / goal) * 100)) : 100;
     var msg = rem > 0
       ? 'Faltam <b>' + money(rem) + '</b> para <b>portes grátis</b>!'
-      : '<b>Boa!</b> Você tem <b>portes grátis</b>. 🎉';
+      : '<b>Boa!</b> Já tem <b>portes grátis</b>. 🎉';
     if (built) {
       drawer.querySelector('[data-ship-msg]').innerHTML = msg;
       drawer.querySelector('[data-ship-bar]').style.width = pct + '%';
@@ -170,7 +175,7 @@
     // barra flutuante .frete da home
     var f = document.querySelector('.frete');
     if (f) {
-      var p = f.querySelector('.top p'); if (p) p.innerHTML = rem > 0 ? 'Faltam <b>' + money(rem) + '</b> para você ganhar <b>portes grátis</b>!' : 'Você desbloqueou os <b>portes grátis</b>! 🎉';
+      var p = f.querySelector('.top p'); if (p) p.innerHTML = rem > 0 ? 'Faltam <b>' + money(rem) + '</b> para ter <b>portes grátis</b>!' : 'Desbloqueou os <b>portes grátis</b>! 🎉';
       var bar = f.querySelector('.bar i'); if (bar) bar.style.width = pct + '%';
     }
   }

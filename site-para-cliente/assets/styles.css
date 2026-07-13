@@ -736,6 +736,11 @@ a.ba-card--link:hover .ba-shop{ color:var(--gold); }
 .price .now.price-na, .pdp-now.price-na{ color:var(--muted); font-style:italic; }
 .add--sold, .buy--sold{ opacity:.5; pointer-events:none; cursor:not-allowed; }
 .buy--sold{ text-decoration:line-through; }
+/* "Avise-me" — o único botão vivo num card esgotado. Leva à página do produto,
+   onde já existe a lista de espera. A cliente que quer o que esgotou é a mais
+   motivada da loja; antes não tinha para onde ir. */
+.pcard .buy--wait{ color:var(--gold); border-color:var(--gold); }
+.pcard .buy--wait:hover{ background:var(--gold); color:#fff; border-color:var(--gold); }
 /* estado esgotado na página de produto (PDP) */
 .pdp-wrap.is-sold .pdp-main img{ opacity:.45; filter:grayscale(.65); transition:opacity .6s var(--ease), filter .6s var(--ease); }
 .pdp-add.is-sold{ opacity:.55; pointer-events:none; cursor:not-allowed; background:var(--muted); border-color:var(--muted); display:flex; align-items:center; justify-content:center; }
@@ -842,6 +847,24 @@ html.consent-open .frete{ transform:translateY(140%); }
   .consent-btns{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   .consent-btns .btn{ min-width:0; width:100%; padding:16px 12px; }
   html.consent-open .wa{ bottom:calc(210px + env(safe-area-inset-bottom)); }
+}
+
+/* ============ BARRA FIXA DE COMPRA (telemóvel) ============
+   Só existe no telemóvel: no desktop a coluna de compra fica sempre visível,
+   uma barra ali seria ruído. */
+.pdp-bar{ display:none; }
+@media (max-width:900px){
+  .pdp-bar{ display:block; position:fixed; left:0; right:0; bottom:0; z-index:85; background:var(--paper); border-top:1px solid var(--line); box-shadow:0 -20px 44px -24px rgba(18,13,8,.4); transform:translateY(101%); transition:transform .45s var(--ease); }
+  .pdp-bar.on{ transform:none; }
+  .pdp-bar-in{ display:flex; align-items:center; gap:14px; padding:12px 16px calc(12px + env(safe-area-inset-bottom)); }
+  .pdp-bar-info{ flex:1 1 auto; min-width:0; display:flex; flex-direction:column; gap:2px; }
+  .pdp-bar-name{ font-family:var(--sans); font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .pdp-bar-price{ font-family:var(--display); font-size:19px; color:var(--ink); line-height:1; }
+  .pdp-bar-btn{ flex:0 0 auto; padding:15px 24px; font-size:11px; }
+  /* o WhatsApp flutuante sobe para não tapar o botão de compra — a compra manda */
+  html.pdpbar-open .wa{ bottom:calc(88px + env(safe-area-inset-bottom)); }
+  /* o consentimento tem prioridade sobre tudo: enquanto estiver aberto, a barra espera */
+  html.consent-open .pdp-bar{ transform:translateY(101%); }
 }
 
 /* identificação legal no rodapé — obrigatória (DL 7/2004, art. 10.º) */
