@@ -53,11 +53,19 @@
   function cardHTML(p) {
     var u = url(p);
     var sold = p.available === false;
+    /* Sem stock não é um beco — e também não é um carimbo. "ESGOTADO" fecha a porta
+       e soa a fim de linha; "Sob consulta" é a verdade (há clínica e WhatsApp, há mesmo
+       quem consultar) e mantém o registo da marca. Antes o botão era um <span> com
+       pointer-events:none: a cliente mais motivada, a que quer justamente o que falta,
+       batia na parede e ia-se embora. Agora tem caminho — leva à página do produto.
+       Nota: isto é o RÓTULO. No schema.org o produto continua a declarar OutOfStock ao
+       Google (seo-stock.js) — suavizar o que a cliente lê é marketing; suavizar o que o
+       Google lê seria mentir, e custa a conta do Merchant Center. */
     var addBtn = sold
-      ? '<span class="add add--sold" aria-disabled="true">Esgotado</span>'
+      ? '<span class="add add--sold" aria-hidden="true">Sob consulta</span>'
       : '<button class="add" type="button" data-add="' + esc(p.slug) + '">Adicionar à sacola</button>';
     var buyBtn = sold
-      ? '<span class="buy buy--sold" aria-disabled="true">Esgotado</span>'
+      ? '<a class="buy buy--wait" href="' + u + '">Consultar</a>'
       : '<a class="buy" href="' + u + '">Comprar</a>';
     return '<article class="pcard' + (sold ? ' is-sold' : '') + '" data-cat="' + p.cat + '" data-reveal>'
       + '<div class="media">' + badgesHTML(p)
@@ -162,7 +170,7 @@
     var pct = goal > 0 ? Math.min(100, Math.round((sub / goal) * 100)) : 100;
     var msg = rem > 0
       ? 'Faltam <b>' + money(rem) + '</b> para <b>portes grátis</b>!'
-      : '<b>Boa!</b> Você tem <b>portes grátis</b>. 🎉';
+      : '<b>Boa!</b> Já tem <b>portes grátis</b>. 🎉';
     if (built) {
       drawer.querySelector('[data-ship-msg]').innerHTML = msg;
       drawer.querySelector('[data-ship-bar]').style.width = pct + '%';
@@ -170,7 +178,7 @@
     // barra flutuante .frete da home
     var f = document.querySelector('.frete');
     if (f) {
-      var p = f.querySelector('.top p'); if (p) p.innerHTML = rem > 0 ? 'Faltam <b>' + money(rem) + '</b> para você ganhar <b>portes grátis</b>!' : 'Você desbloqueou os <b>portes grátis</b>! 🎉';
+      var p = f.querySelector('.top p'); if (p) p.innerHTML = rem > 0 ? 'Faltam <b>' + money(rem) + '</b> para ter <b>portes grátis</b>!' : 'Desbloqueou os <b>portes grátis</b>! 🎉';
       var bar = f.querySelector('.bar i'); if (bar) bar.style.width = pct + '%';
     }
   }

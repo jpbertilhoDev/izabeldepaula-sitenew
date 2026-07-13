@@ -713,10 +713,6 @@ window.PRODUCTS=[
   "img": "images/tonico-celulite.jpg",
   "rating": "4.8",
   "badges": [
-   {
-    "t": "Esgotado",
-    "cls": "soldout"
-   }
   ],
   "price": 0.0,
   "compareAt": null,
@@ -853,10 +849,6 @@ window.PRODUCTS=[
   "img": "images/logo-izb.png",
   "rating": "5.0",
   "badges": [
-   {
-    "t": "Esgotado",
-    "cls": "soldout"
-   }
   ],
   "price": 5.0,
   "compareAt": null,
