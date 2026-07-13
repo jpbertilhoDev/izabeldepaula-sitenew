@@ -114,18 +114,43 @@
     }, { passive:true });
   }
 
-  /* Reveal */
+  /* Reveal — vale para o conteúdo inicial E para o que nasce depois.
+     A vitrine é re-desenhada quando o estoque ao vivo chega do Shopify
+     (cart.js e product.js ouvem 'izb:stock' e refazem os cards). Esses cards
+     novos trazem [data-reveal] mas nasciam fora do observer: ficavam presos em
+     opacity:0 para sempre — a loja aparecia em branco. Ligá-los aqui, via
+     MutationObserver, resolve para qualquer conteúdo injetado por qualquer
+     script, agora e no futuro. */
   var armed = document.documentElement.classList.contains('anim');
   if (armed && 'IntersectionObserver' in window){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold:0.1, rootMargin:'0px 0px -6% 0px' });
-    document.querySelectorAll('[data-reveal]').forEach(function(el){ io.observe(el); });
-    setTimeout(function(){
+
+    /* rede de segurança: o que já está no ecrã e continua por revelar, revela-se */
+    var sweep = function(){
       document.querySelectorAll('[data-reveal]:not(.in)').forEach(function(el){
         if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
       });
-    }, 1400);
+    };
+
+    var lateT;
+    var arm = function(node){
+      if (!node || node.nodeType !== 1) return;
+      var found = false;
+      if (node.matches('[data-reveal]') && !node.classList.contains('in')){ io.observe(node); found = true; }
+      node.querySelectorAll('[data-reveal]:not(.in)').forEach(function(el){ io.observe(el); found = true; });
+      if (found){ clearTimeout(lateT); lateT = setTimeout(sweep, 600); }
+    };
+
+    arm(document.body);
+    setTimeout(sweep, 1400);
+
+    if ('MutationObserver' in window){
+      new MutationObserver(function(muts){
+        muts.forEach(function(m){ Array.prototype.forEach.call(m.addedNodes, arm); });
+      }).observe(document.body, { childList:true, subtree:true });
+    }
   }
 
 })();
