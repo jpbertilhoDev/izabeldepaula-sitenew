@@ -53,16 +53,19 @@
   function cardHTML(p) {
     var u = url(p);
     var sold = p.available === false;
-    /* Esgotado não é um beco. O rótulo sobre a foto continua a informar o estado,
-       mas o botão de ação passa a ser um caminho: leva à página do produto, que já
-       tem a lista de espera ("Avisar-me quando voltar", pelo WhatsApp). Antes era um
-       <span> com pointer-events:none — a cliente mais motivada, a que quer justamente
-       o que está esgotado, batia na parede e ia-se embora. */
+    /* Sem stock não é um beco — e também não é um carimbo. "ESGOTADO" fecha a porta
+       e soa a fim de linha; "Sob consulta" é a verdade (há clínica e WhatsApp, há mesmo
+       quem consultar) e mantém o registo da marca. Antes o botão era um <span> com
+       pointer-events:none: a cliente mais motivada, a que quer justamente o que falta,
+       batia na parede e ia-se embora. Agora tem caminho — leva à página do produto.
+       Nota: isto é o RÓTULO. No schema.org o produto continua a declarar OutOfStock ao
+       Google (seo-stock.js) — suavizar o que a cliente lê é marketing; suavizar o que o
+       Google lê seria mentir, e custa a conta do Merchant Center. */
     var addBtn = sold
-      ? '<span class="add add--sold" aria-hidden="true">Esgotado</span>'
+      ? '<span class="add add--sold" aria-hidden="true">Sob consulta</span>'
       : '<button class="add" type="button" data-add="' + esc(p.slug) + '">Adicionar à sacola</button>';
     var buyBtn = sold
-      ? '<a class="buy buy--wait" href="' + u + '">Avise-me</a>'
+      ? '<a class="buy buy--wait" href="' + u + '">Consultar</a>'
       : '<a class="buy" href="' + u + '">Comprar</a>';
     return '<article class="pcard' + (sold ? ' is-sold' : '') + '" data-cat="' + p.cat + '" data-reveal>'
       + '<div class="media">' + badgesHTML(p)

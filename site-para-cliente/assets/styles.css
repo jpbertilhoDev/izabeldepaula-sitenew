@@ -736,9 +736,9 @@ a.ba-card--link:hover .ba-shop{ color:var(--gold); }
 .price .now.price-na, .pdp-now.price-na{ color:var(--muted); font-style:italic; }
 .add--sold, .buy--sold{ opacity:.5; pointer-events:none; cursor:not-allowed; }
 .buy--sold{ text-decoration:line-through; }
-/* "Avise-me" — o único botão vivo num card esgotado. Leva à página do produto,
-   onde já existe a lista de espera. A cliente que quer o que esgotou é a mais
-   motivada da loja; antes não tinha para onde ir. */
+/* "Consultar" — o único botão vivo num card sem stock. Leva à página do produto,
+   onde se fala connosco. A cliente que quer o que falta é a mais motivada da loja;
+   antes não tinha para onde ir. */
 .pcard .buy--wait{ color:var(--gold); border-color:var(--gold); }
 .pcard .buy--wait:hover{ background:var(--gold); color:#fff; border-color:var(--gold); }
 /* estado esgotado na página de produto (PDP) */

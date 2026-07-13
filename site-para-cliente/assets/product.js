@@ -88,7 +88,7 @@
         + '<span class="pdp-now">' + money(p.price) + '</span>'
         + (d ? '<span class="pdp-off">-' + d + '%</span>' : '');
 
-    var tags = sold ? '<span class="tag soldout">Esgotado</span>' : '';
+    var tags = sold ? '<span class="tag soldout">Sob consulta</span>' : '';
     (p.badges || []).forEach(function (b) { tags += '<span class="tag ' + (b.cls || '') + '">' + esc(b.t) + '</span>'; });
     if (d) tags += '<span class="tag sale">-' + d + '%</span>';
 
@@ -113,9 +113,9 @@
 
     /* ações: compra normal OU estado esgotado com "avisar quando voltar" */
     var actionsHTML = sold
-      ? '<div class="pdp-actions"><span class="btn btn--ink btn--block pdp-add is-sold" aria-disabled="true">Esgotado de momento</span></div>'
-        + '<button class="btn btn--gold btn--block pdp-buy" type="button" data-pdp-notify>' + WA + ' Avisar-me quando voltar</button>'
-        + '<p class="pdp-soldout-note">Sem stock neste momento. Toque acima e avisamos-lhe pelo WhatsApp assim que regressar.</p>'
+      ? '<div class="pdp-actions"><span class="btn btn--ink btn--block pdp-add is-sold" aria-disabled="true">Sob consulta</span></div>'
+        + '<button class="btn btn--gold btn--block pdp-buy" type="button" data-pdp-notify>' + WA + ' Falar connosco</button>'
+        + '<p class="pdp-soldout-note">Sem compra imediata neste momento. Fale connosco pelo WhatsApp: ajudamos a encontrar a melhor solução para si e avisamos assim que voltar.</p>'
       : '<div class="pdp-actions"><button class="btn btn--ink btn--block pdp-add" type="button" data-pdp-add>Adicionar à sacola</button></div>'
         + '<button class="btn btn--gold btn--block pdp-buy" type="button" data-pdp-buy>' + BUY_LABEL + '</button>';
 
@@ -182,7 +182,7 @@
       /* esgotado: "avisar quando voltar" pelo WhatsApp */
       var notify = root.querySelector('[data-pdp-notify]');
       if (notify) notify.addEventListener('click', function () {
-        var msg = 'Olá Izabel! Tenho interesse no produto "' + p.name + '", que está esgotado. Pode avisar-me quando voltar ao stock?';
+        var msg = 'Olá Izabel! Tenho interesse no produto "' + p.name + '". Pode dizer-me como posso adquiri-lo, ou avisar-me assim que estiver disponível?';
         window.open('https://wa.me/' + IZB.SHOP.whatsapp + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
       });
     }
@@ -246,7 +246,7 @@
       + '<span class="pdp-bar-name">' + esc(p.name) + '</span>'
       + '<span class="pdp-bar-price" data-pdp-bar-price>' + money(p.price) + '</span>'
       + '</div>'
-      + '<button class="btn btn--ink pdp-bar-btn" type="button">' + (sold ? 'Avise-me' : 'Adicionar') + '</button>'
+      + '<button class="btn btn--ink pdp-bar-btn" type="button">' + (sold ? 'Consultar' : 'Adicionar') + '</button>'
       + '</div>';
     document.body.appendChild(bar);
 
