@@ -62,12 +62,12 @@
       ]
     },
     'leg-fit-express': {
-      opening: 'Chega ao fim do dia com as pernas pesadas? O Gel Leg Fit Express® é um gel de efeito frio imediato, pensado para pernas cansadas e para o aspeto da celulite. Ao aplicar, refresca e proporciona uma sensação drenante de alívio e leveza instantânea. Com uso contínuo, ajuda a melhorar o aspeto da pele, deixando as pernas com toque mais firme e liso.',
+      opening: 'Chega ao fim do dia com as pernas pesadas? O Gel Leg Fit Express® é um gel de efeito frio imediato, pensado para pernas cansadas e para o aspeto da celulite. Ao aplicar, refresca e proporciona uma sensação imediata de alívio e leveza. Com uso contínuo, ajuda a melhorar o aspeto da pele, deixando as pernas com toque mais firme e liso.',
       resultsTime: 'Alívio e leveza desde a primeira aplicação; aspeto da pele melhora a partir de 21 dias de uso contínuo.',
       howto: [
         'À noite, após o banho, aplique uma quantidade generosa nas pernas.',
         'Massaje de baixo para cima (movimentos ascendentes) até completa absorção.',
-        'Sinta o efeito frio drenante.',
+        'Sinta o efeito frio, de alívio imediato.',
         'Para potenciar, combine com as cápsulas Leg Fit® Pernas Leves.'
       ],
       cautions: CT.concat(COLD),
@@ -108,7 +108,7 @@
       ],
       cautions: CS,
       actives: [
-        { name: 'Probióticos', fn: 'ajudam a equilibrar a flora intestinal e o conforto digestivo.' },
+        { name: 'Probióticos', fn: 'culturas vivas (Lactobacillus e Bifidobacterium) da fórmula.' },
         { name: 'Cúrcuma', fn: 'planta com propriedades antioxidantes.' },
         { name: 'Café Verde', fn: 'fonte natural de ácido clorogénico.' },
         { name: 'Pimenta Preta', fn: 'ajuda a potenciar a absorção dos nutrientes.' },
@@ -116,7 +116,7 @@
       ]
     },
     'detox-liquido': {
-      opening: 'A sensação de leveza começa de dentro para fora. O Barriga Fit® Detox é um drenante líquido de origem natural, com uma seleção de plantas tradicionalmente associadas ao bem-estar e à leveza. Ajuda a manter a hidratação e o cuidado diário, contribuindo para a sensação de menos inchaço e mais leveza ao longo do dia.',
+      opening: 'A sensação de leveza começa de dentro para fora. O Barriga Fit® Detox é um suplemento alimentar líquido de origem natural, com uma seleção de plantas tradicionalmente associadas ao bem-estar e à leveza. Ajuda a manter a hidratação e o cuidado diário, contribuindo para a sensação de menos inchaço e mais leveza ao longo do dia.',
       resultsTime: 'Sensação de leveza percebida a partir de 2 semanas de uso contínuo.',
       howto: [
         'Uso diário: dilua 20 ml em 1 a 1,5 L de água e beba ao longo do dia.',
@@ -125,8 +125,8 @@
       ],
       cautions: CS,
       actives: [
-        { name: 'Cardo Mariano', fn: 'planta tradicionalmente associada ao bem-estar do fígado.' },
-        { name: 'Ortosifão (Chá de Java)', fn: 'associado à drenagem e à sensação de leveza.' },
+        { name: 'Cardo Mariano', fn: 'extrato vegetal da fórmula.' },
+        { name: 'Ortosifão (Chá de Java)', fn: 'extrato vegetal da fórmula.' },
         { name: 'Bétula', fn: 'tradicionalmente ligada à sensação de leveza.' },
         { name: 'Boldo', fn: 'associado ao conforto digestivo.' },
         { name: 'Salsa & Aipo', fn: 'plantas ricas em água que apoiam a hidratação.' }
@@ -150,7 +150,7 @@
       ]
     },
     'depur': {
-      opening: 'O arranque ideal para a sua rotina detox. O Barriga Fit Depur é um detox em ampolas de toma prática, com plantas tradicionalmente associadas ao bem-estar do fígado e à sensação de leveza, ajudando-a a sentir-se mais leve e desinchada no dia a dia.',
+      opening: 'O arranque ideal para a sua rotina. O Barriga Fit Depur é um suplemento alimentar em ampolas de toma prática, com extratos vegetais e vitaminas do complexo B — para acompanhar os primeiros dias do ritual, com a sensação de leveza que procura.',
       resultsTime: 'Sensação de leveza percebida a partir de 15 dias de uso contínuo.',
       howto: [
         '1 ampola diluída em meio copo de água, de preferência em jejum.',
@@ -160,7 +160,7 @@
       cautions: CS,
       actives: [
         { name: 'Alcachofra', fn: 'associada ao conforto digestivo.' },
-        { name: 'Cardo Mariano', fn: 'tradicionalmente ligado ao bem-estar do fígado.' },
+        { name: 'Cardo Mariano', fn: 'extrato vegetal da fórmula.' },
         { name: 'Reishi', fn: 'cogumelo com propriedades antioxidantes.' }
       ]
     },
@@ -177,13 +177,13 @@
       cautions: CS.concat(CT),
       activesTitle: 'O que inclui',
       actives: [
-        { name: 'Barriga Fit Detox', fn: 'drenante líquido — sensação de leveza.' },
+        { name: 'Barriga Fit Detox', fn: 'suplemento líquido — para a sensação de leveza.' },
         { name: 'Stop Gordura (cápsulas)', fn: 'apoio ao conforto digestivo.' },
         { name: 'Creme Barriga Fit', fn: 'creme termogénico — aspeto firme da pele.' }
       ]
     },
     'kit-seca-barriga': {
-      opening: 'O Kit Seca Barriga® reúne dois cuidados que se complementam: as cápsulas Barriga Fit® Stop Gordura e o detox hepático Barriga Fit Depur. Uma rotina de bem-estar de dentro para fora — apoia o conforto digestivo, a sensação de leveza e o cuidado do fígado, a par de uma alimentação equilibrada e de hábitos saudáveis.',
+      opening: 'O Kit Seca Barriga® reúne dois cuidados que se complementam: as cápsulas Barriga Fit® Stop Gordura e as ampolas Barriga Fit Depur. Uma rotina de bem-estar de dentro para fora — para a sensação de leveza que procura, a par de uma alimentação equilibrada e de hábitos saudáveis.',
       resultsTime: 'Sensação de leveza percebida a partir de 2 a 3 semanas de uso contínuo do ritual.',
       howto: [
         'Depur (15 dias iniciais): 1 ampola por dia, agitada e diluída em água, 15 a 20 minutos antes do pequeno-almoço.',
@@ -194,11 +194,11 @@
       activesTitle: 'O que inclui',
       actives: [
         { name: 'Barriga Fit Stop Gordura (50 cápsulas)', fn: 'apoio ao conforto digestivo e à sensação de leveza.' },
-        { name: 'Barriga Fit Depur (15 ampolas)', fn: 'detox de toma prática — bem-estar do fígado e leveza.' }
+        { name: 'Barriga Fit Depur (15 ampolas)', fn: 'suplemento alimentar em ampolas, de toma prática.' }
       ]
     },
     'kit-detox-stop': {
-      opening: 'O Kit Detox + Stop Gordura junta o drenante líquido às cápsulas Stop Gordura, numa dupla de cuidado interno para a sensação de leveza e conforto digestivo no dia a dia. Uma rotina simples para começar de dentro para fora.',
+      opening: 'O Kit Detox + Stop Gordura junta o Barriga Fit® Detox às cápsulas Stop Gordura®, numa dupla de cuidado interno para a sensação de leveza e conforto digestivo no dia a dia. Uma rotina simples para começar de dentro para fora.',
       resultsTime: 'Sensação de leveza percebida a partir de 2 a 3 semanas de uso contínuo.',
       howto: [
         'Stop Gordura: 1 cápsula antes do almoço e 1 antes do jantar, com água.',
@@ -207,7 +207,7 @@
       cautions: CS,
       activesTitle: 'O que inclui',
       actives: [
-        { name: 'Barriga Fit Detox', fn: 'drenante líquido — sensação de leveza.' },
+        { name: 'Barriga Fit Detox', fn: 'suplemento líquido — para a sensação de leveza.' },
         { name: 'Stop Gordura (cápsulas)', fn: 'apoio ao conforto digestivo.' }
       ]
     },
@@ -228,7 +228,7 @@
       ]
     },
     'kit-celulite-lipedema': {
-      opening: 'O Kit Stop Lipedema & Celulite reúne cuidado externo e interno para as pernas e o aspeto da celulite: o gel de efeito frio, o drenante líquido e as cápsulas Pernas Leves. Uma rotina de bem-estar para a sensação de leveza e uma pele com toque mais firme e liso.',
+      opening: 'O Kit Pernas Leves & Celulite reúne cuidado externo e interno para as pernas e o aspeto da celulite: o gel de efeito frio, o líquido e as cápsulas Pernas Leves. Uma rotina de bem-estar para a sensação de leveza e uma pele com toque mais firme e liso.',
       resultsTime: 'Resultados percebidos a partir de 4 semanas de uso contínuo do ritual.',
       howto: [
         'À noite: aplique o Gel Leg Fit Express nas pernas, em massagem ascendente.',
@@ -239,12 +239,12 @@
       activesTitle: 'O que inclui',
       actives: [
         { name: 'Gel Leg Fit Express', fn: 'gel de efeito frio — aspeto da celulite.' },
-        { name: 'Barriga Fit Detox', fn: 'drenante líquido — sensação de leveza.' },
+        { name: 'Barriga Fit Detox', fn: 'suplemento líquido — para a sensação de leveza.' },
         { name: 'Leg Fit Pernas Leves', fn: 'conforto e leveza das pernas.' }
       ]
     },
     'kit-verao': {
-      opening: 'O Kit Verão® é o ritual completo de bem-estar para a estação: 4 produtos premium que unem drenagem, leveza das pernas e cuidado da firmeza da pele. Uma rotina de autocuidado de dentro para fora, para se sentir leve e confiante.',
+      opening: 'O Kit Verão® é o ritual completo de bem-estar para a estação: 4 produtos premium que unem a rotina de dentro e de fora, a leveza das pernas e o cuidado da firmeza da pele. Uma rotina de autocuidado de dentro para fora, para se sentir leve e confiante.',
       resultsTime: 'Resultados percebidos a partir de 3 a 4 semanas de uso contínuo do ritual.',
       howto: [
         'Manhã: 1 cápsula Pernas Leves + 30 ml de Detox Líquido diluído em água, em jejum.',
@@ -254,7 +254,7 @@
       cautions: CS.concat(CT),
       activesTitle: 'O que inclui',
       actives: [
-        { name: 'Barriga Fit Detox', fn: 'drenante líquido — sensação de leveza.' },
+        { name: 'Barriga Fit Detox', fn: 'suplemento líquido — para a sensação de leveza.' },
         { name: 'Leg Fit Pernas Leves', fn: 'conforto e leveza das pernas.' },
         { name: 'Stop Gordura (cápsulas)', fn: 'apoio ao conforto digestivo.' },
         { name: 'Creme corporal', fn: 'cuidado da firmeza e do aspeto da pele.' }
@@ -340,7 +340,7 @@
       'Toma simples: 1 cápsula antes do almoço e do jantar.'
     ],
     'detox-liquido': [
-      'Drenante líquido de origem natural, com plantas associadas à leveza.',
+      'Suplemento líquido de origem natural, com plantas associadas à leveza.',
       'Ajuda na sensação de menos inchaço ao longo do dia.',
       'Sabor agradável — fácil de incluir na rotina, diluído em água.',
       '1 frasco rende cerca de 25 dias de utilização.'
@@ -353,7 +353,7 @@
     ],
     'depur': [
       'Detox em ampolas de toma prática.',
-      'Plantas associadas ao bem-estar do fígado e à sensação de leveza.',
+      'Extratos vegetais e vitaminas do complexo B, em ampolas de toma prática.',
       'Ideal para arrancar a rotina detox nos primeiros 15 dias.',
       'Com cardo-mariano, alcachofra e reishi.'
     ],
@@ -376,7 +376,7 @@
       'Melhor valor do que comprar em separado.'
     ],
     'kit-fire': [
-      'O kit mais intensivo: depur, cápsulas e drenagem.',
+      'O kit mais intensivo da linha: ampolas Depur, cápsulas Stop Gordura® e Pernas Leves®.',
       'Três passos que se completam numa rotina focada.',
       'Cuidado de dentro para fora, para a sensação de leveza.',
       'Para quem quer uma rotina de bem-estar mais completa.'
