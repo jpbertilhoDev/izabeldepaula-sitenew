@@ -56,14 +56,36 @@
       + '<div class="rail-track">' + cards + '</div></div>';
   }
 
-  // Bloco da página de produto: até 3 pares relevantes à categoria + selos + CTA
+  /* Bloco antes/depois da página de produto.
+
+     TODAS as fotografias em PROOF.beforeAfter foram obtidas com COSMÉTICOS
+     (Leg Fit Express, Creme Barriga Fit, Levanta Bumbum — os três da categoria
+     'creme'). O mapa antigo — { creme:[0,2,3], capsula:[1,4,0], kit:[2,3,5] } —
+     limitava-se a reordenar o mesmo lote, e portanto punha fotos de cremes na
+     página de um suplemento alimentar, sob o título "Resultados reais".
+
+     São duas infrações de uma vez:
+     • alegação por IMAGEM num género alimentício — o Reg. (CE) 1924/2006,
+       art. 2.º(2)(1), conta representações pictóricas como alegação, e nenhuma
+       alegação de perda de peso é autorizada;
+     • atribuição de um resultado ao produto errado — prática comercial
+       enganosa (DL 57/2008).
+
+     Regra nova, e é a única defensável: uma foto só aparece na página do produto
+     que a produziu. Num cosmético, completa-se com outras fotos de cosméticos —
+     mesma natureza, mesmo tipo de efeito (aspeto da pele). Fora disso, o bloco
+     não aparece de todo. Melhor nenhuma prova do que uma prova emprestada. */
   function pdpItems(p) {
-    var order = { creme: [0, 2, 3], capsula: [1, 4, 0], kit: [2, 3, 5] };
-    var idx = (p && order[p.cat]) || [0, 1, 2];
-    return idx.map(function (i) { return PROOF.beforeAfter[i]; });
+    if (!p) return [];
+    var proprias = PROOF.beforeAfter.filter(function (it) { return it.product === p.slug; });
+    if (p.cat !== 'creme') return proprias;   // suplementos e kits: só o que for mesmo deles
+    var outras = PROOF.beforeAfter.filter(function (it) { return it.product !== p.slug; });
+    return proprias.concat(outras).slice(0, 3);
   }
   function pdpBlockHTML(p) {
-    var cards = pdpItems(p).map(function (it) { return baCardHTML(it, false); }).join('');
+    var items = pdpItems(p);
+    if (!items.length) return '';             // sem prova legítima → sem bloco
+    var cards = items.map(function (it) { return baCardHTML(it, false); }).join('');
     return '<section class="pdp-proof" aria-label="Antes e depois de clientes reais">'
       + '<div class="proof-head"><span class="kicker">Provas reais</span>'
       + '<h2 class="proof-title">Resultados <span class="it gold">reais</span> de clientes.</h2></div>'

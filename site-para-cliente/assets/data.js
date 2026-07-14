@@ -5,7 +5,7 @@ window.PRODUCTS=[
   "slug": "creme-barriga-fit",
   "name": "Creme Barriga Fit®",
   "cat": "creme",
-  "catLabel": "Creme redutor",
+  "catLabel": "Creme corporal · 250 ml",
   "vol": "250 ml",
   "img": "images/barriga-fit-creme.jpeg",
   "rating": "4.7",
@@ -289,8 +289,8 @@ window.PRODUCTS=[
   "variant": "45697334116619",
   "d2": "DETOX5",
   "d3": "DETOX10",
-  "short": "Detox líquido saboroso para tomar todos os dias — a sua rotina de leveza, com menos sensação de inchaço e mais bem-estar.",
-  "blurb": "Detox líquido saboroso para uma rotina de leveza e menos sensação de inchaço.",
+  "short": "O Barriga Fit® Detox é um suplemento líquido saboroso para tomar todos os dias — a sua rotina de leveza, com menos sensação de inchaço.",
+  "blurb": "Suplemento líquido saboroso para uma rotina de leveza e menos sensação de inchaço.",
   "gallery": [
    {
     "full": "images/barriga-fit-detox.jpeg",
@@ -353,7 +353,7 @@ window.PRODUCTS=[
   "slug": "depur",
   "name": "Barriga Fit Depur",
   "cat": "capsula",
-  "catLabel": "Detox fígado · ampolas",
+  "catLabel": "Suplemento alimentar · 15 ampolas",
   "vol": "15 ampolas",
   "img": "images/barriga-fit-depur.jpeg",
   "rating": "4.8",
@@ -372,8 +372,8 @@ window.PRODUCTS=[
   "variant": "45697366065419",
   "d2": "DEPUR5",
   "d3": "DEPUR10",
-  "short": "Ampolas bebíveis para uma rotina detox de 15 dias — um cuidado depurativo de dentro para fora, a complementar a sua linha Barriga Fit.",
-  "blurb": "Ampolas depurativas: um cuidado de dentro para fora na sua rotina detox.",
+  "short": "Ampolas bebíveis de toma prática, para os primeiros 15 dias do ritual — um suplemento alimentar a complementar a sua linha Barriga Fit®.",
+  "blurb": "Ampolas de toma prática: um suplemento alimentar para acompanhar o ritual.",
   "gallery": [
    {
     "full": "images/barriga-fit-depur.jpeg",
@@ -428,7 +428,7 @@ window.PRODUCTS=[
   "variant": "53166813806859",
   "d2": "SECABARRIGA5",
   "d3": "SECABARRIGA10",
-  "short": "O duo que cuida da barriga de dentro para fora: cápsulas Stop Gordura + detox hepático Depur — para a sensação de leveza e menos inchaço no dia a dia.",
+  "short": "O duo que cuida da barriga de dentro para fora: as cápsulas Stop Gordura® e as ampolas Depur — para uma rotina de leveza, com menos sensação de inchaço no dia a dia.",
   "blurb": "O duo da barriga: cápsulas Stop Gordura + ampolas Depur para mais leveza.",
   "gallery": [
    {
@@ -484,8 +484,8 @@ window.PRODUCTS=[
   "variant": "45697366294795",
   "d2": "KITSTOP5",
   "d3": "KITSTOP10",
-  "short": "O trio completo Barriga Fit num só kit: creme redutor, detox líquido e cápsulas — a rotina inteira reunida, com mais vantagem no preço.",
-  "blurb": "Trio Barriga Fit completo: creme, detox e cápsulas para uma rotina constante.",
+  "short": "O trio completo Barriga Fit® num só kit: creme corporal, suplemento líquido e cápsulas — a rotina inteira reunida, com mais vantagem no preço.",
+  "blurb": "Trio Barriga Fit® completo: creme, líquido e cápsulas para uma rotina constante.",
   "gallery": [
    {
     "full": "images/kit-barriga-fit.jpeg",
@@ -516,8 +516,8 @@ window.PRODUCTS=[
   "variant": "52909670596875",
   "d2": "DETOXSTOP5",
   "d3": "DETOXSTOP10",
-  "short": "A nossa dupla mais vendida: detox líquido + cápsulas Stop Gordura — a combinação perfeita para começar a rotina com leveza e bem-estar.",
-  "blurb": "A dupla mais vendida: detox líquido + cápsulas para começar com leveza.",
+  "short": "A nossa dupla mais vendida: o Barriga Fit® Detox e as cápsulas Stop Gordura® — a combinação para começar a rotina com leveza e bem-estar.",
+  "blurb": "A dupla mais vendida: o Barriga Fit® Detox e as cápsulas, para começar com leveza.",
   "gallery": [
    {
     "full": "images/kit-detox-stop-gordura.jpg",
@@ -535,9 +535,9 @@ window.PRODUCTS=[
  },
  {
   "slug": "kit-fire",
-  "name": "Kit Fire Emagrecimento®",
+  "name": "Kit Fire®",
   "cat": "kit",
-  "catLabel": "Depur · Stop Gordura · Drenagem",
+  "catLabel": "Kit · 3 suplementos alimentares",
   "vol": "3 produtos",
   "img": "images/kit-fire.jpeg",
   "rating": "4.9",
@@ -556,8 +556,8 @@ window.PRODUCTS=[
   "variant": "51884698206475",
   "d2": "KITFIRE5",
   "d3": "KITFIRE10",
-  "short": "O kit mais intensivo da linha: depur, cápsulas Stop Gordura e drenagem — três passos que se completam numa rotina de bem-estar mais focada.",
-  "blurb": "Kit intensivo: depur, cápsulas e drenagem para uma rotina mais completa.",
+  "short": "O kit mais intensivo da linha: as ampolas Depur, as cápsulas Stop Gordura® e as cápsulas Pernas Leves® — três passos que se completam numa rotina de bem-estar mais focada.",
+  "blurb": "Kit intensivo: ampolas Depur, cápsulas Stop Gordura® e Pernas Leves® — a rotina mais completa da linha.",
   "gallery": [
    {
     "full": "images/kit-fire.jpeg",
@@ -567,7 +567,7 @@ window.PRODUCTS=[
  },
  {
   "slug": "kit-celulite-lipedema",
-  "name": "Kit Stop Lipedema & Celulite",
+  "name": "Kit Pernas Leves & Celulite",
   "cat": "kit",
   "catLabel": "Gel · Detox · Pernas Leves",
   "vol": "3 produtos",
@@ -583,8 +583,8 @@ window.PRODUCTS=[
   "variant": "45800051605771",
   "d2": "KITLIPEDEMA5",
   "d3": "KITLIPEDEMA10",
-  "short": "Rotina de cuidado para as pernas: gel reafirmante, detox e cápsulas Pernas Leves — por uma pele com aspecto mais liso e firme e mais leveza.",
-  "blurb": "Foco em pernas e celulite: gel, detox e cápsulas para firmeza e leveza.",
+  "short": "Rotina de cuidado para as pernas: gel reafirmante, líquido e cápsulas Pernas Leves® — por uma pele com aspecto mais liso e firme e mais leveza.",
+  "blurb": "Foco nas pernas e no aspeto da celulite: gel, líquido e cápsulas para firmeza e leveza.",
   "gallery": [
    {
     "full": "images/kit-celulite-lipedema.jpeg",
@@ -631,8 +631,8 @@ window.PRODUCTS=[
   "variant": "52958214390027",
   "d2": "KITVERAO5",
   "d3": "KITVERAO10",
-  "short": "O pack 4 em 1 para chegar ao verão a sentir-se bem consigo: detox, controlo de gordura, pernas leves e firmeza, na rotina completa.",
-  "blurb": "Pack de verão 4 em 1: detox, gordura, pernas leves e firmeza num só kit.",
+  "short": "O pack 4 em 1 para chegar ao verão a sentir-se bem consigo: a rotina completa da linha, de dentro e de fora, num só kit.",
+  "blurb": "Pack de verão 4 em 1: a rotina completa da linha, num só kit.",
   "gallery": [
    {
     "full": "images/kit-emagrecimento.jpeg",
@@ -663,8 +663,8 @@ window.PRODUCTS=[
   "variant": "46020681105675",
   "d2": "KITRENOVACAO5",
   "d3": "KITRENOVACAO10",
-  "short": "O nosso pack mais completo: detox, suplementos e cosméticos que trabalham juntos para cuidar de si por dentro e por fora, em cada fase.",
-  "blurb": "Rotina completa de renovação: detox, suplementos e cosméticos num só pack.",
+  "short": "O nosso pack mais completo: suplementos alimentares e cosméticos que se completam para cuidar de si por dentro e por fora, em cada fase.",
+  "blurb": "Rotina completa de renovação: suplementos alimentares e cosméticos num só pack.",
   "gallery": [
    {
     "full": "images/kit-emagrecimento-depur.jpeg",
