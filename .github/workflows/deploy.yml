@@ -6,6 +6,7 @@ on:
     paths:
       - 'index.html'
       - 'produto.html'
+      - 'clinica.html'
       - 'politica-privacidade.html'
       - 'trocas-devolucoes.html'
       - 'sitemap.xml'
@@ -23,9 +24,14 @@ jobs:
         run: |
           set -e
           mkdir -p dist
-          for f in index.html produto.html politica-privacidade.html trocas-devolucoes.html sitemap.xml; do
+          for f in index.html produto.html clinica.html politica-privacidade.html trocas-devolucoes.html sitemap.xml; do
             [ -f "$f" ] && cp "$f" dist/ || true
           done
+          # a landing tambem em /clinica/ (URL definitivo)
+          if [ -f clinica.html ]; then
+            mkdir -p dist/clinica
+            cp clinica.html dist/clinica/index.html
+          fi
           cp -r assets dist/
           cp -r images dist/
           echo "Ficheiros a publicar: $(find dist -type f | wc -l)"

@@ -88,7 +88,7 @@
           '<p>Usamos cookies essenciais para o site funcionar — a sacola, por exemplo, não vive sem eles. ' +
           'Gostaríamos ainda de usar cookies de <strong>análise e marketing</strong>, para perceber o que lhe é útil ' +
           'e mostrar-lhe o que faz sentido. Só os usamos se disser que sim. ' +
-          '<a href="politica-privacidade.html">Saiba mais na nossa política</a>.</p>' +
+          '<a href="/politica-privacidade.html">Saiba mais na nossa política</a>.</p>' +
         '</div>' +
         '<div class="consent-btns">' +
           '<button type="button" class="btn btn--ghost consent-no" data-consent-no>Recusar</button>' +

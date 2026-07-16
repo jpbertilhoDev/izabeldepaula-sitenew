@@ -1,0 +1,276 @@
+/* ============================================================
+   CLÍNICA IZABEL DE PAULA — landing de marcação (Lisboa)
+   Herda os tokens e componentes de styles.css (mesma marca:
+   espresso + dourado + creme, Butler/Cormorant). Aqui só os
+   componentes próprios da clínica. Prefixo .c- → zero colisão.
+   ============================================================ */
+
+/* ---------- CTA no header ---------- */
+.hdr-cta{ display:inline-flex; align-items:center; gap:9px; font-family:var(--sans); font-weight:500; font-size:11px; letter-spacing:.14em; text-transform:uppercase; padding:11px 20px; background:var(--gold); color:#fff; border-radius:1px; transition:background .4s var(--ease); white-space:nowrap; }
+.hdr-cta:hover{ background:#876a2c; }
+@media (max-width:900px){ .hdr .nav{ display:none; } }
+@media (max-width:560px){ .hdr-cta{ display:none; } }
+
+/* ============================================================
+   HERO — tipográfico sobre espresso
+   ============================================================ */
+/* Presenter shot: ela apresenta para a direita — o copy vive no espaço negativo
+   que as mãos dela indicam. A foto tem aspeto FIXO (3/2), por isso o corte é
+   idêntico em qualquer largura: mantém o enquadramento vertical do fotógrafo e
+   corta só o vazio lateral. O fundo do estúdio (greige) dissolve-se no creme
+   depois da mão — sem costura e sem véu por cima dela. */
+.c-hero{ position:relative; background:var(--cream-prod); overflow:hidden;
+  display:grid; grid-template-columns:55% 45%; align-items:stretch; }
+.c-hero-media{ position:relative; margin:0; overflow:hidden; aspect-ratio:5/4; }
+.c-hero-media picture{ display:block; width:100%; height:100%; }
+.c-hero-media img{ width:100%; height:100%; object-fit:cover; object-position:66% center; display:block; }
+.c-hero-media::after{ content:""; position:absolute; inset:0; pointer-events:none; background:
+    linear-gradient(90deg, rgba(243,238,228,0) 78%, rgba(243,238,228,.55) 89%, rgba(243,238,228,.94) 97%, var(--cream-prod) 100%); }
+.c-hero-copy{ display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
+  gap:clamp(16px,1.8vw,24px); padding-block:clamp(30px,4vw,54px);
+  padding-left:clamp(18px,2.4vw,40px);
+  /* alinha a margem direita à grelha do site (header/rodapé) */
+  padding-right:max(var(--pad), calc(50vw - var(--mw)/2 + var(--pad))); }
+.c-hero-eyebrow{ font-family:var(--mono); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); display:inline-flex; align-items:center; gap:14px; }
+.c-hero-eyebrow::before{ content:""; width:34px; height:1px; background:var(--gold); }
+.c-hero h1{ font-family:var(--display); font-weight:500; font-size:clamp(32px,3.6vw,58px); line-height:1.04; letter-spacing:-.012em; color:var(--ink); text-wrap:balance; }
+.c-hero h1 .it{ font-style:italic; color:var(--gold); }
+.c-hero-cta{ display:flex; flex-wrap:wrap; align-items:center; gap:14px; margin-top:4px; }
+/* só no hero: empilhado à esquerda — botão primário + link secundário (evita 2 caixas de larguras diferentes) */
+.c-hero .c-hero-cta{ flex-direction:column; align-items:flex-start; gap:clamp(14px,1.4vw,20px); }
+
+/* < 1000px: empilha — foto em cima, copy por baixo, mesmo fundo contínuo */
+@media (max-width:1000px){
+  .c-hero{ grid-template-columns:1fr; }
+  .c-hero-media{ aspect-ratio:4/3; }
+  .c-hero-media img{ object-position:52% center; }
+  .c-hero-media::after{ background:linear-gradient(180deg, rgba(243,238,228,0) 68%, rgba(243,238,228,.90) 93%, var(--cream-prod) 100%); }
+  .c-hero-copy{ padding:clamp(14px,3vw,24px) var(--pad) clamp(36px,7vw,52px); }
+  .c-hero h1{ font-size:clamp(32px,6vw,48px); }
+}
+
+/* ---------- selos / reconhecimento (logo após o hero) ---------- */
+.c-seals{ background:var(--paper); border-bottom:1px solid var(--line); }
+.c-seals .wrap{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:clamp(14px,1.8vw,20px); padding-block:clamp(26px,3.4vw,42px); }
+.c-seals img{ width:100%; max-width:660px; height:auto; }
+.c-seals-press{ font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--faint); line-height:1.7; }
+
+/* ============================================================
+   SECÇÃO — cabeçalho editorial reutilizável
+   ============================================================ */
+.c-head{ max-width:64ch; }
+.c-head.center{ margin-inline:auto; text-align:center; }
+.c-head .kicker{ display:block; margin-bottom:16px; }
+.c-head p.lead{ margin-top:18px; }
+.c-head.center p.lead{ margin-inline:auto; }
+
+/* ---------- pilares ---------- */
+.c-pillars{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.4vw,34px); margin-top:clamp(40px,5vw,68px); }
+.c-pillar{ padding:clamp(26px,3vw,40px); border:1px solid var(--line); border-radius:2px; background:var(--paper); }
+.c-pillar .num{ font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--gold); }
+.c-pillar h3{ font-size:clamp(22px,2.3vw,30px); margin:18px 0 12px; line-height:1.08; }
+.c-pillar p{ color:var(--muted); font-weight:300; font-size:15px; line-height:1.72; }
+@media (max-width:820px){ .c-pillars{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   DORES — "reconhece-se aqui?"
+   ============================================================ */
+.c-pains{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:2px; overflow:hidden; margin-top:clamp(40px,5vw,64px); }
+.c-pain{ background:var(--paper); padding:clamp(24px,2.8vw,36px); display:flex; gap:16px; align-items:flex-start; }
+.c-pain svg{ flex:0 0 auto; width:24px; height:24px; stroke:var(--gold); fill:none; stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; margin-top:2px; }
+.c-pain h4{ font-family:var(--display); font-weight:600; font-size:19px; line-height:1.1; margin-bottom:7px; }
+.c-pain p{ color:var(--muted); font-size:13.5px; font-weight:300; line-height:1.6; }
+@media (max-width:820px){ .c-pains{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .c-pains{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   MÉTODOS — cartões de tratamento
+   ============================================================ */
+.c-methods{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.2vw,30px); margin-top:clamp(40px,5vw,64px); }
+.c-method{ display:flex; flex-direction:column; border:1px solid var(--line); border-radius:2px; background:var(--paper); overflow:hidden; }
+.c-method-top{ padding:clamp(26px,3vw,36px); border-bottom:1px solid var(--line-soft); }
+.c-method .tag{ font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+.c-method h3{ font-size:clamp(24px,2.6vw,32px); margin:12px 0 10px; line-height:1.02; }
+.c-method .desc{ color:var(--muted); font-size:14px; font-weight:300; line-height:1.7; }
+.c-method ul{ list-style:none; padding:clamp(24px,2.6vw,32px); display:flex; flex-direction:column; gap:13px; flex:1; }
+.c-method li{ position:relative; padding-left:28px; color:var(--text); font-size:14px; line-height:1.55; font-weight:400; }
+.c-method li::before{ content:""; position:absolute; left:0; top:2px; width:17px; height:17px; border-radius:50%; background:var(--gold); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); background-size:11px; background-repeat:no-repeat; background-position:center; }
+.c-method .c-method-foot{ padding:0 clamp(24px,2.6vw,32px) clamp(24px,2.6vw,32px); }
+@media (max-width:900px){ .c-methods{ grid-template-columns:1fr; max-width:520px; margin-inline:auto; } }
+
+/* ============================================================
+   ANTES & DEPOIS — galeria de prova
+   ============================================================ */
+/* desktop: grelha 4 col (as 2 largas ocupam 2 col) · mobile: carrossel */
+.c-ba-rail{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(12px,1.4vw,20px); margin-top:clamp(36px,4.5vw,60px); }
+.c-ba-fig--wide{ grid-column:span 2; }
+.c-ba-fig{ margin:0; border:1px solid var(--line); border-radius:2px; overflow:hidden; background:var(--cream-prod); cursor:zoom-in; position:relative; }
+.c-ba-fig picture{ display:block; }
+.c-ba-fig img{ width:100%; height:auto; display:block; transition:transform .6s var(--ease); }
+.c-ba-fig:hover img{ transform:scale(1.03); }
+.c-ba-note{ margin-top:clamp(20px,2.6vw,30px); display:flex; flex-wrap:wrap; align-items:center; gap:10px 22px; font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); }
+.c-ba-note span{ display:inline-flex; align-items:center; gap:9px; }
+.c-ba-note span::before{ content:"✦"; color:var(--gold); font-size:8px; }
+@media (max-width:1000px){ .c-ba-rail{ grid-template-columns:repeat(2,1fr); } }
+/* mobile: carrossel deslizante, sangrado até às margens — 1 linha em vez de 6 fotos empilhadas */
+@media (max-width:760px){
+  .c-ba-rail{ display:flex; align-items:center; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none; overscroll-behavior-x:contain;
+    margin-inline:calc(var(--pad) * -1); padding-inline:var(--pad); scroll-padding-inline:var(--pad); }
+  .c-ba-rail::-webkit-scrollbar{ display:none; }
+  .c-ba-rail .c-ba-fig{ flex:0 0 80%; scroll-snap-align:center; }
+  .c-ba-rail .c-ba-fig--wide{ grid-column:auto; flex:0 0 92%; }
+}
+
+/* lightbox */
+.c-lb{ position:fixed; inset:0; z-index:200; background:rgba(10,7,4,.92); display:none; align-items:center; justify-content:center; padding:24px; cursor:zoom-out; opacity:0; transition:opacity .3s var(--ease); }
+.c-lb.on{ display:flex; opacity:1; }
+.c-lb img{ max-width:96vw; max-height:92vh; border-radius:3px; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+.c-lb-x{ position:absolute; top:18px; right:22px; width:44px; height:44px; border:1px solid var(--line-dark); border-radius:50%; color:var(--on-dark); display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.06); }
+.c-lb-x svg{ width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.6; stroke-linecap:round; }
+
+/* ============================================================
+   LIPEDEMA — faixa de protocolo
+   ============================================================ */
+.c-lipe{ display:grid; grid-template-columns:1.1fr 1fr; gap:clamp(28px,4vw,64px); align-items:center; padding:clamp(32px,4vw,56px); border:1px solid var(--line); border-radius:3px; background:linear-gradient(180deg,#FBF7EF,#F3EEE4); }
+.c-lipe h2{ font-size:clamp(28px,3.6vw,46px); line-height:1.04; color:var(--ink); }
+.c-lipe p{ color:var(--muted); font-weight:300; margin-top:16px; line-height:1.72; max-width:52ch; }
+.c-lipe-benes{ display:grid; grid-template-columns:1fr 1fr; gap:14px 24px; }
+.c-lipe-benes div{ display:flex; align-items:center; gap:11px; color:var(--text); font-size:14.5px; }
+.c-lipe-benes div::before{ content:"✦"; color:var(--gold); font-size:10px; }
+@media (max-width:820px){ .c-lipe{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   PASSOS — como funciona
+   ============================================================ */
+.c-steps{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(18px,2vw,28px); margin-top:clamp(40px,5vw,64px); counter-reset:step; }
+.c-step{ position:relative; padding-top:34px; border-top:2px solid var(--line); }
+.c-step::before{ counter-increment:step; content:counter(step,decimal-leading-zero); position:absolute; top:-1px; left:0; transform:translateY(-50%); background:var(--bone); padding-right:14px; font-family:var(--mono); font-size:12px; letter-spacing:.14em; color:var(--gold); }
+.c-step.on-dark::before{ background:var(--espresso); }
+.c-step h4{ font-size:clamp(19px,2vw,24px); line-height:1.08; margin-bottom:10px; }
+.c-step p{ color:var(--muted); font-size:14px; font-weight:300; line-height:1.66; }
+@media (max-width:820px){ .c-steps{ grid-template-columns:1fr 1fr; } }
+@media (max-width:520px){ .c-steps{ grid-template-columns:1fr; } }
+
+/* ============================================================
+   DEPOIMENTOS
+   ============================================================ */
+/* carrossel em TODAS as larguras: desliza quando não couber (com o vídeo, desliza também no desktop) */
+.c-tst{ display:flex; align-items:stretch; gap:clamp(14px,1.6vw,22px); margin-top:clamp(40px,5vw,64px);
+  overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none; overscroll-behavior-x:contain;
+  margin-inline:calc(var(--pad) * -1); padding-inline:var(--pad); scroll-padding-inline:var(--pad); }
+.c-tst::-webkit-scrollbar{ display:none; }
+.c-quote{ flex:0 0 clamp(280px,30%,400px); scroll-snap-align:center; }
+/* card de depoimento em vídeo (abre no Instagram) */
+.c-vid{ text-decoration:none; transition:border-color .4s var(--ease), transform .4s var(--ease); }
+.c-vid:hover{ border-color:var(--gold); }
+.c-vid-play{ display:inline-flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; background:var(--gold); color:#fff; margin-bottom:18px; }
+.c-vid-play svg{ width:15px; height:15px; margin-left:3px; fill:currentColor; }
+.c-vid .badge{ display:inline-flex; align-items:center; gap:7px; }
+.c-vid .badge svg{ width:13px; height:13px; fill:currentColor; }
+.c-quote{ display:flex; flex-direction:column; padding:clamp(28px,3vw,38px); border:1px solid var(--line); border-radius:2px; background:var(--paper); }
+.c-quote .stars{ color:var(--gold); letter-spacing:3px; font-size:13px; }
+.c-quote blockquote{ font-family:var(--display); font-weight:500; font-size:clamp(19px,2vw,23px); line-height:1.35; margin:16px 0 22px; color:var(--ink); flex:1; }
+.c-quote .who{ display:flex; align-items:center; justify-content:space-between; gap:14px; border-top:1px solid var(--line-soft); padding-top:18px; }
+.c-quote .who b{ font-weight:600; font-size:14px; }
+.c-quote .who span{ display:block; font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+.c-quote .badge{ font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); border:1px solid var(--line); border-radius:50px; padding:6px 12px; white-space:nowrap; }
+@media (max-width:760px){ .c-quote{ flex:0 0 84%; } }
+
+/* ============================================================
+   RECONHECIMENTO — imprensa / prémios
+   ============================================================ */
+.c-press{ text-align:center; }
+.c-press-logos{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:clamp(20px,4vw,54px); margin-top:26px; }
+.c-press-logos span{ font-family:var(--display); font-weight:600; font-size:clamp(17px,2vw,24px); color:var(--muted); letter-spacing:.02em; opacity:.85; }
+.c-awards{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px 14px; margin-top:clamp(24px,3vw,36px); }
+.c-award{ font-family:var(--mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); border:1px solid var(--line); border-radius:50px; padding:9px 16px; }
+.c-award b{ color:var(--gold); font-weight:600; }
+
+/* ============================================================
+   MARCAÇÃO — #agendar
+   ============================================================ */
+.c-book{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(30px,4vw,64px); align-items:start; }
+.c-book-info .incl{ list-style:none; margin:clamp(22px,3vw,30px) 0; display:flex; flex-direction:column; gap:14px; }
+.c-book-info .incl li{ position:relative; padding-left:30px; color:var(--text); font-size:15px; line-height:1.5; font-weight:300; }
+.c-book-info .incl li::before{ content:""; position:absolute; left:0; top:1px; width:19px; height:19px; border-radius:50%; background:var(--gold); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E"); background-size:12px; background-repeat:no-repeat; background-position:center; }
+.c-book-meta{ display:flex; flex-direction:column; gap:12px; margin-top:8px; padding-top:22px; border-top:1px solid var(--line); }
+.c-book-meta a,.c-book-meta div{ display:flex; align-items:center; gap:13px; color:var(--text); font-size:14.5px; }
+.c-book-meta svg{ flex:0 0 auto; width:19px; height:19px; stroke:var(--gold); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+.c-book-meta a:hover{ color:var(--gold); }
+.c-book-cta{ display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+
+.c-form{ background:var(--paper); border:1px solid var(--line); border-radius:3px; padding:clamp(26px,3.4vw,44px); }
+.c-form h3{ font-size:clamp(22px,2.4vw,30px); line-height:1.08; margin-bottom:6px; }
+.c-form .sub{ color:var(--muted); font-size:14px; font-weight:300; margin-bottom:24px; }
+.c-field{ margin-bottom:16px; }
+.c-field label{ display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.c-field input,.c-field textarea{ width:100%; font-family:var(--sans); font-size:15px; color:var(--ink); background:var(--bone); border:1px solid var(--line); border-radius:2px; padding:14px 15px; transition:border-color .3s; }
+.c-field input:focus,.c-field textarea:focus{ outline:none; border-color:var(--gold); }
+.c-field textarea{ resize:vertical; min-height:88px; }
+.c-form .note{ font-size:12px; color:var(--faint); margin-top:14px; line-height:1.55; }
+.c-form .note a{ color:var(--gold); text-decoration:underline; text-underline-offset:2px; }
+@media (max-width:900px){ .c-book{ grid-template-columns:1fr; } }
+.c-book-solo{ max-width:700px; margin-inline:auto; text-align:center; }
+.c-book-solo .incl{ text-align:left; max-width:460px; margin-inline:auto; }
+.c-book-solo .c-book-meta{ align-items:center; }
+.c-book-solo .c-book-cta{ justify-content:center; }
+
+/* ============================================================
+   CTA FINAL (dark)
+   ============================================================ */
+.c-final{ text-align:center; }
+.c-final h2{ font-size:clamp(32px,5vw,68px); line-height:1.0; max-width:18ch; margin:0 auto 20px; color:var(--ink); }
+.c-final .lead{ margin:0 auto 30px; color:var(--muted); }
+.c-final .c-hero-cta{ margin-top:0; justify-content:center; }
+
+/* ============================================================
+   BARRA CTA FIXA (mobile)
+   ============================================================ */
+.c-smcta{ position:fixed; left:0; right:0; bottom:0; z-index:80; display:none; align-items:center; gap:10px; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(18,13,8,.97); backdrop-filter:blur(12px); border-top:1px solid var(--line-dark); transform:translateY(120%); transition:transform .45s var(--ease); }
+.c-smcta.show{ transform:none; }
+.c-smcta .px{ display:flex; flex-direction:column; line-height:1.15; }
+.c-smcta .px b{ color:var(--on-dark); font-size:14px; font-weight:600; }
+.c-smcta .px small{ color:var(--on-dark-soft); font-family:var(--mono); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; }
+.c-smcta .btn{ flex:1; padding:15px 18px; }
+@media (max-width:760px){ .c-smcta{ display:flex; } .wa{ bottom:78px; } }
+
+/* ============================================================
+   MOBILE — mais limpo, direto e objetivo
+   ============================================================ */
+@media (max-width:760px){
+  /* ritmo mais apertado: 12 secções a 64px+ de padding cansam o scroll */
+  .clinica .section{ padding-block:52px; }
+  .clinica .c-head p.lead{ font-size:15px; }
+  /* dores: 2 colunas compactas (ícone em cima) em vez de 6 cartões empilhados */
+  .c-pains{ grid-template-columns:1fr 1fr; }
+  .c-pain{ flex-direction:column; gap:9px; padding:18px 14px; }
+  .c-pain h4{ font-size:15.5px; }
+  .c-pain p{ font-size:12.5px; line-height:1.5; }
+  /* tratamentos: cartões mais compactos */
+  .c-method-top{ padding:22px 20px; }
+  .c-method ul{ padding:20px; gap:11px; }
+  .c-method .c-method-foot{ padding:0 20px 22px; }
+}
+@media (max-width:560px){
+  /* a foto ganha presença e o CTA continua no 1.º ecrã */
+  .c-hero-media{ aspect-ratio:1/1; }
+}
+@media (max-width:380px){ .c-pains{ grid-template-columns:1fr; } .c-pain{ flex-direction:row; } }
+
+/* ---- ajustes responsivos / acessibilidade ---- */
+.clinica .h-sec{ text-wrap:balance; }
+.clinica .hdr .icon-btn{ min-width:44px; min-height:44px; align-items:center; justify-content:center; } /* alvo de toque */
+@media (max-width:400px){ .c-hero .btn{ width:100%; } .c-hero-cta{ width:100%; } } /* CTAs full-width em ecrãs muito estreitos */
+/* footer claro (#FFF7E8): repor contraste do bloco legal (estava com cores de fundo escuro) */
+.clinica .foot-legal{ color:var(--muted); border-top-color:var(--line); }
+.clinica .foot-legal b{ color:var(--text); }
+.clinica .foot-legal a{ color:var(--muted); }
+.clinica .foot-legal a:hover{ color:var(--gold); }
+
+/* respeita movimento reduzido */
+@media (prefers-reduced-motion:reduce){
+  .c-ba-fig:hover img{ transform:none; }
+  .c-smcta{ transition:none; }
+}
