@@ -162,6 +162,13 @@
   margin-inline:calc(var(--pad) * -1); padding-inline:var(--pad); scroll-padding-inline:var(--pad); }
 .c-tst::-webkit-scrollbar{ display:none; }
 .c-quote{ flex:0 0 clamp(280px,30%,400px); scroll-snap-align:center; }
+/* card de depoimento em vídeo (abre no Instagram) */
+.c-vid{ text-decoration:none; transition:border-color .4s var(--ease), transform .4s var(--ease); }
+.c-vid:hover{ border-color:var(--gold); }
+.c-vid-play{ display:inline-flex; align-items:center; justify-content:center; width:46px; height:46px; border-radius:50%; background:var(--gold); color:#fff; margin-bottom:18px; }
+.c-vid-play svg{ width:15px; height:15px; margin-left:3px; fill:currentColor; }
+.c-vid .badge{ display:inline-flex; align-items:center; gap:7px; }
+.c-vid .badge svg{ width:13px; height:13px; fill:currentColor; }
 .c-quote{ display:flex; flex-direction:column; padding:clamp(28px,3vw,38px); border:1px solid var(--line); border-radius:2px; background:var(--paper); }
 .c-quote .stars{ color:var(--gold); letter-spacing:3px; font-size:13px; }
 .c-quote blockquote{ font-family:var(--display); font-weight:500; font-size:clamp(19px,2vw,23px); line-height:1.35; margin:16px 0 22px; color:var(--ink); flex:1; }
