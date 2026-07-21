@@ -30,6 +30,54 @@
 
 <link rel="stylesheet" href="/assets/styles.css?v=20260716">
 <link rel="stylesheet" href="/assets/clinica.css?v=20260716">
+
+<!-- ============================================================
+     GOOGLE CONSENT MODE v2 — modo AVANÇADO
+     ------------------------------------------------------------
+     Tem de correr ANTES do gtag.js. Daí viver no <head> e não junto
+     do resto da medição (que está no fim do <body>).
+
+     Estado por defeito: NEGADO. Nesse estado a tag não lê nem escreve
+     cookies e não guarda identificadores — envia pings anónimos que o
+     Google usa para MODELAR as conversões de quem recusa (30-50% do
+     tráfego em Portugal). Sem isto, essas conversões acontecem na
+     mesma (a cliente chega ao WhatsApp e é atendida) mas o Google
+     nunca as vê, e otimiza as campanhas com meia-verdade.
+
+     wait_for_update: dá 500 ms ao consent.js para se pronunciar antes
+     do primeiro ping. Evita mandar um ping negado a quem já tinha
+     aceitado numa visita anterior.
+
+     O pixel da Meta NÃO entra aqui — continua atrás do portão do
+     consentimento. Não tem equivalente client-side ao Consent Mode.
+     ============================================================ -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    ad_storage:         'denied',
+    ad_user_data:       'denied',
+    ad_personalization: 'denied',
+    analytics_storage:  'denied',
+    wait_for_update:    500
+  });
+  /* Enquanto negado: redige os identificadores de clique (gclid/wbraid) e
+     usa pedidos sem cookies. É isto que torna o ping mesmo anónimo — sem
+     esta linha, o identificador de clique de quem RECUSOU continuava a
+     viajar para o Google, e a palavra "anónimo" era só uma palavra.
+     Volta a false quando houver consentimento (ver fim do <body>). */
+  gtag('set', 'ads_data_redaction', true);
+  /* Sem cookies, o gclid passa a viajar no URL entre páginas do site. */
+  gtag('set', 'url_passthrough', true);
+</script>
+<!-- AW-688762442 aparece aqui e no bloco de MEDIÇÃO no fim do <body>.
+     Se mudar, mudar nos DOIS sítios. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-688762442"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'AW-688762442');
+</script>
+
 <script>
   (function(){ try{
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -550,22 +598,31 @@
      MEDIÇÃO — exclusiva desta página.
      O site-mãe tem o pixel do e-commerce no header global; aqui entra
      SÓ o pixel da clínica. Não juntar os dois: contaminam-se.
-     Nada dispara antes do consentimento (RGPD) — consent.js é a porta,
-     por isso este bloco vem DEPOIS dele.
      ------------------------------------------------------------
-     POR PREENCHER: ID + etiqueta de conversão do Google Ads.
-     Enquanto GOOGLE_ADS_ID for null, a parte do Google não corre
-     (deliberado — não se inventam IDs de medição).
+     Duas políticas diferentes, de propósito:
+
+     • GOOGLE — a tag já foi carregada no <head> em Consent Mode v2,
+       estado negado. Aqui só se ATUALIZA o estado quando a visitante
+       decide. A conversão dispara sempre: sem consentimento vai
+       anónima (sem cookies, gclid redigido) e o Google modela-a;
+       com consentimento vai completa.
+
+     • META — fica atrás do portão do consentimento, como estava. A
+       Meta não tem equivalente client-side ao Consent Mode; sem
+       consentimento não carrega de todo. Recuperar esse sinal exige
+       a Conversions API server-side — trabalho para outro dia.
+
+     Este bloco vem DEPOIS do consent.js porque lê o IZBConsent.
      ============================================================ -->
 <script>
 (function () {
   'use strict';
 
   var META_PIXEL_ID = '576120678880705';        // pixel DA CLÍNICA (nunca o da loja)
-  var GOOGLE_ADS_ID = 'AW-688762442';           // conta Google Ads
+  var GOOGLE_ADS_ID = 'AW-688762442';           // igual ao id do gtag.js no <head>
   var GOOGLE_LABEL  = 'D6DHCJnEu9MaEMrctsgC';   // ação "Whatsapp-Lead" (a que as campanhas usam)
 
-  var metaReady = false, googleReady = false;
+  var metaReady = false;
 
   function loadMeta() {
     if (metaReady || !META_PIXEL_ID) return;
@@ -579,25 +636,34 @@
     window.fbq('track', 'PageView');
   }
 
-  function loadGoogle() {
-    if (googleReady || !GOOGLE_ADS_ID) return;
-    googleReady = true;
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GOOGLE_ADS_ID;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', GOOGLE_ADS_ID);
+  /* Google: a tag já corre. Isto muda-lhe o estado de consentimento.
+     Chamar com `false` também é útil — diz à tag que a decisão está
+     tomada, em vez de a deixar à espera do wait_for_update. */
+  function updateGoogle(granted) {
+    if (!window.gtag) return;
+    var v = granted ? 'granted' : 'denied';
+    window.gtag('consent', 'update', {
+      ad_storage:         v,
+      ad_user_data:       v,
+      ad_personalization: v,
+      analytics_storage:  v
+    });
+    if (granted) window.gtag('set', 'ads_data_redaction', false);
   }
 
-  function start() { loadMeta(); loadGoogle(); }
+  function apply(marketing) {
+    updateGoogle(marketing);
+    if (marketing) loadMeta();
+  }
 
-  /* já consentiu numa visita anterior? consent.js não reemite evento — daí a consulta */
-  if (window.IZBConsent && window.IZBConsent.has('marketing')) start();
+  /* Decisão guardada de uma visita anterior? O consent.js não reemite o
+     evento, daí a consulta. Corre dentro dos 500 ms do wait_for_update,
+     por isso o primeiro ping já sai com o estado certo. */
+  var stored = window.IZBConsent && window.IZBConsent.all();
+  if (stored) apply(!!stored.marketing);
+
   document.addEventListener('izb:consent', function (e) {
-    if (e && e.detail && e.detail.marketing) start();
+    if (e && e.detail) apply(!!e.detail.marketing);
   });
 
   /* Conversão: WhatsApp e telefone são os únicos CTAs desta página.
@@ -611,8 +677,10 @@
     var tel = h.indexOf('tel:') === 0;
     var wa = h.indexOf('wa.me') > -1 || h.indexOf('whatsapp') > -1;
     if (!tel && !wa) return;
+    /* fbq só existe se houve consentimento — por desenho. */
     if (window.fbq) window.fbq('track', 'Lead', { method: tel ? 'telefone' : 'whatsapp' });
-    if (window.gtag && GOOGLE_ADS_ID && GOOGLE_LABEL) {
+    /* gtag existe sempre; o Consent Mode é que decide se vai com ou sem dados. */
+    if (window.gtag) {
       window.gtag('event', 'conversion', { send_to: GOOGLE_ADS_ID + '/' + GOOGLE_LABEL });
     }
   }, true);
