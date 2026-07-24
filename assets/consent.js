@@ -85,10 +85,12 @@
       '<div class="consent-in">' +
         '<div class="consent-txt">' +
           '<h2 class="consent-h">A sua privacidade</h2>' +
-          '<p>Usamos cookies essenciais para o site funcionar — a sacola, por exemplo, não vive sem eles. ' +
-          'Gostaríamos ainda de usar cookies de <strong>análise e marketing</strong>, para perceber o que lhe é útil ' +
-          'e mostrar-lhe o que faz sentido. Só os usamos se disser que sim. ' +
-          '<a href="/politica-privacidade.html">Saiba mais na nossa política</a>.</p>' +
+          // Curto de propósito (24/07): este aviso aparece por cima da primeira coisa
+          // que a visitante vê. Sessenta palavras de explicação tapavam o título e os
+          // botões da clínica — e quem não lê, também não decide: fica ali preso.
+          // O que se pede é o mesmo, só que numa frase.
+          '<p>Usamos cookies de <strong>análise e marketing</strong> só se disser que sim. ' +
+          '<a href="/politica-privacidade.html">Saiba mais</a>.</p>' +
         '</div>' +
         '<div class="consent-btns">' +
           '<button type="button" class="btn btn--ghost consent-no" data-consent-no>Recusar</button>' +

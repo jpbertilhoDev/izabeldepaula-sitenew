@@ -120,6 +120,54 @@
   ]
 }
 </script>
+<!-- ============================================================
+     LEGIBILIDADE (24/07)
+     Quem marca tratamentos aqui tem, na maioria, mais de 45 anos —
+     e lia isto com letra de 15/16px em cinzento claro. Sobe o corpo
+     do texto, escurece o secundário e engorda os botões: um alvo
+     pequeno num telemóvel é uma marcação perdida.
+     ============================================================ -->
+<style>
+  .clinica{ font-size:18px; }
+  .clinica p, .clinica li{ font-size:1.05rem; line-height:1.6; }
+  .clinica .lead{ font-size:1.15rem; line-height:1.55; color:#4A4038; }
+  .clinica .muted, .clinica .c-pain p, .clinica .c-step p{ color:#5A5048; }
+  .clinica .btn{ min-height:56px; font-size:1rem; padding-inline:26px; }
+  .clinica .c-hero-cta{ display:flex; flex-wrap:wrap; gap:12px; }
+  .clinica .c-hero-sub{ margin:14px 0 0; font-size:1.1rem; color:#4A4038; }
+  /* As "dores" passam a pastilhas: reconhecem-se num relance, sem parágrafo para ler. */
+  .clinica .c-tags{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:28px; }
+  .clinica .c-tags span{ border:1px solid var(--line,#E4D9CC); border-radius:999px; padding:12px 20px; font-size:1rem; background:#fff; }
+  @media (max-width:680px){
+    .clinica .c-hero-cta{ flex-direction:column; align-items:stretch; width:100%; }
+    .clinica .c-hero-cta .btn{ width:100%; justify-content:center; }
+    .clinica .c-tags{ justify-content:flex-start; }
+    /* A foto ocupava o ecrã todo e empurrava o título e os botões para fora
+       da vista: ao abrir a página via-se uma fotografia bonita e mais nada.
+       Encolhe para caber, na mesma dobra, a promessa e o botão de marcar. */
+    /* O aviso de cookies é a primeira coisa que aparece e tapa a dobra enquanto
+       não for respondido. Compactá-lo devolve o botão de marcar à primeira vista. */
+    .clinica .consent-in{ padding-top:14px; padding-bottom:calc(14px + env(safe-area-inset-bottom)); gap:12px; }
+    .clinica .consent-h{ font-size:1.05rem; }
+    .clinica .consent-txt p{ font-size:.95rem; line-height:1.45; }
+    .clinica .consent-btns .btn{ min-height:48px; }
+    .clinica .c-hero-media{ aspect-ratio:auto; height:27vh; }
+    .clinica .c-hero-media img{ object-position:54% 18%; }
+    .clinica .c-hero-copy{ padding-top:8px; gap:10px; }
+    .clinica .c-hero h1{ font-size:clamp(26px,6.4vw,34px); }
+    .clinica .c-hero-sub{ font-size:.98rem; margin-top:8px; }
+    .clinica .c-hero-cta{ margin-top:8px; }
+  }
+  /* Telemóveis mais baixos (ecrãs de 740px e menos): a foto cede mais um pouco,
+     senão o botão de marcar volta a esconder-se atrás do aviso de cookies. */
+  @media (max-width:680px) and (max-height:780px){
+    .clinica .c-hero-media{ height:21vh; }
+    .clinica .c-hero h1{ font-size:clamp(24px,6vw,30px); }
+    .clinica .c-hero-copy{ padding-top:4px; gap:6px; }
+    .clinica .c-hero-sub{ margin-top:4px; line-height:1.4; }
+    .clinica .c-hero-cta{ margin-top:4px; }
+  }
+</style>
 </head>
 <body class="clinica">
 
@@ -173,9 +221,10 @@
   <div class="c-hero-copy">
     <span class="c-hero-eyebrow" data-reveal>Modelação corporal · Lisboa</span>
     <h1 data-reveal data-delay="1">Reduza a gordura<span class="it">,</span> a celulite e recupere a <span class="it">autoestima.</span></h1>
+    <p class="c-hero-sub" data-reveal data-delay="1">Só mãos. Sem agulhas, sem máquinas, sem cirurgia.<br>Avaliação 37 €, online ou presencial — sem compromisso.</p>
     <div class="c-hero-cta" data-reveal data-delay="2">
-      <a href="#agendar" class="btn btn--gold">Marcar avaliação</a>
-      <a href="#resultados" class="tlink">Ver antes &amp; depois <span class="bar"></span></a>
+      <a href="https://wa.me/351966423050?text=Ol%C3%A1%2C%20Izabel%21%20Venho%20do%20site%20e%20gostaria%20de%20marcar%20a%20minha%20avalia%C3%A7%C3%A3o%20%28online%20ou%20presencial%29%2C%20no%20valor%20de%2037%E2%82%AC." target="_blank" rel="noopener" class="btn btn--gold">Marcar pelo WhatsApp</a>
+      <a href="tel:+351966423050" class="btn btn--line">Ligar · 966 423 050</a>
     </div>
   </div>
 </section>
@@ -231,18 +280,13 @@
       </a>
       <figure class="c-quote" data-reveal data-delay="2">
         <div class="stars" aria-label="5 estrelas">★★★★★</div>
-        <blockquote>“Depois da menopausa, acumulei gordura na barriga que nada tirava. Em 5 semanas, perdi 7 cm de cintura. Ainda choro quando me vejo ao espelho — agora de alegria.”</blockquote>
+        <blockquote>“Depois da menopausa, ganhei uma barriga que nada tirava. Em 5 semanas, menos 7 cm de cintura.”</blockquote>
         <figcaption class="who"><div><b>Maria José S.</b><span>52 anos · Barriga Fit®</span></div><span class="badge">−7 cm</span></figcaption>
       </figure>
       <figure class="c-quote" data-reveal data-delay="1">
         <div class="stars" aria-label="5 estrelas">★★★★★</div>
-        <blockquote>“Pensava que não havia solução. As minhas pernas estão diferentes. Usei saia pela primeira vez em 10 anos.”</blockquote>
+        <blockquote>“Usei saia pela primeira vez em 10 anos.”</blockquote>
         <figcaption class="who"><div><b>Ana Cristina F.</b><span>48 anos · Leg Fit Express®</span></div><span class="badge">Pernas</span></figcaption>
-      </figure>
-      <figure class="c-quote" data-reveal data-delay="2">
-        <div class="stars" aria-label="5 estrelas">★★★★★</div>
-        <blockquote>“O aspeto da minha celulite melhorou imenso em apenas 10 sessões. O bumbum ficou mais firme do que há 20 anos. A Izabel é simplesmente extraordinária.”</blockquote>
-        <figcaption class="who"><div><b>Carla Mendes</b><span>45 anos · Levanta Bumbum®</span></div><span class="badge">Celulite</span></figcaption>
       </figure>
     </div>
     <p class="muted" style="text-align:center;font-size:12.5px;margin-top:26px">Depoimentos reais de clientes. Os resultados podem variar de pessoa para pessoa.</p>
@@ -255,7 +299,7 @@
     <div class="c-head" data-reveal>
       <span class="kicker">A fundadora</span>
       <h2 class="h-sec" id="metodo-h">A 1.ª Body Shaper Expert do mundo<span class="it gold">,</span> com método <span class="it gold">próprio.</span></h2>
-      <p class="lead">Pioneira do conceito Body Shaper em Portugal, a Izabel de Paula desenvolveu ao longo de mais de 30 anos um método manual próprio e patenteado. Não trata sintomas: reprograma o corpo para queimar gordura, drenar toxinas e recuperar tónus — de forma natural, sem cirurgia e sem invasão.</p>
+      <p class="lead">30 anos de prática, um método manual próprio e mais de 36.000 mulheres acompanhadas. Sem cirurgia, sem agulhas, sem máquinas.</p>
     </div>
     <blockquote class="c-pullquote" data-reveal style="font-family:var(--display);font-weight:500;font-size:clamp(24px,3.4vw,42px);line-height:1.18;color:var(--ink);max-width:22ch;margin:clamp(34px,4.5vw,60px) 0 0;border-left:2px solid var(--gold);padding-left:clamp(22px,3vw,38px);">
       “Devolvo ao seu corpo a memória de como era — e a confiança de como pode voltar a ser.”
@@ -263,49 +307,20 @@
   </div>
 </section>
 
-<!-- ============ 3 PILARES ============ -->
-<section class="section" style="background:var(--cream-prod)" aria-labelledby="pilares-h">
-  <div class="wrap">
-    <div class="c-head center" data-reveal>
-      <span class="kicker">A abordagem</span>
-      <h2 class="h-sec" id="pilares-h">Os 3 pilares do emagrecimento <span class="it gold">real.</span></h2>
-      <p class="lead">Não tratamos sintomas — reprogramamos o corpo. Três pilares que atuam em conjunto para uma transformação que dura.</p>
-    </div>
-    <div class="c-pillars">
-      <article class="c-pillar" data-reveal>
-        <span class="num">Pilar 01</span>
-        <h3>Tratamentos manuais patenteados</h3>
-        <p>Movimentos vigorosos que ativam a quebra das células adiposas, combinados com drenagem linfática e princípios ativos naturais personalizados — só mãos, nada de agulhas ou máquinas.</p>
-      </article>
-      <article class="c-pillar" data-reveal data-delay="1">
-        <span class="num">Pilar 02</span>
-        <h3>Reprogramação Metabólica Integrativa®</h3>
-        <p>Ativa os mecanismos naturais do corpo para queimar gordura, drenar líquidos e devolver firmeza — o coração do método, afinado ao longo de 30 anos de prática clínica.</p>
-      </article>
-      <article class="c-pillar" data-reveal data-delay="2">
-        <span class="num">Pilar 03</span>
-        <h3>Reeducação &amp; memória corporal</h3>
-        <p>O corpo memoriza a nova forma. Com acompanhamento e constância, o resultado torna-se duradouro e a manutenção fica simples.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ DORES ============ -->
+<!-- ============ PARA QUEM É (era a secção "dores", com seis parágrafos) ============ -->
 <section class="section" aria-labelledby="dores-h">
   <div class="wrap">
     <div class="c-head center" data-reveal>
       <span class="kicker">Reconhece-se aqui?</span>
-      <h2 class="h-sec" id="dores-h">Não está sozinha. Estas dificuldades são <span class="it gold">reais.</span></h2>
-      <p class="lead">Aos 35, 45, 55 — sobretudo na menopausa — o corpo muda. A gordura acumula-se, as pernas incham, a pele perde firmeza. Existe uma solução pensada para si.</p>
+      <h2 class="h-sec" id="dores-h">Se é isto que a incomoda, é para <span class="it gold">si.</span></h2>
     </div>
-    <div class="c-pains" data-reveal>
-      <div class="c-pain"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 13c1.5 1.5 6.5 1.5 8 0"/></svg><div><h4>Gordura abdominal</h4><p>Aquela que “nada tira”, sobretudo depois dos 40.</p></div></div>
-      <div class="c-pain"><svg viewBox="0 0 24 24"><path d="M3 8c3-2 5 2 9 0s5-2 9 0M3 14c3-2 5 2 9 0s5-2 9 0"/></svg><div><h4>Inchaço e retenção</h4><p>Pernas pesadas, sensação de líquido acumulado.</p></div></div>
-      <div class="c-pain"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M4 15h16M10 4v16M15 4v16"/></svg><div><h4>Pele irregular</h4><p>Aspeto de casca de laranja e volume que não responde à dieta.</p></div></div>
-      <div class="c-pain"><svg viewBox="0 0 24 24"><path d="M6 3v7a6 6 0 0 0 12 0V3M4 21c2-3 14-3 16 0"/></svg><div><h4>Flacidez e pele mole</h4><p>Perda de tónus e firmeza ao longo dos anos.</p></div></div>
-      <div class="c-pain"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.3-9-9a4.5 4.5 0 0 1 8-3 4.5 4.5 0 0 1 8 3c-2 4.7-9 9-9 9Z"/></svg><div><h4>Autoestima em baixo</h4><p>Evitar o espelho, a praia, as fotografias.</p></div></div>
-      <div class="c-pain"><svg viewBox="0 0 24 24"><path d="M20 14A8 8 0 1 1 10 4a6 6 0 0 0 10 10Z"/></svg><div><h4>Menopausa e metabolismo</h4><p>O corpo muda de regras — e pede outra abordagem.</p></div></div>
+    <div class="c-tags" data-reveal>
+      <span>Gordura na barriga</span>
+      <span>Pernas inchadas e pesadas</span>
+      <span>Celulite</span>
+      <span>Flacidez</span>
+      <span>Menopausa</span>
+      <span>Autoestima em baixo</span>
     </div>
   </div>
 </section>
@@ -316,20 +331,19 @@
     <div class="c-head center" data-reveal>
       <span class="kicker">Métodos exclusivos patenteados</span>
       <h2 class="h-sec" id="trat-h">Tratamentos que trabalham <span class="it gold">em conjunto.</span></h2>
-      <p class="lead">No pack, os métodos estão incluídos. Na avaliação, a Izabel define as zonas prioritárias e o protocolo ideal para o seu corpo.</p>
+      <p class="lead">Na avaliação, a Izabel escolhe consigo o que faz sentido para o seu corpo.</p>
     </div>
     <div class="c-methods">
       <article class="c-method" data-reveal>
         <div class="c-method-top">
           <span class="tag">Método · Barriga</span>
           <h3>Barriga Fit<span class="gold">®</span></h3>
-          <p class="desc">Gordura abdominal · redução de medidas · tonificação · nova memória corporal.</p>
+          <p class="desc">Para a gordura da barriga.</p>
         </div>
         <ul>
-          <li>Reduz gordura abdominal e localizada</li>
-          <li>Reduz a retenção de líquidos e toxinas</li>
-          <li>Tonifica e firma, combatendo a flacidez</li>
-          <li>Resultado visível logo na 1.ª sessão</li>
+          <li>Reduz medidas</li>
+          <li>Desincha</li>
+          <li>Firma a pele</li>
         </ul>
         <div class="c-method-foot"><a href="#agendar" class="tlink">Marcar avaliação <span class="bar"></span></a></div>
       </article>
@@ -337,13 +351,12 @@
         <div class="c-method-top">
           <span class="tag">Método · Glúteos</span>
           <h3>Levanta Bumbum<span class="gold">®</span></h3>
-          <p class="desc">Firmeza dos glúteos · aspeto da celulite · contorno e elevação naturais.</p>
+          <p class="desc">Para a celulite e o bumbum.</p>
         </div>
         <ul>
-          <li>Melhora visivelmente o aspeto da celulite</li>
-          <li>Firma e eleva a zona dos glúteos</li>
-          <li>Trabalha o contorno de forma natural</li>
-          <li>Sem agulhas, sem preenchimentos</li>
+          <li>Melhora a celulite</li>
+          <li>Firma e levanta</li>
+          <li>Sem preenchimentos</li>
         </ul>
         <div class="c-method-foot"><a href="#agendar" class="tlink">Marcar avaliação <span class="bar"></span></a></div>
       </article>
@@ -351,13 +364,12 @@
         <div class="c-method-top">
           <span class="tag">Método · Pernas</span>
           <h3>Leg Fit Express<span class="gold">®</span></h3>
-          <p class="desc">Pernas leves · drenagem · conforto ao fim do dia.</p>
+          <p class="desc">Para as pernas pesadas.</p>
         </div>
         <ul>
-          <li>Trabalha a sensação de peso nas pernas</li>
-          <li>Drena líquidos e ativa a circulação</li>
-          <li>Massagem manual, adaptada ao seu ritmo</li>
-          <li>Protocolo adaptado a pernas cansadas</li>
+          <li>Alivia o inchaço</li>
+          <li>Ativa a circulação</li>
+          <li>Pernas mais leves</li>
         </ul>
         <div class="c-method-foot"><a href="#agendar" class="tlink">Marcar avaliação <span class="bar"></span></a></div>
       </article>
@@ -368,25 +380,8 @@
   </div>
 </section>
 
-<!-- ============ CUIDADO DE PERNAS ============ -->
-<section class="section" aria-labelledby="lipe-h">
-  <div class="wrap">
-    <div class="c-lipe" data-reveal>
-      <div>
-        <span class="kicker" style="color:var(--gold)">Protocolo exclusivo</span>
-        <h2 id="lipe-h" style="margin-top:14px">Cuidado especializado de pernas em Lisboa</h2>
-        <p>Abordagem manual para pernas pesadas e cansadas — sem cirurgia, sem agulhas, sem máquinas. A avaliação analisa o seu caso e define se, e como, faz sentido avançar. Online ou presencial, 37 €.</p>
-        <div class="c-hero-cta" style="margin-top:26px"><a href="#agendar" class="btn btn--gold">Marcar avaliação</a></div>
-      </div>
-      <div class="c-lipe-benes">
-        <div>Sensação de leveza</div>
-        <div>Massagem confortável</div>
-        <div>Cuidado personalizado</div>
-        <div>Pernas mais leves</div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- (Saiu daqui uma secção só sobre pernas: repetia o Leg Fit Express que
+     está mesmo acima, e obrigava a ler duas vezes a mesma coisa.) -->
 
 <!-- ============ COMO FUNCIONA ============ -->
 <section class="section" id="como-funciona" style="background:var(--cream-prod)" aria-labelledby="cf-h">
@@ -396,10 +391,10 @@
       <h2 class="h-sec" id="cf-h">A sua transformação em <span class="it gold">4 passos.</span></h2>
     </div>
     <div class="c-steps">
-      <div class="c-step" data-reveal><h4>Avaliação</h4><p>Análise corporal completa e definição do protocolo personalizado — online ou presencial, 37 €.</p></div>
-      <div class="c-step" data-reveal data-delay="1"><h4>Protocolo personalizado</h4><p>Plano de tratamento com os métodos ideais para os seus objetivos.</p></div>
-      <div class="c-step" data-reveal data-delay="2"><h4>10 sessões</h4><p>2× por semana, durante 5 semanas. Resultados progressivos e visíveis.</p></div>
-      <div class="c-step" data-reveal data-delay="3"><h4>Nova memória corporal</h4><p>O corpo memoriza a nova forma. Manutenção simples e duradoura.</p></div>
+      <div class="c-step" data-reveal><h4>1. Avaliação</h4><p>37 €, online ou presencial.</p></div>
+      <div class="c-step" data-reveal data-delay="1"><h4>2. O seu plano</h4><p>A Izabel define o que precisa.</p></div>
+      <div class="c-step" data-reveal data-delay="2"><h4>3. Dez sessões</h4><p>2× por semana, 5 semanas.</p></div>
+      <div class="c-step" data-reveal data-delay="3"><h4>4. Manter</h4><p>O corpo guarda a nova forma.</p></div>
     </div>
   </div>
 </section>
@@ -413,32 +408,20 @@
     </div>
     <div class="faq" data-reveal>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span>Quando começo a ver resultados?</span><span class="faq-ic" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>Muitas clientes notam diferença nas primeiras sessões — sobretudo uma sensação de leveza. A mudança mais visível surge ao longo das 10 sessões (5 semanas). Os resultados variam de pessoa para pessoa.</p></div>
+        <button class="faq-q" type="button" aria-expanded="false"><span>Os tratamentos doem?</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Não. São manuais e intensos, mas confortáveis. Sem agulhas e sem máquinas.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span>Os tratamentos são dolorosos?</span><span class="faq-ic" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>São manuais e vigorosos, mas confortáveis. A maioria das clientes descreve a experiência como intensa e, ao mesmo tempo, relaxante. Não há agulhas nem máquinas.</p></div>
+        <button class="faq-q" type="button" aria-expanded="false"><span>Quantas sessões preciso e quanto custa?</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>O normal são 10 sessões, 2 por semana, durante 5 semanas. Começa por uma avaliação de 37 €, e não fica obrigada a avançar.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span>Posso fazer durante a menopausa?</span><span class="faq-ic" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>Sim. O método é especialmente pensado para as mudanças do corpo a partir dos 40 e durante a menopausa, quando o metabolismo e a firmeza pedem outra abordagem.</p></div>
+        <button class="faq-q" type="button" aria-expanded="false"><span>Posso fazer na menopausa?</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Sim. O método foi pensado para o corpo a partir dos 40, quando o metabolismo muda.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span>Quantas sessões preciso?</span><span class="faq-ic" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>O protocolo habitual é de 10 sessões, 2× por semana, durante 5 semanas. Tudo começa por uma avaliação, online ou presencial, onde a Izabel analisa o seu caso, define o plano ideal para si e explica todas as condições. A avaliação custa 37 € e não fica obrigada a avançar com tratamento.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span>Os resultados são duradouros?</span><span class="faq-ic" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>O objetivo do método é criar uma nova memória corporal. Com hábitos saudáveis e a manutenção indicada, o resultado tende a manter-se ao longo do tempo.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span>As minhas pernas incham e sentem-se pesadas. É para mim?</span><span class="faq-ic" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>É um dos casos mais comuns na clínica. A avaliação existe precisamente para perceber o seu caso e definir se, e como, faz sentido avançar. Se tiver uma condição diagnosticada, o acompanhamento é sempre articulado com o seu médico — não substituímos cuidados de saúde.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" type="button" aria-expanded="false"><span>Onde fica a clínica e como marco?</span><span class="faq-ic" aria-hidden="true"></span></button>
-        <div class="faq-a"><p>Estamos na Av. António Augusto de Aguiar, 15 · 1050-012 Lisboa. Marque pelo WhatsApp +351 966 423 050. Horário: Seg–Sex 9h–19h · Sáb 9h–14h.</p></div>
+        <button class="faq-q" type="button" aria-expanded="false"><span>Onde fica a clínica?</span><span class="faq-ic" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Av. António Augusto de Aguiar, 15, em Lisboa. Seg a Sex das 9h às 19h, Sáb das 9h às 14h. Marque pelo WhatsApp 966 423 050.</p></div>
       </div>
     </div>
   </div>
@@ -450,58 +433,34 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Quando começo a ver resultados?",
+      "name": "Os tratamentos doem?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Muitas clientes notam diferença nas primeiras sessões — sobretudo uma sensação de leveza. A mudança mais visível surge ao longo das 10 sessões (5 semanas). Os resultados variam de pessoa para pessoa."
+        "text": "Não. São manuais e intensos, mas confortáveis. Sem agulhas e sem máquinas."
       }
     },
     {
       "@type": "Question",
-      "name": "Os tratamentos são dolorosos?",
+      "name": "Quantas sessões preciso e quanto custa?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "São manuais e vigorosos, mas confortáveis. A maioria das clientes descreve a experiência como intensa e, ao mesmo tempo, relaxante. Não há agulhas nem máquinas."
+        "text": "O normal são 10 sessões, 2 por semana, durante 5 semanas. Começa por uma avaliação de 37 €, e não fica obrigada a avançar."
       }
     },
     {
       "@type": "Question",
-      "name": "Posso fazer durante a menopausa?",
+      "name": "Posso fazer na menopausa?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sim. O método é especialmente pensado para as mudanças do corpo a partir dos 40 e durante a menopausa, quando o metabolismo e a firmeza pedem outra abordagem."
+        "text": "Sim. O método foi pensado para o corpo a partir dos 40, quando o metabolismo muda."
       }
     },
     {
       "@type": "Question",
-      "name": "Quantas sessões preciso?",
+      "name": "Onde fica a clínica?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "O protocolo habitual é de 10 sessões, 2× por semana, durante 5 semanas. Tudo começa por uma avaliação, online ou presencial, onde a Izabel analisa o seu caso, define o plano ideal para si e explica todas as condições. A avaliação custa 37 € e não fica obrigada a avançar com tratamento."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Os resultados são duradouros?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "O objetivo do método é criar uma nova memória corporal. Com hábitos saudáveis e a manutenção indicada, o resultado tende a manter-se ao longo do tempo."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "As minhas pernas incham e sentem-se pesadas. É para mim?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "É um dos casos mais comuns na clínica. A avaliação existe precisamente para perceber o seu caso e definir se, e como, faz sentido avançar. Se tiver uma condição diagnosticada, o acompanhamento é sempre articulado com o seu médico — não substituímos cuidados de saúde."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Onde fica a clínica e como marco?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Estamos na Av. António Augusto de Aguiar, 15 · 1050-012 Lisboa. Marque pelo WhatsApp +351 966 423 050. Horário: Seg–Sex 9h–19h · Sáb 9h–14h."
+        "text": "Av. António Augusto de Aguiar, 15, em Lisboa. Seg a Sex das 9h às 19h, Sáb das 9h às 14h. Marque pelo WhatsApp 966 423 050."
       }
     }
   ]
@@ -515,11 +474,11 @@
       <div class="c-book-info" data-reveal>
         <span class="kicker" style="color:var(--gold)">Dê o primeiro passo</span>
         <h2 class="h-sec" id="ag-h" style="margin-top:14px">A sua avaliação<span class="it gold">,</span> online ou presencial.</h2>
-        <p class="lead" style="margin-inline:auto">Fale diretamente com a clínica pelo WhatsApp e marque a sua avaliação. Avaliação 37 € · sem obrigação de avançar com tratamento.</p>
+        <p class="lead" style="margin-inline:auto">Avaliação 37 €, online ou presencial. Sem obrigação de avançar.</p>
         <ul class="incl">
-          <li>Análise corporal completa com a Izabel de Paula</li>
-          <li>Definição do protocolo ideal para o seu corpo</li>
-          <li>Mini-experiência do método na própria avaliação</li>
+          <li>Análise com a Izabel de Paula</li>
+          <li>O plano certo para o seu corpo</li>
+          <li>Experimenta o método na hora</li>
           <li>Online ou presencial</li>
         </ul>
         <div class="c-book-meta">
@@ -540,7 +499,7 @@
 <section class="section c-final" style="background:var(--cream-prod)" aria-labelledby="final-h">
   <div class="wrap" data-reveal>
     <h2 id="final-h">O seu corpo merece este cuidado. Dê o <span class="it gold">passo.</span></h2>
-    <p class="lead">Mais de 36.000 mulheres já tomaram esta decisão. Está pronta para ser a próxima?</p>
+    <p class="lead">Mais de 36.000 mulheres já deram este passo.</p>
     <div class="c-hero-cta">
       <a href="#agendar" class="btn btn--gold">Marcar avaliação</a>
       <a href="https://wa.me/351966423050?text=Ol%C3%A1%2C%20Izabel%21%20Venho%20do%20site%20e%20gostaria%20de%20marcar%20a%20minha%20avalia%C3%A7%C3%A3o%20%28online%20ou%20presencial%29%2C%20no%20valor%20de%2037%E2%82%AC." target="_blank" rel="noopener" class="btn btn--line"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.2c-.24.68-1.4 1.3-1.94 1.34-.5.05-1.13.07-1.83-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.17-4.94-4.36-.15-.2-1.19-1.58-1.19-3.01 0-1.43.75-2.13 1.02-2.42.27-.29.58-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.02.9 2.17.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.15.48.22.55.34.07.12.07.71-.17 1.39Z"/></svg>Falar no WhatsApp</a>
