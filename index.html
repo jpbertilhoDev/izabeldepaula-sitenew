@@ -30,7 +30,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="font" type="font/woff" href="assets/fonts/butler-regular.woff" crossorigin>
-<link rel="preload" as="image" href="images/hero/hero-izabel.webp" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero/hero-izabel.webp" type="image/webp" media="(min-width:681px)" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero/m-izabel.webp" type="image/webp" media="(max-width:680px)" fetchpriority="high">
 
 <link rel="stylesheet" href="assets/styles.css?v=20260713">
 <script>
@@ -387,7 +388,7 @@
 <section class="hero" id="topo" data-hero data-screen-label="Hero">
   <div class="hslides">
     <a class="hslide active" href="#loja" aria-label="Izabel de Paula — Body Shaper Expert">
-      <picture><source type="image/webp" srcset="images/hero/hero-izabel.webp"><img src="images/hero/hero-izabel.jpg" alt="Izabel de Paula — Body Shaper Expert®" loading="eager" fetchpriority="high" decoding="async" width="1916" height="821"></picture>
+      <picture><source media="(max-width:680px)" type="image/webp" srcset="images/hero/m-izabel.webp"><source media="(max-width:680px)" srcset="images/hero/m-izabel.jpg"><source type="image/webp" srcset="images/hero/hero-izabel.webp"><img src="images/hero/hero-izabel.jpg" alt="Izabel de Paula — Body Shaper Expert®" loading="eager" fetchpriority="high" decoding="async" width="1916" height="821"></picture>
     </a>
   </div>
 </section>

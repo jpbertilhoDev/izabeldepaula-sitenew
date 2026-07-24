@@ -171,9 +171,10 @@ em, i{ font-style:normal; }
 @media (max-width:680px){ .legal-toc{ columns:1; } }
 
 /* ============================================================
-   HERO — imagem única, full-bleed (banner da marca)
-   O rácio acompanha o banner (1916x821): assim a imagem aparece
-   INTEIRA, sem cortar o nome à esquerda nem a Izabel à direita.
+   HERO — banner da marca, um por formato
+   Computador: banner panorâmico (1916x821). Telemóvel: a versão
+   vertical (941x1672). Em cada ecrã o rácio acompanha a imagem
+   que lá é servida, para nenhuma delas aparecer cortada.
    ============================================================ */
 .hero{ position:relative; background:var(--espresso); overflow:hidden; aspect-ratio:1916/821; width:100%; }
 .hslides{ position:absolute; inset:0; }
@@ -182,8 +183,8 @@ em, i{ font-style:normal; }
 .hslide picture{ display:block; width:100%; height:100%; }
 .hslide img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
 
-/* (as setas e os pontos do carrossel saíram com ele — o hero é uma imagem só.
-   No telemóvel o rácio mantém-se, para o banner nunca aparecer cortado.) */
+/* (as setas e os pontos do carrossel saíram com ele — o hero é uma imagem só.) */
+@media (max-width:680px){ .hero{ aspect-ratio:941/1672; } }
 
 /* ============================================================
    MARQUEE de garantias (faixa fina)
