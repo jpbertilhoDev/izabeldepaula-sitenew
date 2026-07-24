@@ -172,19 +172,30 @@ em, i{ font-style:normal; }
 
 /* ============================================================
    HERO — banner da marca, um por formato
-   Computador: banner panorâmico (1916x821). Telemóvel: a versão
-   vertical (941x1672). Em cada ecrã o rácio acompanha a imagem
-   que lá é servida, para nenhuma delas aparecer cortada.
+   Computador: banner panorâmico. Telemóvel e tablet em pé: a
+   versão vertical. Duas decisões que valem a pena explicar:
+
+   · `contain`, não `cover`. Com `cover`, bastava o ecrã ter um
+     rácio um pouco diferente do da imagem para o banner ser
+     cortado nos lados — foi o que aconteceu no telemóvel, com a
+     Izabel cortada à direita. Com `contain` a imagem aparece
+     SEMPRE inteira, e o fundo (a cor do próprio banner) tapa a
+     sobra sem se notar.
+   · a escolha é pela FORMA do ecrã (retrato/paisagem) e não por
+     uma largura fixa: um tablet em pé é vertical como um
+     telemóvel, e levava com o banner panorâmico numa tira fina.
    ============================================================ */
-.hero{ position:relative; background:var(--espresso); overflow:hidden; aspect-ratio:1916/821; width:100%; }
+.hero{ position:relative; background:#EDDCCD; overflow:hidden; aspect-ratio:1916/821; width:100%; }
 .hslides{ position:absolute; inset:0; }
 .hslide{ position:absolute; inset:0; opacity:0; visibility:hidden; transition:opacity 1.1s var(--ease), visibility 1.1s var(--ease); display:block; }
 .hslide.active{ opacity:1; visibility:visible; z-index:2; }
 .hslide picture{ display:block; width:100%; height:100%; }
-.hslide img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+.hslide img{ width:100%; height:100%; object-fit:contain; object-position:center; display:block; }
 
 /* (as setas e os pontos do carrossel saíram com ele — o hero é uma imagem só.) */
-@media (max-width:680px){ .hero{ aspect-ratio:941/1672; } }
+@media (max-aspect-ratio:1/1){
+  .hero{ aspect-ratio:941/1672; max-height:82vh; max-height:82svh; }
+}
 
 /* ============================================================
    MARQUEE de garantias (faixa fina)
